@@ -218,6 +218,7 @@
             // 
             WifiMacEdit.CharacterCasing = CharacterCasing.Upper;
             WifiMacEdit.Location = new Point(734, 207);
+            WifiMacEdit.MinLength = -1;
             WifiMacEdit.Name = "WifiMacEdit";
             WifiMacEdit.OriginalValue = null;
             WifiMacEdit.RegEx = "[a-fA-F0-9]+";
@@ -228,10 +229,12 @@
             // 
             MacEdit.CharacterCasing = CharacterCasing.Upper;
             MacEdit.Location = new Point(734, 174);
+            MacEdit.MaxLength = 12;
+            MacEdit.MinLength = 12;
             MacEdit.Name = "MacEdit";
             MacEdit.OriginalValue = null;
             MacEdit.PlaceholderText = "Modify MAC";
-            MacEdit.RegEx = "[a-fA-F0-9]+";
+            MacEdit.RegEx = "^[a-fA-F0-9]+$";
             MacEdit.Size = new Size(277, 27);
             MacEdit.TabIndex = 22;
             // 
@@ -240,10 +243,11 @@
             BoardIdEdit.CharacterCasing = CharacterCasing.Upper;
             BoardIdEdit.Location = new Point(734, 141);
             BoardIdEdit.MaxLength = 13;
+            BoardIdEdit.MinLength = -1;
             BoardIdEdit.Name = "BoardIdEdit";
             BoardIdEdit.OriginalValue = null;
             BoardIdEdit.PlaceholderText = "Modify board ID up to 13 digits";
-            BoardIdEdit.RegEx = "[0-9]+";
+            BoardIdEdit.RegEx = "^[0-9]+$";
             BoardIdEdit.Size = new Size(277, 27);
             BoardIdEdit.TabIndex = 21;
             // 
@@ -252,10 +256,11 @@
             MotherboardSerialEdit.CharacterCasing = CharacterCasing.Upper;
             MotherboardSerialEdit.Location = new Point(734, 40);
             MotherboardSerialEdit.MaxLength = 16;
+            MotherboardSerialEdit.MinLength = -1;
             MotherboardSerialEdit.Name = "MotherboardSerialEdit";
             MotherboardSerialEdit.OriginalValue = null;
             MotherboardSerialEdit.PlaceholderText = "Modify MB serial up to 16 chars";
-            MotherboardSerialEdit.RegEx = "[a-fA-F0-9]+";
+            MotherboardSerialEdit.RegEx = "^[a-fA-F0-9]+$";
             MotherboardSerialEdit.Size = new Size(277, 27);
             MotherboardSerialEdit.TabIndex = 18;
             // 
@@ -361,6 +366,7 @@
             SerialNumberEdit.CharacterCasing = CharacterCasing.Upper;
             SerialNumberEdit.Location = new Point(734, 7);
             SerialNumberEdit.MaxLength = 16;
+            SerialNumberEdit.MinLength = -1;
             SerialNumberEdit.Name = "SerialNumberEdit";
             SerialNumberEdit.OriginalValue = null;
             SerialNumberEdit.PlaceholderText = "Modify serial up to 16 chars";
