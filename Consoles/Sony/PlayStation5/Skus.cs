@@ -1,0 +1,50 @@
+﻿using System.ComponentModel;
+
+namespace ConsoleServiceTool.Consoles.Sony.PlayStation5
+{
+    internal enum Skus
+    {
+        [Description("CFI-1000A")]
+        CFI_1000A,
+        [Description("CFI-1000A01")]
+        CFI_1000A01,
+        [Description("CFI-1000B")]
+        CFI_1000B,
+        [Description("CFI-1002A")]
+        CFI_1002A,
+        [Description("CFI-1008A")]
+        CFI_1008A,
+        [Description("CFI-1014A")]
+        CFI_1014A,
+        [Description("CFI-1015A")]
+        CFI_1015A,
+        [Description("CFI-1016A")]
+        CFI_1016A,
+        [Description("CFI-1018A")]
+        CFI_1018A,
+        [Description("CFI-1100A01")]
+        CFI_1100A01,
+        [Description("CFI-1102A")]
+        CFI_1102A,
+        [Description("CFI-1108A")]
+        CFI_1108A,
+        [Description("CFI-1109A")]
+        CFI_1109A,
+        [Description("CFI-1114A")]
+        CFI_1114A,
+        [Description("CFI-1115A")]
+        CFI_1115A,
+        [Description("CFI-1116A")]
+        CFI_1116A,
+        [Description("CFI-1118A")]
+        CFI_1118A,
+        [Description("CFI-1208A")]
+        CFI_1208A,
+        [Description("CFI-1216A")]
+        CFI_1216A,
+        [Description("DFI-T1000AA")]
+        DFI_T1000AA,
+        [Description("DFI-D1000AA")]
+        DFI_D1000AA
+    }
+}
