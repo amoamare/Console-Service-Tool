@@ -1,6 +1,6 @@
 ﻿using ConsoleServiceTool.Utils;
 
-namespace ConsoleServiceTool.Consoles.Sony.Shared
+namespace ConsoleServiceTool.Console.Sony.Shared
 {
     internal class Nor : INorData
     {

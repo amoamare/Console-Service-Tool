@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ConsoleServiceTool.Consoles.Sony.Shared
+namespace ConsoleServiceTool.Console.Sony.Shared
 {
     internal enum ConsoleType
     {

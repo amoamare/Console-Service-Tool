@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ConsoleServiceTool.Consoles.Sony.PlayStation5
+namespace ConsoleServiceTool.Console.Sony.PlayStation5
 {
     internal enum Skus
     {

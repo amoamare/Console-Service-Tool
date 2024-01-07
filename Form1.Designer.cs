@@ -30,7 +30,7 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tabControl2 = new TabControl();
+            TabControlPS5Uart = new TabControl();
             tabPage3 = new TabPage();
             Log = new Controls.ReadOnlyRichTextBox();
             PanelGro = new Panel();
@@ -64,11 +64,11 @@
             label7 = new Label();
             fileLocationBox = new TextBox();
             ButtonBrowse = new Button();
-            tabPage4 = new TabPage();
+            TabPagePS5Uart = new TabPage();
             tabPage2 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            tabControl2.SuspendLayout();
+            TabControlPS5Uart.SuspendLayout();
             tabPage3.SuspendLayout();
             PanelGro.SuspendLayout();
             PanelInfo.SuspendLayout();
@@ -87,7 +87,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(tabControl2);
+            tabPage1.Controls.Add(TabControlPS5Uart);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -96,16 +96,16 @@
             tabPage1.Text = "Playstation 5";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabControl2
+            // TabControlPS5Uart
             // 
-            tabControl2.Controls.Add(tabPage3);
-            tabControl2.Controls.Add(tabPage4);
-            tabControl2.Dock = DockStyle.Fill;
-            tabControl2.Location = new Point(3, 3);
-            tabControl2.Name = "tabControl2";
-            tabControl2.SelectedIndex = 0;
-            tabControl2.Size = new Size(1034, 684);
-            tabControl2.TabIndex = 0;
+            TabControlPS5Uart.Controls.Add(tabPage3);
+            TabControlPS5Uart.Controls.Add(TabPagePS5Uart);
+            TabControlPS5Uart.Dock = DockStyle.Fill;
+            TabControlPS5Uart.Location = new Point(3, 3);
+            TabControlPS5Uart.Name = "TabControlPS5Uart";
+            TabControlPS5Uart.SelectedIndex = 0;
+            TabControlPS5Uart.Size = new Size(1034, 684);
+            TabControlPS5Uart.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -134,6 +134,7 @@
             // 
             // PanelGro
             // 
+            PanelGro.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PanelGro.Controls.Add(lFrimwareVersion);
             PanelGro.Controls.Add(label10);
             PanelGro.Controls.Add(ButtonSave);
@@ -160,6 +161,7 @@
             // 
             // lFrimwareVersion
             // 
+            lFrimwareVersion.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lFrimwareVersion.AutoSize = true;
             lFrimwareVersion.Location = new Point(734, 237);
             lFrimwareVersion.Name = "lFrimwareVersion";
@@ -178,6 +180,7 @@
             // 
             // ButtonSave
             // 
+            ButtonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ButtonSave.Enabled = false;
             ButtonSave.Location = new Point(917, 284);
             ButtonSave.Name = "ButtonSave";
@@ -198,6 +201,7 @@
             // 
             // ConsoleTypeList
             // 
+            ConsoleTypeList.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ConsoleTypeList.DropDownStyle = ComboBoxStyle.DropDownList;
             ConsoleTypeList.FormattingEnabled = true;
             ConsoleTypeList.Location = new Point(734, 107);
@@ -207,6 +211,7 @@
             // 
             // SkuList
             // 
+            SkuList.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SkuList.DropDownStyle = ComboBoxStyle.DropDownList;
             SkuList.FormattingEnabled = true;
             SkuList.Location = new Point(734, 73);
@@ -216,6 +221,7 @@
             // 
             // WifiMacEdit
             // 
+            WifiMacEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             WifiMacEdit.CharacterCasing = CharacterCasing.Upper;
             WifiMacEdit.Location = new Point(734, 207);
             WifiMacEdit.MinLength = -1;
@@ -227,6 +233,7 @@
             // 
             // MacEdit
             // 
+            MacEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             MacEdit.CharacterCasing = CharacterCasing.Upper;
             MacEdit.Location = new Point(734, 174);
             MacEdit.MaxLength = 12;
@@ -240,6 +247,7 @@
             // 
             // BoardIdEdit
             // 
+            BoardIdEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BoardIdEdit.CharacterCasing = CharacterCasing.Upper;
             BoardIdEdit.Location = new Point(734, 141);
             BoardIdEdit.MaxLength = 13;
@@ -253,6 +261,7 @@
             // 
             // MotherboardSerialEdit
             // 
+            MotherboardSerialEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             MotherboardSerialEdit.CharacterCasing = CharacterCasing.Upper;
             MotherboardSerialEdit.Location = new Point(734, 40);
             MotherboardSerialEdit.MaxLength = 16;
@@ -363,6 +372,7 @@
             // 
             // SerialNumberEdit
             // 
+            SerialNumberEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SerialNumberEdit.CharacterCasing = CharacterCasing.Upper;
             SerialNumberEdit.Location = new Point(734, 7);
             SerialNumberEdit.MaxLength = 16;
@@ -455,15 +465,15 @@
             ButtonBrowse.UseVisualStyleBackColor = true;
             ButtonBrowse.Click += ButtonBrowse_Click;
             // 
-            // tabPage4
+            // TabPagePS5Uart
             // 
-            tabPage4.Location = new Point(4, 29);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(1026, 651);
-            tabPage4.TabIndex = 1;
-            tabPage4.Text = "UART Tools";
-            tabPage4.UseVisualStyleBackColor = true;
+            TabPagePS5Uart.Location = new Point(4, 29);
+            TabPagePS5Uart.Name = "TabPagePS5Uart";
+            TabPagePS5Uart.Padding = new Padding(3);
+            TabPagePS5Uart.Size = new Size(1026, 651);
+            TabPagePS5Uart.TabIndex = 1;
+            TabPagePS5Uart.Text = "UART Tools";
+            TabPagePS5Uart.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -487,7 +497,7 @@
             Load += Form1_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            tabControl2.ResumeLayout(false);
+            TabControlPS5Uart.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
             PanelGro.ResumeLayout(false);
@@ -501,11 +511,11 @@
 
         private TabControl tabControl1;
         private TabPage tabPage1;
-        private TabControl tabControl2;
+        private TabControl TabControlPS5Uart;
         private TabPage tabPage3;
         private TextBox fileLocationBox;
         private Button ButtonBrowse;
-        private TabPage tabPage4;
+        private TabPage TabPagePS5Uart;
         private TabPage tabPage2;
         private Label label4;
         private Label label3;

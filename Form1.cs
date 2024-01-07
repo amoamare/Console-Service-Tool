@@ -1,7 +1,7 @@
-﻿using ConsoleServiceTool.Consoles.Sony.PlayStation5;
-using ConsoleServiceTool.Consoles.Sony.Shared;
+﻿using ConsoleServiceTool.Console.Sony.PlayStation5;
+using ConsoleServiceTool.Console.Sony.PlayStation5.Views;
+using ConsoleServiceTool.Console.Sony.Shared;
 using ConsoleServiceTool.Utils;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ConsoleServiceTool
 {
@@ -9,6 +9,7 @@ namespace ConsoleServiceTool
     {
         private Nor? NorFile { get; set; } = default;
         private FileInfo? FileInfo { get; set; } = default;
+        private readonly PS5UartView _ps5UartView = new ();
 
         public Form1()
         {
@@ -17,10 +18,16 @@ namespace ConsoleServiceTool
         private void Form1_Load(object sender, EventArgs e)
         {
             Text = $"{Text} - {ProductVersion}";
+            LoadViews();
             Log.AppendLine("Click \"Browse\" locate and open your PlayStation NOR binary.");
             ResetLabels();
             LoadPs5Skus();
             LoadConsoleTypes();
+        }
+
+        private void LoadViews()
+        {
+            TabPagePS5Uart.Controls.Add(_ps5UartView);
         }
 
         private void ResetLabels()

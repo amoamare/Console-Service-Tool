@@ -2,7 +2,7 @@
 using System.Buffers.Binary;
 using System.Text;
 
-namespace ConsoleServiceTool.Consoles.Sony.Shared
+namespace ConsoleServiceTool.Console.Sony.Shared
 {
     internal class Nvs : INorData
     {

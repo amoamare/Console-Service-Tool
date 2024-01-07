@@ -1,7 +1,7 @@
 ﻿using ConsoleServiceTool.Utils;
 using System.Text;
 
-namespace ConsoleServiceTool.Consoles.Sony.Shared
+namespace ConsoleServiceTool.Console.Sony.Shared
 {
     internal class Slb2Entry : INorData
     {

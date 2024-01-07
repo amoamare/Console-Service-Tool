@@ -1,4 +1,4 @@
-﻿namespace ConsoleServiceTool.Consoles.Sony.Shared
+﻿namespace ConsoleServiceTool.Console.Sony.Shared
 {
     internal interface INorData
     {
