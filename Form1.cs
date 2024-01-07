@@ -5,16 +5,17 @@ using ConsoleServiceTool.Utils;
 
 namespace ConsoleServiceTool
 {
-    public partial class Form1 : Form
+    internal partial class Form1 : Form
     {
         private Nor? NorFile { get; set; } = default;
         private FileInfo? FileInfo { get; set; } = default;
         private readonly PS5UartView _ps5UartView = new ();
 
-        public Form1()
+        internal Form1()
         {
             InitializeComponent();
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Text = $"{Text} - {ProductVersion}";
