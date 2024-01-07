@@ -14,6 +14,8 @@ What patches work. Serial Number, Motherboard Serial, Console Type (Disk, or Dig
 
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/d5b20998-c0ea-4e0d-8a4d-b8f7309961e3)
 
+![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/31aefa1f-9def-4d09-af97-67c888e1f906)
+
 
 ## Requirements ##
 
