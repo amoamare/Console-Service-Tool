@@ -44,3 +44,13 @@ A: Long answer, Check Trouble shooting.
     4. Check that the console is plugged into a powered wall outlet. The ps5 does not need to be powered on but does need to have powere supplied to it. 
     5. Click read codes. If you still get Operation Cancelled. Try swapping your TX and RX wires. 
     6. Still getting Operation Canclled. Switch the software to "Monitor" mode and connect. This mode will listen for anything the PS5 will say. Unplug the PS5 and wait 5 secs. Reconnect power to the PS5 and check that the PS5 has given signal to the software. If you still do not see anything from the PS5 and you swapped your TX and RX try swapping them back and repeat the steps. If still no response from the console. Try a known good consol to rule out a hardware / software issue. If that works. Your console that did not respond has a dead southbridge.
+
+## Support
+
+If you have to have support and updated codes right away. Free software isn't the answer for you. This software only reads the code much like a OBDII reader for your car. The codes this software has came from the https://www.psdevwiki.com/ps5/history/Southbridge_Error_Codes and private pastebin dumps. Its up to the community to add/update or remove code information. The Console itself displays the error code. Its up to the end users to figure out what that means and update the list. If you can not wait for the community then check out BwE's or Andy_maN's software which is paid software with support.
+
+BwE - PS5 Code Reader - https://github.com/BetterWayElectronics/ps5-code-reader
+
+BwE - PS5 Nor Tools - https://github.com/BetterWayElectronics/ps5-nor-tool
+
+Andy_maN - https://github.com/andy-man/ps5-wee-tools
