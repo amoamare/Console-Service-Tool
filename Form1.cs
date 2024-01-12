@@ -9,7 +9,7 @@ namespace ConsoleServiceTool
     {
         private Nor? NorFile { get; set; } = default;
         private FileInfo? FileInfo { get; set; } = default;
-        private readonly PS5UartView _ps5UartView = new ();
+        private readonly PS5UartView _ps5UartView = new();
 
         internal Form1()
         {
@@ -24,6 +24,7 @@ namespace ConsoleServiceTool
             ResetLabels();
             LoadPs5Skus();
             LoadConsoleTypes();
+            LoadIduList();
         }
 
         private void LoadViews()
@@ -155,6 +156,8 @@ namespace ConsoleServiceTool
             lMac.Text = MacEdit.Text = NorFile.Nvs.MacAddress;
             lWifiMac.Text = WifiMacEdit.Text = $"{NorFile.Nvs.WifiMacAddress} \\ {NorFile.Nvs.WifiMacAddress1} \\ {NorFile.Nvs.WifiMacAddress2}";
             lFrimwareVersion.Text = NorFile.Nvs.FirmwareVersion.ToString("X2");
+            lIduMode.Text = NorFile.Nvs.Idu.ToDescription();
+            IduList.SelectedValue = NorFile.Nvs.Idu;
         }
 
 
@@ -169,6 +172,13 @@ namespace ConsoleServiceTool
             ConsoleTypeList.EnumForComboBox<ConsoleType>();
             ConsoleTypeList.DisplayMember = "Description";
             ConsoleTypeList.ValueMember = "Value";
+        }
+
+        private void LoadIduList()
+        {
+            IduList.EnumForComboBox<InterfaceDemonstrationUnit>();
+            IduList.DisplayMember = "Description";
+            IduList.ValueMember = "Value";
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)

@@ -34,6 +34,7 @@
             tabPage3 = new TabPage();
             Log = new Controls.ReadOnlyRichTextBox();
             PanelGro = new Panel();
+            IduList = new ComboBox();
             lFrimwareVersion = new Label();
             label10 = new Label();
             ButtonSave = new Button();
@@ -66,6 +67,8 @@
             ButtonBrowse = new Button();
             TabPagePS5Uart = new TabPage();
             tabPage2 = new TabPage();
+            label9 = new Label();
+            lIduMode = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             TabControlPS5Uart.SuspendLayout();
@@ -124,10 +127,10 @@
             // Log
             // 
             Log.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            Log.Location = new Point(6, 362);
+            Log.Location = new Point(6, 389);
             Log.Name = "Log";
             Log.ReadOnly = true;
-            Log.Size = new Size(1014, 286);
+            Log.Size = new Size(1014, 259);
             Log.TabIndex = 19;
             Log.TabStop = false;
             Log.Text = "";
@@ -135,6 +138,8 @@
             // PanelGro
             // 
             PanelGro.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            PanelGro.Controls.Add(label9);
+            PanelGro.Controls.Add(IduList);
             PanelGro.Controls.Add(lFrimwareVersion);
             PanelGro.Controls.Add(label10);
             PanelGro.Controls.Add(ButtonSave);
@@ -156,14 +161,24 @@
             PanelGro.Controls.Add(label7);
             PanelGro.Location = new Point(6, 40);
             PanelGro.Name = "PanelGro";
-            PanelGro.Size = new Size(1014, 316);
+            PanelGro.Size = new Size(1014, 343);
             PanelGro.TabIndex = 18;
+            // 
+            // IduList
+            // 
+            IduList.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            IduList.DropDownStyle = ComboBoxStyle.DropDownList;
+            IduList.FormattingEnabled = true;
+            IduList.Location = new Point(734, 240);
+            IduList.Name = "IduList";
+            IduList.Size = new Size(277, 28);
+            IduList.TabIndex = 32;
             // 
             // lFrimwareVersion
             // 
             lFrimwareVersion.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lFrimwareVersion.AutoSize = true;
-            lFrimwareVersion.Location = new Point(734, 237);
+            lFrimwareVersion.Location = new Point(734, 278);
             lFrimwareVersion.Name = "lFrimwareVersion";
             lFrimwareVersion.Size = new Size(18, 20);
             lFrimwareVersion.TabIndex = 31;
@@ -172,7 +187,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(12, 276);
+            label10.Location = new Point(12, 311);
             label10.Name = "label10";
             label10.Size = new Size(114, 20);
             label10.TabIndex = 30;
@@ -182,7 +197,7 @@
             // 
             ButtonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ButtonSave.Enabled = false;
-            ButtonSave.Location = new Point(917, 284);
+            ButtonSave.Location = new Point(917, 274);
             ButtonSave.Name = "ButtonSave";
             ButtonSave.Size = new Size(94, 29);
             ButtonSave.TabIndex = 26;
@@ -193,7 +208,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(12, 243);
+            label8.Location = new Point(12, 278);
             label8.Name = "label8";
             label8.Size = new Size(66, 20);
             label8.TabIndex = 27;
@@ -275,6 +290,8 @@
             // 
             // PanelInfo
             // 
+            PanelInfo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            PanelInfo.Controls.Add(lIduMode);
             PanelInfo.Controls.Add(lMd5Sum);
             PanelInfo.Controls.Add(lFileSize);
             PanelInfo.Controls.Add(lSerialNumber);
@@ -286,13 +303,13 @@
             PanelInfo.Controls.Add(lSku);
             PanelInfo.Location = new Point(170, 0);
             PanelInfo.Name = "PanelInfo";
-            PanelInfo.Size = new Size(425, 316);
+            PanelInfo.Size = new Size(425, 343);
             PanelInfo.TabIndex = 16;
             // 
             // lMd5Sum
             // 
             lMd5Sum.AutoSize = true;
-            lMd5Sum.Location = new Point(3, 276);
+            lMd5Sum.Location = new Point(3, 311);
             lMd5Sum.Name = "lMd5Sum";
             lMd5Sum.Size = new Size(15, 20);
             lMd5Sum.TabIndex = 29;
@@ -301,7 +318,7 @@
             // lFileSize
             // 
             lFileSize.AutoSize = true;
-            lFileSize.Location = new Point(3, 243);
+            lFileSize.Location = new Point(3, 278);
             lFileSize.Name = "lFileSize";
             lFileSize.Size = new Size(15, 20);
             lFileSize.TabIndex = 28;
@@ -485,6 +502,24 @@
             tabPage2.Text = "Playstation 4";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(12, 243);
+            label9.Name = "label9";
+            label9.Size = new Size(80, 20);
+            label9.TabIndex = 33;
+            label9.Text = "IDU Mode:";
+            // 
+            // lIduMode
+            // 
+            lIduMode.AutoSize = true;
+            lIduMode.Location = new Point(3, 243);
+            lIduMode.Name = "lIduMode";
+            lIduMode.Size = new Size(15, 20);
+            lIduMode.TabIndex = 30;
+            lIduMode.Text = "..";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -547,5 +582,8 @@
         private Label lMd5Sum;
         private Controls.ReadOnlyRichTextBox Log;
         private Label lFrimwareVersion;
+        private ComboBox IduList;
+        private Label label9;
+        private Label lIduMode;
     }
 }

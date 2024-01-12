@@ -1,21 +1,20 @@
 ﻿namespace ConsoleServiceTool.Console.Sony.Shared
 {
-    //SONY COMPUTER ENTERTAINMENT INC.
+    //HEADER: SONY COMPUTER ENTERTAINMENT INC.
     internal class NorHeader : INorData
     {
         private readonly byte[] Magic = {
                 0x53, 0x4F, 0x4E, 0x59, 0x20, 0x43, 0x4F, 0x4D, 0x50, 0x55, 0x54, 0x45,
                 0x52, 0x20, 0x45, 0x4E, 0x54, 0x45, 0x52, 0x54, 0x41, 0x49, 0x4E, 0x4D,
                 0x45, 0x4E, 0x54, 0x20, 0x49, 0x4E, 0x43, 0x2E
-            };
-
-        internal uint Version;
-        internal uint Mbr1Start;
-        internal uint Mbr2Start;
-        internal byte[] Unknown = new byte[sizeof(int) * 4];
-        internal uint Reserved;
-        internal byte[] Unused = new byte[0x1c0];
-        internal byte[] Reserved2 = new byte[0xe00];
+        };//offset 0x0;
+        internal uint Version;//offset 0x20
+        internal uint Mbr1Start; //offset 0x24
+        internal uint Mbr2Start; //ofset 0x28
+        internal byte[] Unknown = new byte[sizeof(int) * 4]; //offset 0x2c
+        internal uint Reserved; //offset 0x3b
+        internal byte[] Unused = new byte[0x1c0]; //offset 0x40
+        internal byte[] Reserved2 = new byte[0xe00];//ofset 0x200
 
         internal bool WarnHeaderCorrupted = false;
 

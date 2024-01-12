@@ -1,21 +1,19 @@
-﻿using ConsoleServiceTool.Utils;
-
-namespace ConsoleServiceTool.Console.Sony.Shared
+﻿namespace ConsoleServiceTool.Console.Sony.Shared
 {
     internal class Nor : INorData
     {
         internal const long ExpectedSize = 2097152L;
-        internal NorHeader Header;
-        internal NorActiveSlot ActiveSlot;
-        internal NorMbr Mbr1;
-        internal NorMbr Mbr2;
-        internal Slb2 EmcIplA;
-        internal Slb2 EmcIplB;
-        internal Slb2 UsbPdcA;
-        internal Slb2 UsbPdcB;
-        internal byte[] Unk = new byte[0xA4000];
-        internal Nvs Nvs;
-        internal byte[] Reserved = new byte[0x31000];
+        internal NorHeader Header; //offset  0x00000 | Size 0x1000
+        internal NorActiveSlot ActiveSlot; //offset  0x1000 | Size 0x1000
+        internal NorMbr Mbr1; //offset  0x2000 | Size 0x1000
+        internal NorMbr Mbr2; //offset  0x3000 | Size 0x1000
+        internal Slb2 EmcIplA; //offset 0x4000 | Size 0x7E000
+        internal Slb2 EmcIplB; //offset 0x82000 | Size 0x7E000
+        internal Slb2 UsbPdcA; //offset 0x100000| Size 0x10000
+        internal Slb2 UsbPdcB; //offset 0x110000 | Size 0x10000
+        internal byte[] Unk = new byte[0xA4000]; //offset 0x120000
+        internal Nvs Nvs; //ofset 0x1C4000
+        internal byte[] Reserved = new byte[0x31000]; //offset 0x1CF000
 
         internal bool WarnInvalidSize = false;
 
@@ -35,7 +33,7 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             bytes.ReadExactly(Unk);
             Nvs = new Nvs(binReader);
 
-            bytes.ReadExactly(Reserved);
+            bytes.ReadExactly(Reserved);            
         }
 
         public byte[] ToArray()

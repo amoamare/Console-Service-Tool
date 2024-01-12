@@ -2,7 +2,8 @@
 {
     internal class NorActiveSlot : INorData
     {
-        internal byte[] Data = new byte[0x1000];
+        private const int Size = 0x1000;
+        internal byte[] Data = new byte[Size]; //offset 0x1000 seems to start with 0x80 and be filled with zeros
 
         internal NorActiveSlot(BinaryReader data)
         {

@@ -1,17 +1,21 @@
-﻿namespace ConsoleServiceTool.Console.Sony.Shared
+﻿using System.Runtime.InteropServices;
+
+namespace ConsoleServiceTool.Console.Sony.Shared
 {
+    [StructLayout(LayoutKind.Sequential)]
     internal class Slb2Header : INorData
     {
         //SLB2 || 0x7E000 || 516,096 bytes
         private readonly byte[] Magic = {
                 0x53, 0x4C, 0x42, 0x32
-            };
+        };
         private const int MaxEntrySize = 10;
         internal uint Version { get; set; }
         internal uint Flags { get; set; }
-        internal uint EntryNum { get; set; }
-        internal uint SizeInSector { get; set; }
+        internal uint EntryNum { get; set; } //entires
+        internal uint SizeInSector { get; set; }  //blocks
         internal byte[] Reserved = new byte[sizeof(uint) * 3]; // padding for alignment
+
         internal Slb2Entry[] EntryList = new Slb2Entry[MaxEntrySize];
 
         internal bool WarnHeaderCorrupted = false;
@@ -35,6 +39,7 @@
             {
                 EntryList[i] = new Slb2Entry(data);
             }
+
         }
 
         public byte[] ToArray()
