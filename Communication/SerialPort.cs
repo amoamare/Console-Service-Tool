@@ -194,11 +194,17 @@ namespace ConsoleServiceTool.Communication
             return flag ? sb.ToString() : string.Empty;
         }
 
-        internal static byte CalculateChecksum(string data)
+        private static byte CalculateChecksum(string data)
         {
             var checksum = 0;
             checksum = Encoding.ASCII.GetBytes(data).Sum(x => x);
             return (byte)((checksum + 256) % 256);
+        }
+
+        internal static bool IsEchoCommand(string command, string refstring)
+        {
+            var checksum = CalculateChecksum(command);
+            return string.Equals($"{command}:{checksum:X2}", refstring, StringComparison.InvariantCultureIgnoreCase);
         }
 
         internal new void Write(string command)

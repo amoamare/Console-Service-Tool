@@ -15,6 +15,6 @@ namespace ConsoleServiceTool.Console.Sony.Shared.Models
         public PlayStationErrorCodeStatus Status { get; set; }
 
         [JsonPropertyName("Priority")]
-        public int Priority { get; set; }
+        public Priority Priority { get; set; }
     }
 }

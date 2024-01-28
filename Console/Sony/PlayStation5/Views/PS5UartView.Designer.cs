@@ -39,6 +39,8 @@
             LabelRawCommand = new Label();
             TextBoxRawCommand = new TextBox();
             panel3 = new Panel();
+            ShowErrorLine = new CheckBox();
+            HighlightSevereLines = new CheckBox();
             panel4.SuspendLayout();
             PanelRawCommand.SuspendLayout();
             panel3.SuspendLayout();
@@ -141,10 +143,13 @@
             TextBoxRawCommand.Name = "TextBoxRawCommand";
             TextBoxRawCommand.Size = new Size(670, 27);
             TextBoxRawCommand.TabIndex = 12;
+            TextBoxRawCommand.KeyPress += TextBoxRawCommand_KeyPress;
             // 
             // panel3
             // 
             panel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel3.Controls.Add(HighlightSevereLines);
+            panel3.Controls.Add(ShowErrorLine);
             panel3.Controls.Add(ButtonRunOperation);
             panel3.Controls.Add(ComboBoxOperationType);
             panel3.Controls.Add(ComboBoxDevices);
@@ -157,10 +162,35 @@
             panel3.Size = new Size(1073, 115);
             panel3.TabIndex = 15;
             // 
+            // ShowErrorLine
+            // 
+            ShowErrorLine.AutoSize = true;
+            ShowErrorLine.Checked = true;
+            ShowErrorLine.CheckState = CheckState.Checked;
+            ShowErrorLine.Location = new Point(679, 79);
+            ShowErrorLine.Name = "ShowErrorLine";
+            ShowErrorLine.Size = new Size(165, 24);
+            ShowErrorLine.TabIndex = 11;
+            ShowErrorLine.Text = "Show Line Response";
+            ShowErrorLine.UseVisualStyleBackColor = true;
+            // 
+            // HighlightSevereLines
+            // 
+            HighlightSevereLines.AutoSize = true;
+            HighlightSevereLines.Checked = true;
+            HighlightSevereLines.CheckState = CheckState.Checked;
+            HighlightSevereLines.Location = new Point(850, 79);
+            HighlightSevereLines.Name = "HighlightSevereLines";
+            HighlightSevereLines.Size = new Size(178, 24);
+            HighlightSevereLines.TabIndex = 12;
+            HighlightSevereLines.Text = "Highlight Severe Lines";
+            HighlightSevereLines.UseVisualStyleBackColor = true;
+            // 
             // PS5UartView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Controls.Add(panel4);
             Controls.Add(PanelRawCommand);
             Controls.Add(panel3);
@@ -187,5 +217,7 @@
         private TextBox TextBoxRawCommand;
         private Panel panel3;
         private Controls.ReadOnlyRichTextBox Log;
+        private CheckBox ShowErrorLine;
+        private CheckBox HighlightSevereLines;
     }
 }

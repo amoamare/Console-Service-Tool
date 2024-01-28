@@ -1,14 +1,13 @@
 ﻿using ConsoleServiceTool.Communication;
 using ConsoleServiceTool.Console.Sony.Shared;
 using ConsoleServiceTool.Console.Sony.Shared.Models;
-using ConsoleServiceTool.Controls;
+using ConsoleServiceTool.Models;
 using ConsoleServiceTool.Utils;
 using Microsoft.VisualStudio.Threading;
 using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
-using System.Xml.Linq;
 
 namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 {
@@ -16,18 +15,23 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
     {
         private readonly string FileNameCache = @"cache.json";
         private readonly string StrAuto = @"Auto";
+        private readonly string PlayStation5NotFound = @"[-] No Playstation 5 Detected!";
         private PS5ErrorCodeList? errorCodeList;
         private CancellationTokenSource? cancellationTokenSource;
+
+        #region Form Initialize, Load & Populate Data
 
         internal PS5UartView()
         {
             InitializeComponent();
         }
 
+        private void PS5UartView_Load(object sender, EventArgs e)
+        {
+            _ = LoadAsync();
+        }
 
-        public override DockStyle Dock => DockStyle.Fill;
-
-        private async void PS5UartView_Load(object sender, EventArgs e)
+        private async Task LoadAsync()
         {
             LoadOperationTypes();
             LoadPorts();
@@ -38,15 +42,20 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
             else
             {
-                Log.AppendLine("[+] Please connect your Playstation 5 to UART do not power up the console.", ReadOnlyRichTextBox.ColorInformation);
+                Log.AppendLine("[+] Please connect your Playstation 5 to UART do not power up the console.", WarningStatus.Information);
+                Log.AppendLine("UART Test Point References");
+                Log.Append($"EDM 10: ");               
+                Log.InsertFriendlyNameHyperLink("Reference Image Here", "https://www.google.com");
             }
         }
+
         private void ComboBoxOperationType_SelectedValueChanged(object? sender, EventArgs e)
         {
             if (ComboBoxOperationType.SelectedValue is not OperationType type) return;
             PanelRawCommand.Visible = type == OperationType.RunRawCommand | type == OperationType.CodeLookUp;
             LabelRawCommand.Text = type == OperationType.RunRawCommand ? "Raw Command" : type == OperationType.CodeLookUp ? "Code Lookup" : "Raw Command";
             TextBoxRawCommand.Enabled = type != OperationType.RunRawCommand && type == OperationType.CodeLookUp;
+            ComboBoxDevices.Enabled = ButtonRunOperation.Enabled = type != OperationType.CodeLookUp;
         }
 
         private void ComboBoxDevices_DropDown(object sender, EventArgs e)
@@ -54,6 +63,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             LoadPorts();
         }
 
+        #endregion
 
         #region Data Source Information
 
@@ -76,12 +86,18 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 
         private async Task GetErrorCodesListAsync()
         {
-            Log.AppendLine("[+] Loading Errors List", ReadOnlyRichTextBox.ColorInformation);
+            Log.AppendLine("[+] Loading Errors List", WarningStatus.Information);
             errorCodeList = default;
             try
             {
                 Log.Append("Attempting to load from server...");
+#if DEBUG
+                errorCodeList = default;
+                //for testing purposes we want to use our local copy.
+#else
+    
                 errorCodeList = await GetErrorCodesGitHubAsync();
+#endif
                 if (errorCodeList != default)
                 {
                     Log.Okay();
@@ -91,6 +107,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 else
                 {
                     Log.Fail();
+                    errorCodeList = await GetErrorCodesCacheAsync();
                 }
             }
             catch
@@ -103,11 +120,11 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
             if (errorCodeList != default && errorCodeList.PlayStation5 != null && errorCodeList.PlayStation5.ErrorCodes.Any())
             {
-                Log.AppendLine($"[+] Loaded {errorCodeList.PlayStation5.ErrorCodes.Count} Errors Succesfully.", ReadOnlyRichTextBox.ColorSuccess);
+                Log.AppendLine($"[+] Loaded {errorCodeList.PlayStation5.ErrorCodes.Count} Errors Succesfully.", WarningStatus.Success);
             }
             else
             {
-                Log.AppendLine("[-] Failed to load Errors List.", ReadOnlyRichTextBox.ColorError);
+                Log.AppendLine("[-] Failed to load Errors List.", WarningStatus.Error);
             }
         }
 
@@ -231,8 +248,11 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
         }
 
-        #endregion
+#endregion
 
+        /// <summary>
+        /// Set Certain Interfaces state to enabled or disabled.
+        /// </summary>
         private bool InterfaceState
         {
             set
@@ -249,7 +269,15 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
         }
 
-
+        /// <summary>
+        /// Auto detect PlayStation 5 on any given serial port.
+        /// </summary>
+        /// <remarks>
+        /// The only way to detect if its a PlayStation 5 console. Is by listening to the port or sending a Break command and listening for the response. 
+        /// Usual response from the PS5 is $$ [MANU] UART CMD READY:36, NG E0000003:4D, or OK 00000000:3A. If we get one of the three responses it's
+        /// safe to assume we found a PlayStation 5 on that port.
+        /// </remarks>
+        /// <returns>Device List</returns>
         private async Task<Device?> AutoDetectDeviceAsync()
         {
             Device? device = ComboBoxDevices.SelectedItem as Device;
@@ -262,13 +290,13 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(1));
             foreach (var autoDevice in devices)
             {
-                Log.AppendLine($"[*] Auto Detecting Playstation 5 on {autoDevice}", ReadOnlyRichTextBox.ColorInformation);
-                Log.AppendLine("\t- Disconnect power cord from PS5\r\n\t- Wait 5 seconds.\r\n\t- Connect Power to PS5 due not power on!", ReadOnlyRichTextBox.ColorError);
+                Log.AppendLine($"[*] Auto Detecting Playstation 5 on {autoDevice}", WarningStatus.Information);
+                Log.AppendLine("\t- Disconnect power cord from PS5\r\n\t- Wait 5 seconds.\r\n\t- Connect Power to PS5 due not power on!", WarningStatus.Error);
                 using var serial = new SerialPort(autoDevice.Port);
                 Log.Append($"Opening Device on {autoDevice.FriendlyName}...");
                 serial.Open();
                 Log.Okay();
-                Log.AppendLine("[*] Listening for Playstation 5.", ReadOnlyRichTextBox.ColorInformation);
+                Log.AppendLine("[*] Listening for Playstation 5.", WarningStatus.Information);
                 List<string> Lines = new();
                 do
                 {
@@ -289,7 +317,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 var flag = Lines.Any(x => x.StartsWith(@"$$ [MANU] UART CMD READY:36") || x.StartsWith(@"NG E0000003:4D") || x.StartsWith("OK 00000000:3A"));
                 if (flag)
                 {
-                    Log.AppendLine($@"[+] Detected a Playstation 5 on {autoDevice.FriendlyName}", ReadOnlyRichTextBox.ColorSuccess);
+                    Log.AppendLine($@"[+] Detected a Playstation 5 on {autoDevice.FriendlyName}", WarningStatus.Success);
                     ComboBoxDevices.SelectedItem = autoDevice;
                     return autoDevice;
                 }
@@ -328,6 +356,12 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
         }
 
+        /// <summary>
+        /// Run selected operation
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+
         private async Task RunOperationsAsync(OperationType type)
         {
             Log.AppendErrorLine($"[*] Operation: Run {type.ToDescription()}");
@@ -349,12 +383,11 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 case OperationType.RunRawCommand:
                     await RunRawCommandAsync();
                     break;
-                case OperationType.CodeLookUp:
-                    break;
             }
+            Log.AppendErrorLine($"[*] End Operation: {type.ToDescription()}");
         }
 
-        #region Run Operation Types
+        #region Operations
 
         /// <summary>
         /// Read all errors until no more errors to read. 
@@ -366,13 +399,14 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             var device = await AutoDetectDeviceAsync();
             if (device == default)
             {
-                Log.AppendLine("[-] No Playstation 5 Detected!", ReadOnlyRichTextBox.ColorError);
+                Log.AppendLine(PlayStation5NotFound, WarningStatus.Error);
                 return;
             }
-            cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(1000));
+            cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(10));
             using var serial = new SerialPort(device.Port);
             serial.Open();
-            List<(string LogCount, string LogLine)> Lines = new();
+            List<(string Slot, string LogLine)> Lines = new();
+            var noErrors = "FFFFFFFF";
             var isNoError = false;
             for (byte i = 0; i <= count; i++)
             {
@@ -381,8 +415,6 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                     break;
                 }
                 var command = $"errlog {i:X2}";
-                var checksum = SerialPort.CalculateChecksum(command);
-
                 /*
 
                 var d = new UartErrLogRequest(0);
@@ -396,34 +428,44 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 do
                 {
                     var line = await serial.ReadLineAsync(cancellationTokenSource.Token);
-                    if (!string.Equals($"{command}:{checksum:X2}", line, StringComparison.InvariantCultureIgnoreCase))
+                    if (!SerialPort.IsEchoCommand(command, line))
                     {
                         //ignore the echo'd command capture everything else. 
                         //todo: parse error codes here, break on NG or No Error Codes instead.                         
-                        Lines.Add((LogCount: $"{i:X2}", LogLine: line));
-                        //tmp soluti          on. 
+                        Lines.Add((Slot: $"{i:X2}", LogLine: line));
                         var split = line.Split(' ');
                         if (!split.Any()) continue;
                         switch (split[0])
                         {
                             case "NG":
                                 //isNoError = true;
-                                break;
+                                //NG for this command keep going just in case though.
+                                continue;
                             case "OK":
                                 var errorCode = split[2];
-                                var noErrors = "FFFFFFFF";
                                 isNoError = string.Equals(errorCode, noErrors, StringComparison.InvariantCultureIgnoreCase);
                                 break;
                         }
                     }
                 } while (serial.BytesToRead != 0 && !isNoError);
             }
-
-
-            foreach (var (LogCount, LogLine) in Lines)
+            if (!Lines.Any())
             {
-                var split = LogLine.Split(' ');
-                if (!split.Any()) continue;
+                return;
+            }
+            PrintLineDetails(Lines);
+        }
+
+        private void PrintLineDetails(List<(string slot, string logLine)> lines)
+        {
+            Log.AppendLine("[Slot #]\t[Date Time]\t\t[Error Code]\t[Priority]\t\t[Error Message]");
+            var firstErrorTimeStamp = 0L;
+            var dateTimeNow = DateTime.Now;
+            var logForeColor = Log.ForeColor;
+            foreach (var (slot, logLine) in lines)
+            {
+                var split = logLine.Split(' ');
+                if (!split.Any()) continue;                
                 switch (split[0])
                 {
                     case "NG":
@@ -431,15 +473,37 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                         break;
                     case "OK":
                         var errorCode = split[2];
+                        var timeStamp = split[3].ToLong();
+                        if (firstErrorTimeStamp == 0)
+                        {
+                            firstErrorTimeStamp = timeStamp;
+                        }
+                        timeStamp = -1 * (timeStamp - firstErrorTimeStamp);
+                        var pastStamp = dateTimeNow.AddSeconds(-timeStamp);
+                   
                         var errorLookup = errorCodeList?.PlayStation5?.ErrorCodes.FirstOrDefault(x => x.ID == errorCode);
                         if (errorLookup == default)
                         {
-                            Log.AppendLine($"{LogCount}: {errorCode}: Not found in list. Report Findings.");
+                            Log.Append($"{slot}\t{pastStamp}\t{errorCode}\t");
+                            Log.Append($"{Priority.High}\t\t", Priority.High);
+                            Log.AppendLine($"Not found in list. Report Findings.");
                         }
                         else
-                        {
-                            Log.AppendLine($"{LogCount}: {errorLookup.ID}: {errorLookup.Message}");
+                        {                          
+                            Log.Append($"{slot}\t{pastStamp}\t{errorLookup.ID}\t");
+                            Log.Append($"{errorLookup.Priority}\t\t", errorLookup.Priority);
+                            Log.AppendLine($"{errorLookup.Message}");
+
+                            if (errorLookup.Priority == Priority.Severe && HighlightSevereLines.Checked)
+                            {
+                                Log.HighlightLastLine(Priority.Severe);
+                            }
                         }
+                        if (ShowErrorLine.Checked)
+                        {
+                            Log.AppendLine($"\t |-({logLine})");
+                        }
+                        Log.AppendLine(string.Empty);
                         break;
                 }
             }
@@ -455,21 +519,20 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             var device = await AutoDetectDeviceAsync();
             if (device == default)
             {
-                Log.AppendLine("[-] No Playstation 5 Detected!", ReadOnlyRichTextBox.ColorError);
+                Log.AppendLine(PlayStation5NotFound, WarningStatus.Error);
                 return;
             }
             cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(10));
             using var serial = new SerialPort(device.Port);
             serial.Open();
-            Log.Append("[+]\tClearing Logs...", ReadOnlyRichTextBox.ColorInformation);
+            Log.Append("[+]\tClearing Logs...", WarningStatus.Information);
             var command = "errlog clear";
-            var checksum = SerialPort.CalculateChecksum(command);
-            await serial.WriteLineAsync("errlog clear", cancellationTokenSource.Token);
+            await serial.WriteLineAsync(command, cancellationTokenSource.Token);
             string? response = default;
             do
             {
                 var line = await serial.ReadLineAsync(cancellationTokenSource.Token);
-                if (!string.Equals($"{command}:{checksum:X2}", line, StringComparison.InvariantCultureIgnoreCase))
+                if (!SerialPort.IsEchoCommand(command, line))
                 {
                     //ignore the echo'd command capture everything else. 
                     response = line;
@@ -492,7 +555,6 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
         }
 
-
         /// <summary>
         /// Run in monitor mode. This will listen to anything the console might be saying. 
         /// </summary>
@@ -502,7 +564,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             var device = await AutoDetectDeviceAsync();
             if (device == default)
             {
-                Log.AppendLine("[-] No Playstation 5 Detected!", ReadOnlyRichTextBox.ColorError);
+                Log.AppendLine(PlayStation5NotFound, WarningStatus.Error);
                 return;
             }
             cancellationTokenSource = new CancellationTokenSource();
@@ -525,7 +587,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             var device = await AutoDetectDeviceAsync();
             if (device == default)
             {
-                Log.AppendLine("[-] No Playstation 5 Detected!", ReadOnlyRichTextBox.ColorError);
+                Log.AppendLine(PlayStation5NotFound, WarningStatus.Error);
                 return;
             }
             using var ofd = new OpenFileDialog();
@@ -558,6 +620,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         }
 
         private readonly AsyncAutoResetEvent AutoResetEventRawCommand = new(false);
+  
         /// <summary>
         /// Run raw command from user. Keeps port open.
         /// </summary>
@@ -567,7 +630,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             var device = await AutoDetectDeviceAsync();
             if (device == default)
             {
-                Log.AppendLine("[-] No Playstation 5 Detected!", ReadOnlyRichTextBox.ColorError);
+                Log.AppendLine(PlayStation5NotFound, WarningStatus.Error);
                 return;
             }
             using var serial = new SerialPort(device.Port);
@@ -590,6 +653,30 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 } while (serial.BytesToRead != 0);
             } while (!cancellationTokenSource.IsCancellationRequested);
         }
+        
+        private void RunCodeLookup()
+        {
+            Log.Clear();
+            var errorCode = TextBoxRawCommand.Text.ToUpperInvariant().Trim();
+            TextBoxRawCommand.Clear();
+            if (string.IsNullOrEmpty(errorCode)) return;
+            var errorLookup = errorCodeList?.PlayStation5?.ErrorCodes.FirstOrDefault(x => x.ID == errorCode);
+            if (errorLookup == default)
+            {
+                Log.AppendLine($"Error Code: {errorCode} - Not found in list.{Environment.NewLine}" +
+                    $"If you'd like you can report your findings and we will update our list with more information.", Priority.High);
+            }
+            else
+            {
+                Log.AppendLine($"Found the following information.{Environment.NewLine}" +
+                    $"Source: Internal Database{Environment.NewLine}" +
+                    $"Error Code: {errorLookup.ID}");
+                Log.Append("Priroity Level: ");
+                Log.AppendLine(errorLookup.Priority.ToString(), errorLookup.Priority);
+                Log.AppendLine($"Message: {errorLookup.Message}");
+            }
+        }
+
         #endregion
 
         private void TextBoxRawCommand_KeyPress(object sender, KeyPressEventArgs e)
@@ -597,6 +684,11 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             if (!TextBoxRawCommand.Text.Any()) return; // dont send empty commands
             if (e.KeyChar == (char)Keys.Enter)
             {
+                if (ComboBoxOperationType.SelectedValue is OperationType type && type == OperationType.CodeLookUp)
+                {
+                    RunCodeLookup();
+                    return;
+                }
                 AutoResetEventRawCommand.Set();
             }
         }

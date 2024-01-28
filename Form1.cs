@@ -2,14 +2,16 @@
 using ConsoleServiceTool.Console.Sony.PlayStation5.Views;
 using ConsoleServiceTool.Console.Sony.Shared;
 using ConsoleServiceTool.Utils;
+using System.Reflection;
 
 namespace ConsoleServiceTool
 {
     internal partial class Form1 : Form
     {
+        //todo: Move NOR information to its own view
         private Nor? NorFile { get; set; } = default;
         private FileInfo? FileInfo { get; set; } = default;
-        private readonly PS5UartView _ps5UartView = new();
+        private readonly PS5UartView _ps5UartView = new() { Dock = DockStyle.Fill };
 
         internal Form1()
         {
@@ -18,7 +20,7 @@ namespace ConsoleServiceTool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Text = $"{Text} - {ProductVersion}";
+            Text = $"{Text} - {Assembly.GetExecutingAssembly().GetName().Version}";
             LoadViews();
             Log.AppendLine("Click \"Browse\" locate and open your PlayStation NOR binary.");
             ResetLabels();

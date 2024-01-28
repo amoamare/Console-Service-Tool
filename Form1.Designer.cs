@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             TabControlPS5Uart = new TabControl();
             tabPage3 = new TabPage();
             Log = new Controls.ReadOnlyRichTextBox();
             PanelGro = new Panel();
+            label9 = new Label();
             IduList = new ComboBox();
             lFrimwareVersion = new Label();
             label10 = new Label();
@@ -46,6 +48,7 @@
             BoardIdEdit = new RegExTextBox();
             MotherboardSerialEdit = new RegExTextBox();
             PanelInfo = new Panel();
+            lIduMode = new Label();
             lMd5Sum = new Label();
             lFileSize = new Label();
             lSerialNumber = new Label();
@@ -67,8 +70,6 @@
             ButtonBrowse = new Button();
             TabPagePS5Uart = new TabPage();
             tabPage2 = new TabPage();
-            label9 = new Label();
-            lIduMode = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             TabControlPS5Uart.SuspendLayout();
@@ -163,6 +164,15 @@
             PanelGro.Name = "PanelGro";
             PanelGro.Size = new Size(1014, 343);
             PanelGro.TabIndex = 18;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(12, 243);
+            label9.Name = "label9";
+            label9.Size = new Size(80, 20);
+            label9.TabIndex = 33;
+            label9.Text = "IDU Mode:";
             // 
             // IduList
             // 
@@ -305,6 +315,15 @@
             PanelInfo.Name = "PanelInfo";
             PanelInfo.Size = new Size(425, 343);
             PanelInfo.TabIndex = 16;
+            // 
+            // lIduMode
+            // 
+            lIduMode.AutoSize = true;
+            lIduMode.Location = new Point(3, 243);
+            lIduMode.Name = "lIduMode";
+            lIduMode.Size = new Size(15, 20);
+            lIduMode.TabIndex = 30;
+            lIduMode.Text = "..";
             // 
             // lMd5Sum
             // 
@@ -502,30 +521,13 @@
             tabPage2.Text = "Playstation 4";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(12, 243);
-            label9.Name = "label9";
-            label9.Size = new Size(80, 20);
-            label9.TabIndex = 33;
-            label9.Text = "IDU Mode:";
-            // 
-            // lIduMode
-            // 
-            lIduMode.AutoSize = true;
-            lIduMode.Location = new Point(3, 243);
-            lIduMode.Name = "lIduMode";
-            lIduMode.Size = new Size(15, 20);
-            lIduMode.TabIndex = 30;
-            lIduMode.Text = "..";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1048, 723);
             Controls.Add(tabControl1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Console Service Tool (C.S.T)";

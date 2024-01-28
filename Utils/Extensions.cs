@@ -1,13 +1,10 @@
 ﻿using ConsoleServiceTool.Communication;
-using ConsoleServiceTool.Console.Sony.Shared;
-using System;
-using System.Collections.Generic;
+using ConsoleServiceTool.Console.Sony.Shared.Models;
+using ConsoleServiceTool.Models;
 using System.ComponentModel;
-using System.Linq;
-using System.Runtime.InteropServices;
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleServiceTool.Utils
 {
@@ -27,6 +24,42 @@ namespace ConsoleServiceTool.Utils
 
             return -H / cb;
         }
+
+        private static readonly IReadOnlyDictionary<WarningStatus, Color> WarningStatusColorMap = new Dictionary<WarningStatus, Color>()
+        {
+            { WarningStatus.Success,  Color.FromArgb(0, 172, 70) },
+            { WarningStatus.Information,       Color.FromArgb(253, 197, 0) },
+            { WarningStatus.Error,   Color.FromArgb(220, 0, 0)  },
+            { WarningStatus.Unknown, Color.Black }
+        };
+        private static readonly IReadOnlyDictionary<Priority, Color> PriorityColorMap = new Dictionary<Priority, Color>()
+        { 
+            { Priority.Low,  Color.FromArgb(0, 172, 70) },
+            { Priority.Medium,       Color.FromArgb(253, 197, 0) },
+            { Priority.High,   Color.FromArgb(120, 0, 0)  },
+            { Priority.Severe,   Color.FromArgb(220, 0, 0)  },
+            { Priority.Unknown, Color.Black }
+        };
+
+
+        internal static Color ToColor(this Priority priority)
+        {
+            if(!Enum.IsDefined(typeof(Priority), priority))
+            {
+                return PriorityColorMap[Priority.Unknown];
+            }
+            return PriorityColorMap[priority];
+        }
+
+        internal static Color ToColor(this WarningStatus warningStatus)
+        {
+            if (!Enum.IsDefined(typeof(WarningStatus), warningStatus))
+            {
+                return PriorityColorMap[Priority.Unknown];
+            }
+            return WarningStatusColorMap[warningStatus];
+        }
+
 
         /// <summary>
         /// Reads a C style null terminated ASCII string
@@ -90,6 +123,15 @@ namespace ConsoleServiceTool.Utils
         internal static byte[] FromHexString(this string str)
         {
             return Convert.FromHexString(str);
+        }
+
+        internal static long ToLong(this string str, long defaultValue = 0)
+        {           
+            if (long.TryParse(str, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out long i))
+            {
+                return i;      
+            }
+            return defaultValue;
         }
 
         internal static void EnumForComboBox<EnumType>(this ComboBox comboBox) => comboBox.DataSource = Enum.GetValues(typeof(EnumType))
@@ -214,14 +256,10 @@ namespace ConsoleServiceTool.Utils
             var data = serialPort.Encoding.GetBytes($"{str}{serialPort.NewLine}");
             await serialPort.BaseStream.WriteAsync(data, cancellationToken).ConfigureAwait(false);
             await serialPort.BaseStream.FlushAsync(cancellationToken).ConfigureAwait(false);
+            await Task.Delay(10, cancellationToken).ConfigureAwait(false);
         }
 
-        internal static async Task WriteLineAsync(this SerialPort serialPort, string str)
-        {
-            var data = serialPort.Encoding.GetBytes($"{str}{serialPort.NewLine}");
-            await serialPort.BaseStream.WriteAsync(data).ConfigureAwait(false);
-            await serialPort.BaseStream.FlushAsync().ConfigureAwait(false);
-        }
+        internal static async Task WriteLineAsync(this SerialPort serialPort, string str) => await WriteLineAsync(serialPort, str, CancellationToken.None);
 
         internal static async Task<string> RequestResponseAsync(this SerialPort serialPort, string str)
         {
