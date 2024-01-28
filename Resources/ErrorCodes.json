@@ -1,6 +1,6 @@
 {
-  "Revision": "1.0.0.2",
-  "Description": "Updated to include a status, moved error codes under each console. Added a priority to each code as well Update Needed.",
+  "Revision": "1.0.1.0",
+  "Description": "Removed junk codes, changed location for CST. Updated some descriptions.",
   "PlayStation5": {
     "ErrorCodes": [
       {
