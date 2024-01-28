@@ -1,0 +1,658 @@
+{
+  "Revision": "1.0.0.2",
+  "Description": "Updated to include a status, moved error codes under each console. Added a priority to each code as well Update Needed.",
+  "PlayStation5": {
+    "ErrorCodes": [
+      {
+        "ID": "00100E3C",
+        "Message": "Known Unknown 908 - Report Findings",
+        "Status": 0,
+        "Priority": 3
+      },
+      {
+        "ID": "0015442C",
+        "Message": "Known Unknown 889 - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "015E4E8B",
+        "Message": "Known Unknown 163 (Rare) - Report Immediately",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80000001",
+        "Message": "Overheat or Init APU Error",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80000009",
+        "Message": "Unexpected Power Cut or Shutdown Failure",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "8000000C",
+        "Message": "Known Unknown 303 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80050000",
+        "Message": "APU VRM (2 Phases) Power Fail",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80050020",
+        "Message": "Known Unknown 304 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80050040",
+        "Message": "Known Unknown 370 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80060000",
+        "Message": "APU VRM (6 Phases) Power Fail",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80060020",
+        "Message": "Known Unknown 386 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80060040",
+        "Message": "Known Unknown 182 (APU or VRM) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80097CE4",
+        "Message": "Known Unknown 955 (APU Power) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80800000",
+        "Message": "Kernel Panic Shutdown",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80800014",
+        "Message": "TPM 2.0 chip or Power Failure",
+        "Status": 0,
+        "Priority": 3
+      },
+      {
+        "ID": "8080001A",
+        "Message": "Non-Native TPM 2.0 Chip (After APU Init)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "8080001F",
+        "Message": "Known Unknown 408 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80800022",
+        "Message": "Known Unknown 412 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80800023",
+        "Message": "Known Unknown 414 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80800024",
+        "Message": "Known Unknown 426 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80801028",
+        "Message": "Known Unknown 195 (SSD) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80801510",
+        "Message": "Known Unknown 249 (SSD) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80801520",
+        "Message": "Known Unknown 855 (Kernel) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80801580",
+        "Message": "Known Unknown 444 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80801608",
+        "Message": "Known Unknown 841 (Kernel) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80802081",
+        "Message": "SSD Controller (Co-Processor) \u003C-\u003E APU Data Line Error",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80802220",
+        "Message": "Known Unknown 470 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80802442",
+        "Message": "Known Unknown 821 (General Power Failure - DDR/SSD) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80802471",
+        "Message": "Known Unknown 811 (General Power Failure - DDR/SSD) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80802660",
+        "Message": "Known Unknown 791 (General Power Failure - DDR/SSD) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80802669",
+        "Message": "Known Unknown 831 (General Power Failure - DDR/SSD) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80810001",
+        "Message": "General Power Failure (Periphery, GDDR6, APU, Data Line Short)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "8081001A",
+        "Message": "Known Unknown 769 (General Power Failure) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80830000",
+        "Message": "Shutdown or Freeze After SAM_IPL Loaded - GDDR6 Data Line Issue (Replace)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80830018",
+        "Message": "Known Unknown 846 (Power) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808300F0",
+        "Message": "Secure Loader Error",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80870003",
+        "Message": "Post Secure Loader Error",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80871001",
+        "Message": "DDR4 Error (Power Failure or Short Circuit)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80871054",
+        "Message": "SSD Banks IO Error Between SSD Controller",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80871055",
+        "Message": "SSD Banks IO Error Between SSD Controller",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80871062",
+        "Message": "SSD Controller \u003C-\u003E Syscon (Bridge) Data Line Error",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80891001",
+        "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80892003",
+        "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "8089400F",
+        "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808B0000",
+        "Message": "Known Unknown 474 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808B0027",
+        "Message": "Power Short 5V Line (F7002)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808B0098",
+        "Message": "DDR4 Error (Communication Issue)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808B00FF",
+        "Message": "Known Unknown 823 (Power) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808C3090",
+        "Message": "Power Failure - PWM or Unspecific",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808C3790",
+        "Message": "Power Failure - PWM or Unspecific",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808C3F90",
+        "Message": "Power Failure - PWM or Unspecific",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808C4E90",
+        "Message": "Known Unknown 516 (Power or Short) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808C4F90",
+        "Message": "Power Failure - PWM or Unspecific",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808D0000",
+        "Message": "Known Unknown 790 (Power) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808E0005",
+        "Message": "Known Unknown 125 (TPM) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808E0109",
+        "Message": "Known Unknown 118 (TPM) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808E829A",
+        "Message": "Known Unknown 116 (TPM) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808F0002",
+        "Message": "TPM 2.0 chip or Power Failure",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808F0003",
+        "Message": "TPM 2.0 chip or Power Failure",
+        "Status": 0,
+        "Priority": 4
+      },
+      {
+        "ID": "80910002",
+        "Message": "Known Unknown 114 (SSD Controller) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80910200",
+        "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80910800",
+        "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00114",
+        "Message": "Known Unknown 779 (General Power Failure - SSD/APU Line) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C0012D",
+        "Message": "Known Unknown 953 (Data) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00134",
+        "Message": "SSD Banks Error",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00136",
+        "Message": "WI-FI or BT Problem or Power Failure",
+        "Status": 0,
+        "Priority": 3
+      },
+      {
+        "ID": "80C00140",
+        "Message": "APU Halt (No Response) - Forced Power Off Via Power Button",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80D00402",
+        "Message": "SSD Banks Error",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "86000005",
+        "Message": "NOR Corrupt - Regenerate with tool and try again!",
+        "Status": 0,
+        "Priority": 3
+      },
+      {
+        "ID": "86000006",
+        "Message": "NOR Corrupt - Regenerate with tool and try again!",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "B0082108",
+        "Message": "Known Unknown 866 (Chip or Data - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "B0085108",
+        "Message": "Known Unknown 519 (Chip or Data) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "B0088108",
+        "Message": "Known Unknown 810 (Chip or Data) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "B0FFFFFF",
+        "Message": "Known Unknown 104 - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0010303",
+        "Message": "Known Unknown 525 (APU) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0020103",
+        "Message": "APU Not Responding - Trying Init or Reboot - 1",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0020203",
+        "Message": "APU Not Responding - Trying Init or Reboot - 2",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0020303",
+        "Message": "APU Not Responding - Trying Init or Reboot - 3",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C00C0002",
+        "Message": "VRM Controller Failure",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C00C0303",
+        "Message": "Known Unknown 789 (General Power Failure) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0160203",
+        "Message": "Known Unknown 203 (HDMI-\u003EAPU) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0160303",
+        "Message": "Known Unknown 238 (HDMI-\u003EAPU) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0810002",
+        "Message": "HDMI IC Problem or Power Failure",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0810303",
+        "Message": "HDMI IC Problem or Data Line Short or Power Failure",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0900002",
+        "Message": "Known Unknown 174 (HDMI) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0900303",
+        "Message": "Known Unknown 251 (HDMI-\u003EAPU) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C0920002",
+        "Message": "Known Unknown 544 (APU) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E0000001",
+        "Message": "Southbridge Issue - Cannot Read Errors - Wait \u0026 Retry",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E0000002",
+        "Message": "Southbridge Issue - Cannot Read Errors - Wait \u0026 Retry",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E0000003",
+        "Message": "Southbridge Issue - Cannot Read Errors - Wait \u0026 Retry",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E0000004",
+        "Message": "Southbridge Issue - Cannot Read Errors - Wait \u0026 Retry",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E0000005",
+        "Message": "Southbridge Issue - Cannot Read Errors - Wait \u0026 Retry",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E0000006",
+        "Message": "Southbridge Issue - Cannot Read Errors - Wait \u0026 Retry",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E1200000",
+        "Message": "Known Unknown 545 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E1201A50",
+        "Message": "Known Unknown 568 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E1E0061D",
+        "Message": "Known Unknown 576 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E1E0191D",
+        "Message": "Known Unknown 581 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E1E01C05",
+        "Message": "Known Unknown 604 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E1E01D06",
+        "Message": "Known Unknown 618 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E2200000",
+        "Message": "Known Unknown 623 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E2200116",
+        "Message": "Known Unknown 637 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E2E0191D",
+        "Message": "Known Unknown 644 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E2E01C06",
+        "Message": "Known Unknown 653 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E2E01D06",
+        "Message": "Known Unknown 673 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E31218E9",
+        "Message": "Known Unknown 680 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E3121F70",
+        "Message": "Known Unknown 755 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E312210A",
+        "Message": "Known Unknown 759 (Rare - Report Immediately)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "FFFFFFFF",
+        "Message": "No Errors",
+        "Status": 3,
+        "Priority": 0
+      }
+    ]
+  },
+  "PlayStation4": null,
+  "PlayStation3": null
+}

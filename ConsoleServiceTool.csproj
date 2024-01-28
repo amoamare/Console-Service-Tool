@@ -12,8 +12,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="dependencies\**" />
+    <Compile Remove="Resources\ErrorCodes\**" />
     <EmbeddedResource Remove="dependencies\**" />
+    <EmbeddedResource Remove="Resources\ErrorCodes\**" />
     <None Remove="dependencies\**" />
+    <None Remove="Resources\ErrorCodes\**" />
   </ItemGroup>
 
   <ItemGroup>
