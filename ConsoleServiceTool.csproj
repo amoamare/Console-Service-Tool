@@ -30,7 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\UART Locations\PlayStation5\" />
     <Folder Include="Views\" />
   </ItemGroup>
 
