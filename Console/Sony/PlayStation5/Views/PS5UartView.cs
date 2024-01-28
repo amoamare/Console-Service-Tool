@@ -44,8 +44,8 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             {
                 Log.AppendLine("[+] Please connect your Playstation 5 to UART do not power up the console.", WarningStatus.Information);
                 Log.AppendLine("UART Test Point References");
-                Log.Append($"EDM 10: ");               
-                Log.InsertFriendlyNameHyperLink("Reference Image Here", "https://www.google.com");
+                Log.Append($"EDM 10: See Image Reference ");               
+                Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/ConsoleServiceTool/master/Resources/UARTLocations/PlayStation5/EDM10UART.jpg");
             }
         }
 
