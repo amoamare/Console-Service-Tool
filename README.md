@@ -10,9 +10,11 @@ PS5 NOR Patching Kinda Added - I mean dont use if you dont know what you are doi
 What patches work. Serial Number, Motherboard Serial, Console Type (Disk, or Digital), Board ID and MAC Address. 
 ## Screenshots
 
+PlayStation 5 NOR Interface.
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/d5b20998-c0ea-4e0d-8a4d-b8f7309961e3)
 
-![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/31aefa1f-9def-4d09-af97-67c888e1f906)
+PlayStation 5 UART Interface.
+![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/962053bb-006c-4e6f-9a43-4ad768334d87)
 
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/7a338443-1666-4a01-b734-53cc38b84784)
 
