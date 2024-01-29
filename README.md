@@ -16,6 +16,7 @@ PlayStation 5 NOR Interface.
 PlayStation 5 UART Interface.
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/962053bb-006c-4e6f-9a43-4ad768334d87)
 
+Example showing no line response and no highlighting. 
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/7a338443-1666-4a01-b734-53cc38b84784)
 
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/0570b58e-fd9c-4c13-9930-7915aa127305)
