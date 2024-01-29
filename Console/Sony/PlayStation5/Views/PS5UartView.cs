@@ -5,17 +5,22 @@ using ConsoleServiceTool.Models;
 using ConsoleServiceTool.Utils;
 using Microsoft.VisualStudio.Threading;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text;
 using System.Text.Json;
 
 namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 {
     internal partial class PS5UartView : UserControl
     {
+        private const string OkStr = @"OK";
+        private const string NgStr = @"NG";
         private readonly string FileNameCache = @"cache.json";
         private readonly string StrAuto = @"Auto";
         private readonly string PlayStation5NotFound = @"[-] No Playstation 5 Detected!";
+        private DirectoryInfo LogsDirectory = new ($"{AppDomain.CurrentDomain.BaseDirectory}logs");
         private PS5ErrorCodeList? errorCodeList;
         private CancellationTokenSource? cancellationTokenSource;
 
@@ -28,7 +33,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 
         private void PS5UartView_Load(object sender, EventArgs e)
         {
-            _ = LoadAsync();
+            _= LoadAsync();
         }
 
         private async Task LoadAsync()
@@ -364,6 +369,8 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 
         private async Task RunOperationsAsync(OperationType type)
         {
+            var logFile = CreateLogFile();
+            using var writer = logFile.OpenWrite();
             Log.AppendErrorLine($"[*] Operation: Run {type.ToDescription()}");
             switch (type)
             {
@@ -385,6 +392,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                     break;
             }
             Log.AppendErrorLine($"[*] End Operation: {type.ToDescription()}");
+            await writer.WriteAsync(Encoding.UTF8.GetBytes(Log.Text));
         }
 
         #region Operations
@@ -437,11 +445,11 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                         if (!split.Any()) continue;
                         switch (split[0])
                         {
-                            case "NG":
+                            case NgStr:
                                 //isNoError = true;
                                 //NG for this command keep going just in case though.
                                 continue;
-                            case "OK":
+                            case OkStr:
                                 var errorCode = split[2];
                                 isNoError = string.Equals(errorCode, noErrors, StringComparison.InvariantCultureIgnoreCase);
                                 break;
@@ -468,10 +476,10 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 if (!split.Any()) continue;                
                 switch (split[0])
                 {
-                    case "NG":
+                    case NgStr:
                         Log.AppendLine("Failed to read data");
                         break;
-                    case "OK":
+                    case OkStr:
                         var errorCode = split[2];
                         var timeStamp = split[3].ToLong();
                         if (firstErrorTimeStamp == 0)
@@ -551,10 +559,10 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
             switch (split[0])
             {
-                case "NG":
+                case NgStr:
                     Log.Fail();
                     break;
-                case "OK":
+                case OkStr:
                     Log.Okay();
                     break;
             }
@@ -698,5 +706,43 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
         }
 
+        private FileInfo CreateLogFile()
+        {
+            CreateLogDirectory();
+            CleanUpOldLogFiles();
+            return CreateNewLogFile();
+        }
+
+        private void CleanUpOldLogFiles()
+        {
+            LogsDirectory.GetFiles()
+                .Where(f => f.LastWriteTime < DateTime.Now.AddMonths(-3))
+                .ToList()
+                .ForEach(f => f.Delete());
+        }
+
+        private void CreateLogDirectory()
+        {
+            if (!LogsDirectory.Exists)
+            {
+                try
+                {
+                    LogsDirectory.Create();
+                }
+                catch(UnauthorizedAccessException)
+                {
+                    //hmm some reason we're in a directory with no permissiosn to write. Lets store in appdata\roaming\product_name instead. 
+                    LogsDirectory = new($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\{Application.ProductName}\\logs");
+                    CreateLogDirectory();
+                    return;
+                }
+            }
+        }
+
+        private FileInfo CreateNewLogFile()
+        {
+            var dateTime = DateTime.Now.ToString("yyyyMMddhhmmss");
+            return new FileInfo($"{LogsDirectory}\\cst_{dateTime}.txt");
+        }
     }
 }
