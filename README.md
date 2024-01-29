@@ -10,11 +10,16 @@ PS5 NOR Patching Kinda Added - I mean dont use if you dont know what you are doi
 What patches work. Serial Number, Motherboard Serial, Console Type (Disk, or Digital), Board ID and MAC Address. 
 ## Screenshots
 
-![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/29c901a4-5217-4c65-81cf-ea83caf73bd3)
-
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/d5b20998-c0ea-4e0d-8a4d-b8f7309961e3)
 
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/31aefa1f-9def-4d09-af97-67c888e1f906)
+
+![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/7a338443-1666-4a01-b734-53cc38b84784)
+
+![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/0570b58e-fd9c-4c13-9930-7915aa127305)
+
+![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/3d4e5a81-11ed-4d03-8329-1fb33608355c)
+
 
 
 ## License
