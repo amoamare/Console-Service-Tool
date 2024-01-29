@@ -19,13 +19,14 @@ PlayStation 5 UART Interface.
 Example showing no line response and no highlighting. 
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/7a338443-1666-4a01-b734-53cc38b84784)
 
+Example just showing line response. This is the raw line received from the PlayStation 5.
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/0570b58e-fd9c-4c13-9930-7915aa127305)
 
+Example showing both line response and hightlighting severe errors.
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/3d4e5a81-11ed-4d03-8329-1fb33608355c)
 
 Example of a reference image for error code. 
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/d9863882-3615-4b21-99c1-c32cb557cbad)
-
 
 
 ## License
@@ -65,3 +66,5 @@ BwE - PS5 Code Reader - https://github.com/BetterWayElectronics/ps5-code-reader
 BwE - PS5 Nor Tools - https://github.com/BetterWayElectronics/ps5-nor-tool
 
 Andy_maN - https://github.com/andy-man/ps5-wee-tools
+
+RustyRaindeer - https://github.com/RustyRaindeer for added functionality and given me some ideas. 
