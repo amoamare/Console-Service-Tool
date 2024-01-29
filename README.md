@@ -20,6 +20,9 @@ What patches work. Serial Number, Motherboard Serial, Console Type (Disk, or Dig
 
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/3d4e5a81-11ed-4d03-8329-1fb33608355c)
 
+Example of a reference image for error code. 
+![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/d9863882-3615-4b21-99c1-c32cb557cbad)
+
 
 
 ## License
