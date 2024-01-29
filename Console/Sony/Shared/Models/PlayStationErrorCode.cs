@@ -16,5 +16,9 @@ namespace ConsoleServiceTool.Console.Sony.Shared.Models
 
         [JsonPropertyName("Priority")]
         public Priority Priority { get; set; }
+
+
+        [JsonPropertyName("ReferenceImage")]
+        public Uri? ReferenceImage { get; set; }
     }
 }

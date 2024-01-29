@@ -396,6 +396,14 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         /// <returns></returns>
         private async Task ReadCodesAsync(int count = 0x255)
         {
+            List<(string Slot, string LogLine)> test = new()
+            {
+                ("0", "OK 00000000 8080110B 00100E3C 00AB5A8A 150000E5 000100000 217B 001E 3282")
+            };
+
+            PrintLineDetails(test);
+
+            return;
             var device = await AutoDetectDeviceAsync();
             if (device == default)
             {
@@ -502,6 +510,11 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                         if (ShowErrorLine.Checked)
                         {
                             Log.AppendLine($"\t |-({logLine})");
+                        }
+                        if (errorLookup?.ReferenceImage != default)
+                        {
+                            Log.Append($"\t See Reference Image: ");
+                            Log.InsertFriendlyNameHyperLink("View Here", errorLookup.ReferenceImage.ToString());
                         }
                         Log.AppendLine(string.Empty);
                         break;

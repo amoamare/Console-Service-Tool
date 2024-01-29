@@ -28,7 +28,7 @@ namespace ConsoleServiceTool.Utils
         private static readonly IReadOnlyDictionary<WarningStatus, Color> WarningStatusColorMap = new Dictionary<WarningStatus, Color>()
         {
             { WarningStatus.Success,  Color.FromArgb(0, 172, 70) },
-            { WarningStatus.Information,       Color.FromArgb(253, 197, 0) },
+            { WarningStatus.Information, Color.DarkOrange }, //Color.FromArgb(253, 197, 0) },
             { WarningStatus.Error,   Color.FromArgb(220, 0, 0)  },
             { WarningStatus.Unknown, Color.Black }
         };

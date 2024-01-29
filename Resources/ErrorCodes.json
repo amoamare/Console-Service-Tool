@@ -7,7 +7,8 @@
         "ID": "00100E3C",
         "Message": "Known Unknown 908 - Report Findings",
         "Status": 0,
-        "Priority": 3
+        "Priority": 3,
+		"ReferenceImage": "https://raw.githubusercontent.com/amoamare/ConsoleServiceTool/master/Resources/UARTLocations/PlayStation5/EDM10UART.jpg"
       },
       {
         "ID": "0015442C",
@@ -23,7 +24,7 @@
       },
       {
         "ID": "80000001",
-        "Message": "Overheat or Init APU Error",
+        "Message": "APU Overheat or Initialization Error",
         "Status": 0,
         "Priority": 0
       },
