@@ -68,6 +68,8 @@ namespace ConsoleServiceTool.Controls
         internal void AppendLine(string text)
         {
             AppendText($"{text}{Environment.NewLine}");
+            var r = Rtf;
+            var d = r;
         }
 
         internal void Okay()
@@ -79,14 +81,14 @@ namespace ConsoleServiceTool.Controls
         {
             AppendLine("Fail", WarningStatus.Error);
         }
- 
+
         internal void Fail(string reason)
         {
             AppendLine("Fail", WarningStatus.Error);
             AppendLine(reason, WarningStatus.Error);
         }
 
-        
+
         private void AppendLine(string text, Color color)
         {
             AppendText($"{text}{Environment.NewLine}", color);
@@ -113,7 +115,7 @@ namespace ConsoleServiceTool.Controls
         {
             AppendLine(text, WarningStatus.Error);
         }
-       
+
         internal void ApppendOkLine(string text)
         {
             AppendLine(text, WarningStatus.Success);
@@ -125,13 +127,13 @@ namespace ConsoleServiceTool.Controls
             var start = GetFirstCharIndexFromLine(Lines.Length - 2);
             var length = Lines[^2].Length;
             Select(start, length);
-            SelectionColor = priority.ToColor();            
+            SelectionColor = priority.ToColor();
         }
 
 
-        private const string fieldHyper = @"{\cf0{\field{\*\fldinst{HYPERLINK ";
-         private const string fieldFriendlyName = @" }}{\fldrslt{";
-        private const string closeFields = @"\ul0\cf0}}}}\f0\fs18\par";
+        private const string fieldHyper = @"{\cf0{\field{\*\fldinst HYPERLINK """;
+        private const string fieldFriendlyName = @"""}{\fldrslt ";
+        private const string closeFields = @"}}}\f0\fs18\par";
 
         internal void InsertFriendlyNameHyperLink(string friendlyName, string hyperLink)
         {

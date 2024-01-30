@@ -55,9 +55,11 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         {
             Log.AppendLine("UART Test Point References");
             Log.Append("EDM-010: See Image Reference ");
-            Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/ConsoleServiceTool/master/Resources/UARTLocations/PlayStation5/EDM10UART.jpg");
+           // Log.AppendLine("https://www.google.com");
+           // Log.AppendLine("https://utah.repair");
+            Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/Console-Service-Tool/master/Resources/UARTLocations/PlayStation5/EDM10UART.jpg");
             Log.Append("EDM-033: See Image Reference ");
-            Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/ConsoleServiceTool/master/Resources/UARTLocations/PlayStation5/EDM10UART.jpg");
+             Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/Console-Service-Tool/master/Resources/UARTLocations/PlayStation5/EDM003UART.jpg");
 
 
         }
