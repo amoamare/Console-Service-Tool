@@ -2,7 +2,6 @@
 using System.Buffers.Binary;
 using System.Diagnostics;
 using System.Text;
-using static Vanara.PInvoke.User32.RAWINPUT;
 
 namespace ConsoleServiceTool.Console.Sony.Shared
 {

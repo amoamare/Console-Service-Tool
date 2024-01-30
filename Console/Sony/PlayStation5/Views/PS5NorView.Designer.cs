@@ -31,7 +31,7 @@
             fileLocationBox = new TextBox();
             ButtonBrowse = new Button();
             panel1 = new Panel();
-            panel2 = new Panel();
+            PanelInfo = new Panel();
             IduList = new ComboBox();
             lFrimwareVersion = new Label();
             ButtonSave = new Button();
@@ -64,7 +64,7 @@
             label7 = new Label();
             Log = new Controls.ReadOnlyRichTextBox();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            PanelInfo.SuspendLayout();
             SuspendLayout();
             // 
             // fileLocationBox
@@ -100,45 +100,45 @@
             panel1.Size = new Size(897, 26);
             panel1.TabIndex = 4;
             // 
-            // panel2
+            // PanelInfo
             // 
-            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel2.Controls.Add(IduList);
-            panel2.Controls.Add(lFrimwareVersion);
-            panel2.Controls.Add(ButtonSave);
-            panel2.Controls.Add(ConsoleTypeList);
-            panel2.Controls.Add(SkuList);
-            panel2.Controls.Add(WifiMacEdit);
-            panel2.Controls.Add(MacEdit);
-            panel2.Controls.Add(BoardIdEdit);
-            panel2.Controls.Add(MotherboardSerialEdit);
-            panel2.Controls.Add(SerialNumberEdit);
-            panel2.Controls.Add(lIduMode);
-            panel2.Controls.Add(lMd5Sum);
-            panel2.Controls.Add(lFileSize);
-            panel2.Controls.Add(lSerialNumber);
-            panel2.Controls.Add(lWifiMac);
-            panel2.Controls.Add(lMac);
-            panel2.Controls.Add(lBoardId);
-            panel2.Controls.Add(lConsoleType);
-            panel2.Controls.Add(lMbSerial);
-            panel2.Controls.Add(lSku);
-            panel2.Controls.Add(label9);
-            panel2.Controls.Add(label10);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(label3);
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(label7);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 26);
-            panel2.Margin = new Padding(3, 2, 3, 2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(897, 257);
-            panel2.TabIndex = 5;
+            PanelInfo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            PanelInfo.Controls.Add(IduList);
+            PanelInfo.Controls.Add(lFrimwareVersion);
+            PanelInfo.Controls.Add(ButtonSave);
+            PanelInfo.Controls.Add(ConsoleTypeList);
+            PanelInfo.Controls.Add(SkuList);
+            PanelInfo.Controls.Add(WifiMacEdit);
+            PanelInfo.Controls.Add(MacEdit);
+            PanelInfo.Controls.Add(BoardIdEdit);
+            PanelInfo.Controls.Add(MotherboardSerialEdit);
+            PanelInfo.Controls.Add(SerialNumberEdit);
+            PanelInfo.Controls.Add(lIduMode);
+            PanelInfo.Controls.Add(lMd5Sum);
+            PanelInfo.Controls.Add(lFileSize);
+            PanelInfo.Controls.Add(lSerialNumber);
+            PanelInfo.Controls.Add(lWifiMac);
+            PanelInfo.Controls.Add(lMac);
+            PanelInfo.Controls.Add(lBoardId);
+            PanelInfo.Controls.Add(lConsoleType);
+            PanelInfo.Controls.Add(lMbSerial);
+            PanelInfo.Controls.Add(lSku);
+            PanelInfo.Controls.Add(label9);
+            PanelInfo.Controls.Add(label10);
+            PanelInfo.Controls.Add(label8);
+            PanelInfo.Controls.Add(label1);
+            PanelInfo.Controls.Add(label2);
+            PanelInfo.Controls.Add(label3);
+            PanelInfo.Controls.Add(label4);
+            PanelInfo.Controls.Add(label5);
+            PanelInfo.Controls.Add(label6);
+            PanelInfo.Controls.Add(label7);
+            PanelInfo.Dock = DockStyle.Top;
+            PanelInfo.Location = new Point(0, 26);
+            PanelInfo.Margin = new Padding(3, 2, 3, 2);
+            PanelInfo.Name = "PanelInfo";
+            PanelInfo.Size = new Size(897, 257);
+            PanelInfo.TabIndex = 5;
             // 
             // IduList
             // 
@@ -276,6 +276,7 @@
             lIduMode.Name = "lIduMode";
             lIduMode.Size = new Size(13, 15);
             lIduMode.TabIndex = 63;
+            lIduMode.Tag = "True";
             lIduMode.Text = "..";
             // 
             // lMd5Sum
@@ -285,6 +286,7 @@
             lMd5Sum.Name = "lMd5Sum";
             lMd5Sum.Size = new Size(13, 15);
             lMd5Sum.TabIndex = 62;
+            lMd5Sum.Tag = "True";
             lMd5Sum.Text = "..";
             // 
             // lFileSize
@@ -294,6 +296,7 @@
             lFileSize.Name = "lFileSize";
             lFileSize.Size = new Size(13, 15);
             lFileSize.TabIndex = 61;
+            lFileSize.Tag = "True";
             lFileSize.Text = "..";
             // 
             // lSerialNumber
@@ -303,6 +306,7 @@
             lSerialNumber.Name = "lSerialNumber";
             lSerialNumber.Size = new Size(13, 15);
             lSerialNumber.TabIndex = 60;
+            lSerialNumber.Tag = "True";
             lSerialNumber.Text = "..";
             // 
             // lWifiMac
@@ -312,6 +316,7 @@
             lWifiMac.Name = "lWifiMac";
             lWifiMac.Size = new Size(13, 15);
             lWifiMac.TabIndex = 54;
+            lWifiMac.Tag = "True";
             lWifiMac.Text = "..";
             // 
             // lMac
@@ -321,6 +326,7 @@
             lMac.Name = "lMac";
             lMac.Size = new Size(13, 15);
             lMac.TabIndex = 55;
+            lMac.Tag = "True";
             lMac.Text = "..";
             // 
             // lBoardId
@@ -330,6 +336,7 @@
             lBoardId.Name = "lBoardId";
             lBoardId.Size = new Size(13, 15);
             lBoardId.TabIndex = 56;
+            lBoardId.Tag = "True";
             lBoardId.Text = "..";
             // 
             // lConsoleType
@@ -339,6 +346,7 @@
             lConsoleType.Name = "lConsoleType";
             lConsoleType.Size = new Size(13, 15);
             lConsoleType.TabIndex = 57;
+            lConsoleType.Tag = "True";
             lConsoleType.Text = "..";
             // 
             // lMbSerial
@@ -348,6 +356,7 @@
             lMbSerial.Name = "lMbSerial";
             lMbSerial.Size = new Size(13, 15);
             lMbSerial.TabIndex = 59;
+            lMbSerial.Tag = "True";
             lMbSerial.Text = "..";
             // 
             // lSku
@@ -357,6 +366,7 @@
             lSku.Name = "lSku";
             lSku.Size = new Size(13, 15);
             lSku.TabIndex = 58;
+            lSku.Tag = "True";
             lSku.Text = "..";
             // 
             // label9
@@ -466,7 +476,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(Log);
-            Controls.Add(panel2);
+            Controls.Add(PanelInfo);
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "PS5NorView";
@@ -474,8 +484,8 @@
             Load += PS5NorView_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            PanelInfo.ResumeLayout(false);
+            PanelInfo.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -484,7 +494,7 @@
         private TextBox fileLocationBox;
         private Button ButtonBrowse;
         private Panel panel1;
-        private Panel panel2;
+        private Panel PanelInfo;
         private Label label9;
         private ComboBox IduList;
         private Label lFrimwareVersion;

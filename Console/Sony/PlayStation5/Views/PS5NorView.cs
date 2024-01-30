@@ -22,13 +22,14 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             LoadConsoleTypes();
             LoadIduList();
         }
+
         private void ResetLabels()
         {
-            //foreach (var i in PanelInfo.Controls)
-            //{
-            //    if (i is not Label label) continue;
-            //    label.Text = string.Empty;
-            //}
+            PanelInfo.Controls.OfType<Label>().ToList().ForEach(label =>
+            {
+                if (label.Tag is string str && bool.TryParse(str, out var reset) && reset)
+                    label.ResetText();
+            });
         }
 
         private void ButtonBrowse_Click(object sender, EventArgs e)
@@ -199,6 +200,8 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 NorFile.Nvs.BoardId = BoardIdEdit.Text;
             if (MacEdit.Modified)
                 NorFile.Nvs.MacAddress = MacEdit.Text;
+            if (IduList.SelectedValue is InterfaceDemonstrationUnit idu && NorFile.Nvs.Idu != idu)
+                NorFile.Nvs.Idu = idu;
         }
 
         private void SaveNewNorFile()
