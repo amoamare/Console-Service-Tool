@@ -5,7 +5,6 @@ using ConsoleServiceTool.Models;
 using ConsoleServiceTool.Utils;
 using Microsoft.VisualStudio.Threading;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
@@ -48,10 +47,19 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             else
             {
                 Log.AppendLine("[+] Please connect your Playstation 5 to UART do not power up the console.", WarningStatus.Information);
-                Log.AppendLine("UART Test Point References");
-                Log.Append($"EDM 10: See Image Reference ");               
-                Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/ConsoleServiceTool/master/Resources/UARTLocations/PlayStation5/EDM10UART.jpg");
+                PrintUartRefrences();   
             }
+        }
+
+        private void PrintUartRefrences()
+        {
+            Log.AppendLine("UART Test Point References");
+            Log.Append("EDM-010: See Image Reference ");
+            Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/ConsoleServiceTool/master/Resources/UARTLocations/PlayStation5/EDM10UART.jpg");
+            Log.Append("EDM-033: See Image Reference ");
+            Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/ConsoleServiceTool/master/Resources/UARTLocations/PlayStation5/EDM10UART.jpg");
+
+
         }
 
         private void ComboBoxOperationType_SelectedValueChanged(object? sender, EventArgs e)

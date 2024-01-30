@@ -31,19 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            TabControlPS5Uart = new TabControl();
+            TabControlPlayStation5 = new TabControl();
             TabPagePS5Nor = new TabPage();
             TabPagePS5Uart = new TabPage();
             tabPage2 = new TabPage();
+            tabPage3 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
-            TabControlPS5Uart.SuspendLayout();
+            TabControlPlayStation5.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Margin = new Padding(3, 2, 3, 2);
@@ -54,7 +56,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(TabControlPS5Uart);
+            tabPage1.Controls.Add(TabControlPlayStation5);
             tabPage1.Location = new Point(4, 24);
             tabPage1.Margin = new Padding(3, 2, 3, 2);
             tabPage1.Name = "tabPage1";
@@ -64,17 +66,17 @@
             tabPage1.Text = "Playstation 5";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // TabControlPS5Uart
+            // TabControlPlayStation5
             // 
-            TabControlPS5Uart.Controls.Add(TabPagePS5Nor);
-            TabControlPS5Uart.Controls.Add(TabPagePS5Uart);
-            TabControlPS5Uart.Dock = DockStyle.Fill;
-            TabControlPS5Uart.Location = new Point(3, 2);
-            TabControlPS5Uart.Margin = new Padding(3, 2, 3, 2);
-            TabControlPS5Uart.Name = "TabControlPS5Uart";
-            TabControlPS5Uart.SelectedIndex = 0;
-            TabControlPS5Uart.Size = new Size(903, 510);
-            TabControlPS5Uart.TabIndex = 0;
+            TabControlPlayStation5.Controls.Add(TabPagePS5Nor);
+            TabControlPlayStation5.Controls.Add(TabPagePS5Uart);
+            TabControlPlayStation5.Dock = DockStyle.Fill;
+            TabControlPlayStation5.Location = new Point(3, 2);
+            TabControlPlayStation5.Margin = new Padding(3, 2, 3, 2);
+            TabControlPlayStation5.Name = "TabControlPlayStation5";
+            TabControlPlayStation5.SelectedIndex = 0;
+            TabControlPlayStation5.Size = new Size(903, 510);
+            TabControlPlayStation5.TabIndex = 0;
             // 
             // TabPagePS5Nor
             // 
@@ -84,7 +86,7 @@
             TabPagePS5Nor.Padding = new Padding(3, 2, 3, 2);
             TabPagePS5Nor.Size = new Size(895, 482);
             TabPagePS5Nor.TabIndex = 0;
-            TabPagePS5Nor.Text = "NOR Tools";
+            TabPagePS5Nor.Text = "NOR Patching";
             TabPagePS5Nor.UseVisualStyleBackColor = true;
             // 
             // TabPagePS5Uart
@@ -95,7 +97,7 @@
             TabPagePS5Uart.Padding = new Padding(3, 2, 3, 2);
             TabPagePS5Uart.Size = new Size(895, 482);
             TabPagePS5Uart.TabIndex = 1;
-            TabPagePS5Uart.Text = "UART Tools";
+            TabPagePS5Uart.Text = "UART Reader";
             TabPagePS5Uart.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -108,6 +110,16 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Playstation 4";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(909, 514);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "NOR Read/Write";
+            tabPage3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -123,7 +135,7 @@
             Load += Form1_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            TabControlPS5Uart.ResumeLayout(false);
+            TabControlPlayStation5.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -131,9 +143,10 @@
 
         private TabControl tabControl1;
         private TabPage tabPage1;
-        private TabControl TabControlPS5Uart;
+        private TabControl TabControlPlayStation5;
         private TabPage TabPagePS5Nor;
         private TabPage TabPagePS5Uart;
         private TabPage tabPage2;
+        private TabPage tabPage3;
     }
 }
