@@ -68,3 +68,8 @@ BwE - PS5 Nor Tools - https://github.com/BetterWayElectronics/ps5-nor-tool
 Andy_maN - https://github.com/andy-man/ps5-wee-tools
 
 RustyRaindeer - https://github.com/RustyRaindeer for added functionality and given me some ideas. 
+
+
+UART Images Provided
+User: stetofix (https://gbatemp.net/members/stetofix.670642/)
+https://gbatemp.net/threads/ps5-uart-commands.642741/page-3
