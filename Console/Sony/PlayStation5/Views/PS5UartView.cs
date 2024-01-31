@@ -54,11 +54,9 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         private void PrintUartRefrences()
         {
             Log.AppendLine("UART Test Point References");
-            Log.Append("EDM-010: See Image Reference ");
-           // Log.AppendLine("https://www.google.com");
-           // Log.AppendLine("https://utah.repair");
+            Log.Append("EDM-010/EDM-020: See Image Reference ");
             Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/Console-Service-Tool/master/Resources/UARTLocations/PlayStation5/EDM10UART.jpg");
-            Log.Append("EDM-033: See Image Reference ");
+            Log.Append("EDM-03x: See Image Reference ");
              Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/Console-Service-Tool/master/Resources/UARTLocations/PlayStation5/EDM003UART.jpg");
 
 
@@ -751,7 +749,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 
         private FileInfo CreateNewLogFile()
         {
-            var dateTime = DateTime.Now.ToString("yyyyMMddhhmmss");
+            var dateTime = DateTime.Now.ToString("yyyy_MM_dd__HH_mm_ss");
             return new FileInfo($"{LogsDirectory}\\cst_{dateTime}.txt");
         }
     }

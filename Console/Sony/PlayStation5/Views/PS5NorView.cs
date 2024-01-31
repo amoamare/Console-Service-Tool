@@ -178,6 +178,16 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             try
             {
                 ButtonSave.Enabled = false;
+                //var wifiSplit = WifiMacEdit.Text.ToUpperInvariant().TrimAllWithInplaceCharArray().Split('\\');
+                //if (wifiSplit.Length != 3)
+                //{
+                //    //70662A2ED856 
+                //    MessageBox.Show(@$"Must contain 3 valid MAC Address seperated by \{Environment.NewLine}" +
+                //                    @$"MAC Address must contain 12 valid hex chars 0-9A-F.{Environment.NewLine}" +
+                //                    $@"Example: 70662A2ED856\70662A2ED856\70662A2ED856", "Invalid MAC Address Format", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //    return;
+                //}
+
                 UpdateChangedNorValues();
                 SaveNewNorFile();
             }
@@ -190,6 +200,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         private void UpdateChangedNorValues()
         {
             if (NorFile == default) return; //nothing to do.
+
             if (SerialNumberEdit.Modified)
                 NorFile.Nvs.Serial = SerialNumberEdit.Text;
             if (MotherboardSerialEdit.Modified)
@@ -202,13 +213,16 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 NorFile.Nvs.MacAddress = MacEdit.Text;
             if (IduList.SelectedValue is InterfaceDemonstrationUnit idu && NorFile.Nvs.Idu != idu)
                 NorFile.Nvs.Idu = idu;
+
+
+            
         }
 
         private void SaveNewNorFile()
         {
             if (NorFile == default || FileInfo == default) return; //nothing to do.
             var fileName = Path.GetFileNameWithoutExtension(FileInfo.FullName);
-            fileName += @$"_patched_{DateTime.Now:yyyy_MM_d__HH_mm_ss}.bin";
+            fileName += @$"_patched_{DateTime.Now:yyyy_MM_dd__HH_mm_ss}.bin";
             var newFilePath = $"{Path.GetDirectoryName(FileInfo.FullName)}\\{fileName}";
             if (string.IsNullOrEmpty(newFilePath)) return;
             using var stream = new FileStream(newFilePath, FileMode.CreateNew, FileAccess.Write);
