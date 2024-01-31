@@ -22,6 +22,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         private DirectoryInfo LogsDirectory = new ($"{AppDomain.CurrentDomain.BaseDirectory}logs");
         private PS5ErrorCodeList? errorCodeList;
         private CancellationTokenSource? cancellationTokenSource;
+        private readonly Uri OnlineResourcesUrl = new ("https://raw.githubusercontent.com/amoamare/Console-Service-Tool/master/Resources/");
 
         #region Form Initialize, Load & Populate Data
 
@@ -52,13 +53,12 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         }
 
         private void PrintUartRefrences()
-        {
+        {           
             Log.AppendLine("UART Test Point References");
             Log.Append("EDM-010/EDM-020: See Image Reference ");
-            Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/Console-Service-Tool/master/Resources/UARTLocations/PlayStation5/EDM_010_020_UART.jpg");
+            Log.InsertFriendlyNameHyperLink("Here", $"{OnlineResourcesUrl}UARTLocations/PlayStation5/EDM_010_020_UART.png");
             Log.Append("EDM-03x: See Image Reference ");
-             Log.InsertFriendlyNameHyperLink("Here", "https://raw.githubusercontent.com/amoamare/Console-Service-Tool/master/Resources/UARTLocations/PlayStation5/EDM_03x_UART.jpg");
-
+            Log.InsertFriendlyNameHyperLink("Here", $"{OnlineResourcesUrl}UARTLocations/PlayStation5/EDM_03x_UART.jpg");
 
         }
 
