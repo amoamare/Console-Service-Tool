@@ -33,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\UARTLocations\PlayStation5\" />
     <Folder Include="Views\" />
   </ItemGroup>
 
