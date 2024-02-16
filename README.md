@@ -41,11 +41,6 @@ Example showing both line response and hightlighting severe errors.
 Example of a reference image for error code. 
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/d9863882-3615-4b21-99c1-c32cb557cbad)
 
-
-## License
-
-
-
 ## FAQ
 
 #### Q: Can I used this tool to read UART codes from a PS5?
@@ -83,9 +78,7 @@ F5402 - Disk Drive, No UART errors displayed. - console still boots normally.
 F7502 - Storage Controller - Following codes will display.
 
     1. 80810001
-
     2. C0160203
-
     3. C0160303 
 
 F7003 - No UART errors when pulled - console still boots normally. 
@@ -115,15 +108,20 @@ Check things related to powering on the console. Enable pins etc.
 
 If you have to have support and updated codes right away. Free software isn't the answer for you. This software only reads the code much like a OBDII reader for your car. The codes this software has come from the https://www.psdevwiki.com/ps5/history/Southbridge_Error_Codes and private Pastebin dumps. Its up to the community to add/update or remove code information. The Console itself displays the error code. Its up to the end users to figure out what that means and update the list. If you cannot wait for the community then check out BwE's or Andy_maN's software which is paid software with support.
 
-BwE - PS5 Code Reader - https://github.com/BetterWayElectronics/ps5-code-reader
+BwE - PS5 Code Reader - [GitHub](https://github.com/BetterWayElectronics/ps5-code-reader)
 
-BwE - PS5 Nor Tools - https://github.com/BetterWayElectronics/ps5-nor-tool
+BwE - PS5 Nor Tools - [GitHub](https://github.com/BetterWayElectronics/ps5-nor-tool)
 
-Andy_maN - https://github.com/andy-man/ps5-wee-tools
+Andy_maN - [GitHub](https://github.com/andy-man/ps5-wee-tools)
 
-RustyRaindeer - https://github.com/RustyRaindeer for added functionality and given me some ideas. 
+## Contributors
+### People who provided information, value feedback, support or where information was gathered from.
 
+RustyRaindeer - [GitHub](https://github.com/RustyRaindeer) - for added functionality and given me some ideas. 
 
 UART Images Provided
-User: stetofix (https://gbatemp.net/members/stetofix.670642/)
-https://gbatemp.net/threads/ps5-uart-commands.642741/page-3
+User: [stetofix](https://gbatemp.net/members/stetofix.670642/) [Images](https://gbatemp.net/threads/ps5-uart-commands.642741/page-3)
+
+GsmHack4you
+dan2wik
+SterHawk
