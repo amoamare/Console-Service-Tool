@@ -61,35 +61,42 @@ A: Long answer, Check Trouble shooting.
 ## Hardware Recommended
 UART Interface 3.3v
 For ease of use recommend the USB to TTL found here: https://www.amazon.com/gp/product/B0B1HYCN34/ref=ppx_yo_dt_b_search_asin_image?ie=UTF8&psc=1
-If you buy a CH341 make sure to get one that has a switch from 5v to 3.3v other wise you will need to mod it for 3.3v. 
+If you buy a CH341 make sure to get one that has a switch from 5v to 3.3v otherwise you will need to mod it for 3.3v. 
 
 
 ## Trouble Shooting
-* Operation Cancelled - this occurs either because of user cancelled the operation or a time out has occured waiting for response from the console. 
-    1. Verify  have a TTL, CH341 or other similar device that runs at 3.3v important! and that the correct drivers have been installed. If drivers have been installed make sure they are not pending a restart. If you are unsure. Restart your computer. 
-    2. Go to device manager -> start devmgmt. Check under Serial ports and verify that a serial port is listed. Unplug your TTL/CH341 and see if it disapears. If it does. Replug the device in and check what COMPORT it is assinged to. 
+* Operation Cancelled - this occurs either because of user cancelled the operation or a time out has occurred waiting for response from the console. 
+    1. Verify have a TTL, CH341 or other similar device that runs at 3.3v important! and that the correct drivers have been installed. If drivers have been installed, make sure they are not pending a restart. If you are unsure. Restart your computer. 
+    2. Go to device manager -> start devmgmt. Check under Serial ports and verify that a serial port is listed. Unplug your TTL/CH341 and see if it disappears. If it does. Replug the device in and check what COMPORT it is assigned to. 
     3. Check that your TX,RX and GND are securely connected to your console.
-    4. Check that the console is plugged into a powered wall outlet. The ps5 does not need to be powered on but does need to have powere supplied to it. 
+    4. Check that the console is plugged into a powered wall outlet. The ps5 does not need to be powered on but does need to have powered supplied to it. 
     5. Click read codes. If you still get Operation Cancelled. Try swapping your TX and RX wires.
     6. Check fuse F7003 if blown UART will not respond.
     7. Check NOR - Bad or Currupted NOR will prevent UART.
-    8. Still getting Operation Canclled. Switch the software to "Monitor" mode and connect. This mode will listen for anything the PS5 will say. Unplug the PS5 and wait 5 secs. Reconnect power to the PS5 and check that the PS5 has given signal to the software. If you still do not see anything from the PS5 and you swapped your TX and RX try swapping them back and repeat the steps. If still no response from the console. Try a known good console to rule out a hardware / software issue. If that works. Your console that did not respond has a dead southbridge.
+    8. Still getting Operation Cancelled. Switch the software to "Monitor" mode and connect. This mode will listen for anything the PS5 will say. Unplug the PS5 and wait 5 secs. Reconnect power to the PS5 and check that the PS5 has given signal to the software. If you still do not see anything from the PS5 and you swapped your TX and RX try swapping them back and repeat the steps. If still no response from the console. Try a known good console to rule out a hardware / software issue. If that works. Your console that did not respond has a dead southbridge.
 
 ## Fuse Information and Information (EDM-002)
 F5401 - No UART errors when pulled - console still boots normally.
+
 F5402 - Disk Drive, No UART errors displayed. - console still boots normally.
-F7502 - Storage Controller - Following codes will display
+
+F7502 - Storage Controller - Following codes will display.
+
     1. 80810001
+
     2. C0160203
+
     3. C0160303 
 
 F7003 - No UART errors when pulled - console still boots normally. 
+
 F7501 - External M.2 Storage No UART errors displayed. If no M.2 storage detected Check Fuse and 3.3v regulator.
+
 F3502 - Pending - No UART errors displayed.
 
 NOR - Bad / Currupted / Missing - No UART response. 3 quick beeps off.
 
-Fuses can have continunity but fail under load. Simply checking continunity doesn't guaranteed fuse is good.
+Fuses can have continuity but fail under load. Simply checking continuity doesn't guaranteed fuse is good.
 
 
 ## Some tips while using UART
@@ -106,7 +113,7 @@ Check things related to powering on the console. Enable pins etc.
 
 ## Support
 
-If you have to have support and updated codes right away. Free software isn't the answer for you. This software only reads the code much like a OBDII reader for your car. The codes this software has came from the https://www.psdevwiki.com/ps5/history/Southbridge_Error_Codes and private pastebin dumps. Its up to the community to add/update or remove code information. The Console itself displays the error code. Its up to the end users to figure out what that means and update the list. If you can not wait for the community then check out BwE's or Andy_maN's software which is paid software with support.
+If you have to have support and updated codes right away. Free software isn't the answer for you. This software only reads the code much like a OBDII reader for your car. The codes this software has come from the https://www.psdevwiki.com/ps5/history/Southbridge_Error_Codes and private Pastebin dumps. Its up to the community to add/update or remove code information. The Console itself displays the error code. Its up to the end users to figure out what that means and update the list. If you cannot wait for the community then check out BwE's or Andy_maN's software which is paid software with support.
 
 BwE - PS5 Code Reader - https://github.com/BetterWayElectronics/ps5-code-reader
 
