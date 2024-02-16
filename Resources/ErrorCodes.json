@@ -1,5 +1,5 @@
 {
-  "Revision": "1.0.1.4",
+  "Revision": "1.0.1.5",
   "Description": "Updated some code descriptions. Added Possible Solutions TBD",
   "PlayStation5": {
     "ErrorCodes": [
@@ -1757,9 +1757,9 @@
       },
       {
         "ID": "808300F1",
-        "Message": "Known Unknown - Possible related to TPM",
+        "Message": "Known Unknown - Possible related to Secure Loader Error (Southbridge, APU, SSD)",
         "Status": 0,
-        "Priority": 3
+        "Priority": 2
       },
       {
         "ID": "80870003",

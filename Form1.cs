@@ -1,7 +1,7 @@
 ﻿using ConsoleServiceTool.Console.Sony.PlayStation5.Views;
+using Squirrel;
+using System.Diagnostics;
 using System.Reflection;
-using System.Runtime.ExceptionServices;
-using System.Security;
 
 namespace ConsoleServiceTool
 {
@@ -16,10 +16,30 @@ namespace ConsoleServiceTool
         }
 
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
             Text = $"{Text} - {Assembly.GetExecutingAssembly().GetName().Version}";
             LoadViews();
+            try
+            {
+                await CheckForUpdatesAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
+        private static async Task CheckForUpdatesAsync()
+        {
+            Uri updatePath;
+#if DEBUG
+            updatePath = new Uri("");
+#else
+            updatePath = "";
+#endif
+            using var mgr = new UpdateManager(updatePath.AbsolutePath);
+            await mgr.UpdateApp();
         }
 
         private void LoadViews()
