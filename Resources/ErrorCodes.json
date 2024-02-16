@@ -1,14 +1,13 @@
 {
-  "Revision": "1.0.1.2",
-  "Description": "Added back some missing codes, Removed junk codes, changed location for CST. Updated some descriptions.",
+  "Revision": "1.0.1.3",
+  "Description": "Updated some code descriptions. Added Possible Solutions TBD",
   "PlayStation5": {
     "ErrorCodes": [
       {
         "ID": "00100E3C",
         "Message": "Known Unknown 908 - Report Findings",
         "Status": 0,
-        "Priority": 3,
-		"ReferenceImage": "https://raw.githubusercontent.com/amoamare/ConsoleServiceTool/master/Resources/UARTLocations/PlayStation5/EDM10UART.jpg"
+        "Priority": 3
       },
       {
         "ID": "0015442C",
@@ -30,7 +29,7 @@
       },
       {
         "ID": "80000009",
-        "Message": "Unexpected Power Cut or Shutdown Failure",
+        "Message": "Unexpected Power Loss or Shutdown Failure",
         "Status": 0,
         "Priority": 0
       },
@@ -42,9 +41,9 @@
       },
       {
         "ID": "80050000",
-        "Message": "APU VRM (2 Phases) Power Fail",
-        "Status": 0,
-        "Priority": 0
+        "Message": "APU VRM (2 Phases) Power Fail, Check Infineon XDPE14286A 16 Phase PWM Controller - Single Beep, 1 Second Blue Light, 8.6mA draw power on.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80050020",
@@ -60,9 +59,9 @@
       },
       {
         "ID": "80060000",
-        "Message": "APU VRM (6 Phases) Power Fail",
-        "Status": 0,
-        "Priority": 0
+        "Message": "APU VRM (6 Phases) Power Fail, Check Infineon XDPE14286A 16 Phase PWM Controller",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80060020",
@@ -108,9 +107,9 @@
       },
       {
         "ID": "80800022",
-        "Message": "Known Unknown 412 (Power or Short) - Report Findings",
-        "Status": 0,
-        "Priority": 0
+        "Message": "No/Bad Communication Between APU -> RAM - APU Initilized - Replace All/Some RAM",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80800023",
@@ -132,1533 +131,1533 @@
       },
       {
         "ID": "80801101",
-        "Message": "RAM GDDR6 1 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801102",
-        "Message": "RAM GDDR6 2 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801103",
-        "Message": "RAM GDDR6 1 2 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801104",
-        "Message": "RAM GDDR6 3 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801105",
-        "Message": "RAM GDDR6 1 3 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801106",
-        "Message": "RAM GDDR6 2 3 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801107",
-        "Message": "RAM GDDR6 1 2 3 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801108",
-        "Message": "RAM GDDR6 4 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801109",
-        "Message": "RAM GDDR6 1 4 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080110A",
-        "Message": "RAM GDDR6 2 4 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080110B",
-        "Message": "RAM GDDR6 1 2 4 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080110C",
-        "Message": "RAM GDDR6 3 4 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080110D",
-        "Message": "RAM GDDR6 1 3 4 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080110E",
-        "Message": "RAM GDDR6 2 3 4 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080110F",
-        "Message": "RAM GDDR6 1 2 3 4 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801110",
-        "Message": "RAM GDDR6 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801111",
-        "Message": "RAM GDDR6 1 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801112",
-        "Message": "RAM GDDR6 2 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801113",
-        "Message": "RAM GDDR6 1 2 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801114",
-        "Message": "RAM GDDR6 3 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801115",
-        "Message": "RAM GDDR6 1 3 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801116",
-        "Message": "RAM GDDR6 2 3 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801117",
-        "Message": "RAM GDDR6 1 2 3 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801118",
-        "Message": "RAM GDDR6 4 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801119",
-        "Message": "RAM GDDR6 1 4 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080111A",
-        "Message": "RAM GDDR6 2 4 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080111B",
-        "Message": "RAM GDDR6 1 2 4 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080111C",
-        "Message": "RAM GDDR6 3 4 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080111D",
-        "Message": "RAM GDDR6 1 3 4 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080111E",
-        "Message": "RAM GDDR6 2 3 4 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080111F",
-        "Message": "RAM GDDR6 1 2 3 4 5 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,5) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801120",
-        "Message": "RAM GDDR6 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801121",
-        "Message": "RAM GDDR6 1 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801122",
-        "Message": "RAM GDDR6 2 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801123",
-        "Message": "RAM GDDR6 1 2 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801124",
-        "Message": "RAM GDDR6 3 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801125",
-        "Message": "RAM GDDR6 1 3 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801126",
-        "Message": "RAM GDDR6 2 3 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801127",
-        "Message": "RAM GDDR6 1 2 3 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801128",
-        "Message": "RAM GDDR6 4 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801129",
-        "Message": "RAM GDDR6 1 4 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080112A",
-        "Message": "RAM GDDR6 2 4 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080112B",
-        "Message": "RAM GDDR6 1 2 4 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080112C",
-        "Message": "RAM GDDR6 3 4 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080112D",
-        "Message": "RAM GDDR6 1 3 4 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080112E",
-        "Message": "RAM GDDR6 2 3 4 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080112F",
-        "Message": "RAM GDDR6 1 2 3 4 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801130",
-        "Message": "RAM GDDR6 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801131",
-        "Message": "RAM GDDR6 1 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801132",
-        "Message": "RAM GDDR6 2 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801133",
-        "Message": "RAM GDDR6 1 2 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801134",
-        "Message": "RAM GDDR6 3 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801135",
-        "Message": "RAM GDDR6 1 3 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801136",
-        "Message": "RAM GDDR6 2 3 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801137",
-        "Message": "RAM GDDR6 1 2 3 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801138",
-        "Message": "RAM GDDR6 4 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801139",
-        "Message": "RAM GDDR6 1 4 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080113A",
-        "Message": "RAM GDDR6 2 4 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080113B",
-        "Message": "RAM GDDR6 1 2 4 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080113C",
-        "Message": "RAM GDDR6 3 4 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080113D",
-        "Message": "RAM GDDR6 1 3 4 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080113E",
-        "Message": "RAM GDDR6 2 3 4 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080113F",
-        "Message": "RAM GDDR6 1 2 3 4 5 6 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,5,6) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801140",
-        "Message": "RAM GDDR6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801141",
-        "Message": "RAM GDDR6 1 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801142",
-        "Message": "RAM GDDR6 2 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801143",
-        "Message": "RAM GDDR6 1 2 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801144",
-        "Message": "RAM GDDR6 3 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801145",
-        "Message": "RAM GDDR6 1 3 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801146",
-        "Message": "RAM GDDR6 2 3 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801147",
-        "Message": "RAM GDDR6 1 2 3 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801148",
-        "Message": "RAM GDDR6 4 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801149",
-        "Message": "RAM GDDR6 1 4 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080114A",
-        "Message": "RAM GDDR6 2 4 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080114B",
-        "Message": "RAM GDDR6 1 2 4 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080114C",
-        "Message": "RAM GDDR6 3 4 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080114D",
-        "Message": "RAM GDDR6 1 3 4 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080114E",
-        "Message": "RAM GDDR6 2 3 4 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080114F",
-        "Message": "RAM GDDR6 1 2 3 4 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801150",
-        "Message": "RAM GDDR6 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801151",
-        "Message": "RAM GDDR6 1 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801152",
-        "Message": "RAM GDDR6 2 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801153",
-        "Message": "RAM GDDR6 1 2 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801154",
-        "Message": "RAM GDDR6 3 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801155",
-        "Message": "RAM GDDR6 1 3 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801156",
-        "Message": "RAM GDDR6 2 3 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801157",
-        "Message": "RAM GDDR6 1 2 3 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801158",
-        "Message": "RAM GDDR6 4 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801159",
-        "Message": "RAM GDDR6 1 4 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080115A",
-        "Message": "RAM GDDR6 2 4 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080115B",
-        "Message": "RAM GDDR6 1 2 4 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080115C",
-        "Message": "RAM GDDR6 3 4 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080115D",
-        "Message": "RAM GDDR6 1 3 4 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080115E",
-        "Message": "RAM GDDR6 2 3 4 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080115F",
-        "Message": "RAM GDDR6 1 2 3 4 5 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,5,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801160",
-        "Message": "RAM GDDR6 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801161",
-        "Message": "RAM GDDR6 1 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801162",
-        "Message": "RAM GDDR6 2 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801163",
-        "Message": "RAM GDDR6 1 2 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801164",
-        "Message": "RAM GDDR6 3 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801165",
-        "Message": "RAM GDDR6 1 3 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801166",
-        "Message": "RAM GDDR6 2 3 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801167",
-        "Message": "RAM GDDR6 1 2 3 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801168",
-        "Message": "RAM GDDR6 4 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801169",
-        "Message": "RAM GDDR6 1 4 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080116A",
-        "Message": "RAM GDDR6 2 4 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080116B",
-        "Message": "RAM GDDR6 1 2 4 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080116C",
-        "Message": "RAM GDDR6 3 4 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080116D",
-        "Message": "RAM GDDR6 1 3 4 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080116E",
-        "Message": "RAM GDDR6 2 3 4 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080116F",
-        "Message": "RAM GDDR6 1 2 3 4 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801170",
-        "Message": "RAM GDDR6 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801171",
-        "Message": "RAM GDDR6 1 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801172",
-        "Message": "RAM GDDR6 2 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801173",
-        "Message": "RAM GDDR6 1 2 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801174",
-        "Message": "RAM GDDR6 3 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801175",
-        "Message": "RAM GDDR6 1 3 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801176",
-        "Message": "RAM GDDR6 2 3 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801177",
-        "Message": "RAM GDDR6 1 2 3 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801178",
-        "Message": "RAM GDDR6 4 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801179",
-        "Message": "RAM GDDR6 1 4 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080117A",
-        "Message": "RAM GDDR6 2 4 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080117B",
-        "Message": "RAM GDDR6 1 2 4 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080117C",
-        "Message": "RAM GDDR6 3 4 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080117D",
-        "Message": "RAM GDDR6 1 3 4 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080117E",
-        "Message": "RAM GDDR6 2 3 4 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080117F",
-        "Message": "RAM GDDR6 1 2 3 4 5 6 7 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,5,6,7) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801180",
-        "Message": "RAM GDDR6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801181",
-        "Message": "RAM GDDR6 1 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801182",
-        "Message": "RAM GDDR6 2 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801183",
-        "Message": "RAM GDDR6 1 2 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801184",
-        "Message": "RAM GDDR6 3 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801185",
-        "Message": "RAM GDDR6 1 3 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801186",
-        "Message": "RAM GDDR6 2 3 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801187",
-        "Message": "RAM GDDR6 1 2 3 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801188",
-        "Message": "RAM GDDR6 4 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801189",
-        "Message": "RAM GDDR6 1 4 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080118A",
-        "Message": "RAM GDDR6 2 4 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080118B",
-        "Message": "RAM GDDR6 1 2 4 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080118C",
-        "Message": "RAM GDDR6 3 4 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080118D",
-        "Message": "RAM GDDR6 1 3 4 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080118E",
-        "Message": "RAM GDDR6 2 3 4 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080118F",
-        "Message": "RAM GDDR6 1 2 3 4 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801190",
-        "Message": "RAM GDDR6 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801191",
-        "Message": "RAM GDDR6 1 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801192",
-        "Message": "RAM GDDR6 2 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801193",
-        "Message": "RAM GDDR6 1 2 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801194",
-        "Message": "RAM GDDR6 3 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801195",
-        "Message": "RAM GDDR6 1 3 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801196",
-        "Message": "RAM GDDR6 2 3 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801197",
-        "Message": "RAM GDDR6 1 2 3 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801198",
-        "Message": "RAM GDDR6 4 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801199",
-        "Message": "RAM GDDR6 1 4 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080119A",
-        "Message": "RAM GDDR6 2 4 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080119B",
-        "Message": "RAM GDDR6 1 2 4 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080119C",
-        "Message": "RAM GDDR6 3 4 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080119D",
-        "Message": "RAM GDDR6 1 3 4 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080119E",
-        "Message": "RAM GDDR6 2 3 4 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8080119F",
-        "Message": "RAM GDDR6 1 2 3 4 5 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,5,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011A0",
-        "Message": "RAM GDDR6 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011A1",
-        "Message": "RAM GDDR6 1 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011A2",
-        "Message": "RAM GDDR6 2 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011A3",
-        "Message": "RAM GDDR6 1 2 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011A4",
-        "Message": "RAM GDDR6 3 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011A5",
-        "Message": "RAM GDDR6 1 3 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011A6",
-        "Message": "RAM GDDR6 2 3 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011A7",
-        "Message": "RAM GDDR6 1 2 3 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011A8",
-        "Message": "RAM GDDR6 4 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011A9",
-        "Message": "RAM GDDR6 1 4 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011AA",
-        "Message": "RAM GDDR6 2 4 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011AB",
-        "Message": "RAM GDDR6 1 2 4 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011AC",
-        "Message": "RAM GDDR6 3 4 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011AD",
-        "Message": "RAM GDDR6 1 3 4 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011AE",
-        "Message": "RAM GDDR6 2 3 4 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011AF",
-        "Message": "RAM GDDR6 1 2 3 4 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011B0",
-        "Message": "RAM GDDR6 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011B1",
-        "Message": "RAM GDDR6 1 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011B2",
-        "Message": "RAM GDDR6 2 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011B3",
-        "Message": "RAM GDDR6 1 2 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011B4",
-        "Message": "RAM GDDR6 3 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011B5",
-        "Message": "RAM GDDR6 1 3 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011B6",
-        "Message": "RAM GDDR6 2 3 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011B7",
-        "Message": "RAM GDDR6 1 2 3 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011B8",
-        "Message": "RAM GDDR6 4 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011B9",
-        "Message": "RAM GDDR6 1 4 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011BA",
-        "Message": "RAM GDDR6 2 4 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011BB",
-        "Message": "RAM GDDR6 1 2 4 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011BC",
-        "Message": "RAM GDDR6 3 4 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011BD",
-        "Message": "RAM GDDR6 1 3 4 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011BE",
-        "Message": "RAM GDDR6 2 3 4 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011BF",
-        "Message": "RAM GDDR6 1 2 3 4 5 6 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,5,6,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011C0",
-        "Message": "RAM GDDR6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011C1",
-        "Message": "RAM GDDR6 1 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011C2",
-        "Message": "RAM GDDR6 2 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011C3",
-        "Message": "RAM GDDR6 1 2 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011C4",
-        "Message": "RAM GDDR6 3 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011C5",
-        "Message": "RAM GDDR6 1 3 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011C6",
-        "Message": "RAM GDDR6 2 3 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011C7",
-        "Message": "RAM GDDR6 1 2 3 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011C8",
-        "Message": "RAM GDDR6 4 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011C9",
-        "Message": "RAM GDDR6 1 4 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011CA",
-        "Message": "RAM GDDR6 2 4 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011CB",
-        "Message": "RAM GDDR6 1 2 4 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011CC",
-        "Message": "RAM GDDR6 3 4 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011CD",
-        "Message": "RAM GDDR6 1 3 4 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011CE",
-        "Message": "RAM GDDR6 2 3 4 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011CF",
-        "Message": "RAM GDDR6 1 2 3 4 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011D0",
-        "Message": "RAM GDDR6 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011D1",
-        "Message": "RAM GDDR6 1 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011D2",
-        "Message": "RAM GDDR6 2 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011D3",
-        "Message": "RAM GDDR6 1 2 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011D4",
-        "Message": "RAM GDDR6 3 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011D5",
-        "Message": "RAM GDDR6 1 3 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011D6",
-        "Message": "RAM GDDR6 2 3 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011D7",
-        "Message": "RAM GDDR6 1 2 3 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011D8",
-        "Message": "RAM GDDR6 4 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011D9",
-        "Message": "RAM GDDR6 1 4 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011DA",
-        "Message": "RAM GDDR6 2 4 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011DB",
-        "Message": "RAM GDDR6 1 2 4 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011DC",
-        "Message": "RAM GDDR6 3 4 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011DD",
-        "Message": "RAM GDDR6 1 3 4 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011DE",
-        "Message": "RAM GDDR6 2 3 4 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011DF",
-        "Message": "RAM GDDR6 1 2 3 4 5 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,5,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011E0",
-        "Message": "RAM GDDR6 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011E1",
-        "Message": "RAM GDDR6 1 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011E2",
-        "Message": "RAM GDDR6 2 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011E3",
-        "Message": "RAM GDDR6 1 2 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011E4",
-        "Message": "RAM GDDR6 3 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011E5",
-        "Message": "RAM GDDR6 1 3 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011E6",
-        "Message": "RAM GDDR6 2 3 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011E7",
-        "Message": "RAM GDDR6 1 2 3 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011E8",
-        "Message": "RAM GDDR6 4 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011E9",
-        "Message": "RAM GDDR6 1 4 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011EA",
-        "Message": "RAM GDDR6 2 4 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011EB",
-        "Message": "RAM GDDR6 1 2 4 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011EC",
-        "Message": "RAM GDDR6 3 4 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011ED",
-        "Message": "RAM GDDR6 1 3 4 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011EE",
-        "Message": "RAM GDDR6 2 3 4 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011EF",
-        "Message": "RAM GDDR6 1 2 3 4 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011F0",
-        "Message": "RAM GDDR6 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011F1",
-        "Message": "RAM GDDR6 1 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011F2",
-        "Message": "RAM GDDR6 2 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011F3",
-        "Message": "RAM GDDR6 1 2 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011F4",
-        "Message": "RAM GDDR6 3 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011F5",
-        "Message": "RAM GDDR6 1 3 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011F6",
-        "Message": "RAM GDDR6 2 3 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011F7",
-        "Message": "RAM GDDR6 1 2 3 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011F8",
-        "Message": "RAM GDDR6 4 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 4,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011F9",
-        "Message": "RAM GDDR6 1 4 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,4,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011FA",
-        "Message": "RAM GDDR6 2 4 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,4,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011FB",
-        "Message": "RAM GDDR6 1 2 4 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,4,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011FC",
-        "Message": "RAM GDDR6 3 4 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 3,4,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011FD",
-        "Message": "RAM GDDR6 1 3 4 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,3,4,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011FE",
-        "Message": "RAM GDDR6 2 3 4 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 2,3,4,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808011FF",
-        "Message": "RAM GDDR6 1 2 3 4 5 6 7 8 defect (replace)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80801510",
@@ -1728,9 +1727,9 @@
       },
       {
         "ID": "80810001",
-        "Message": "General Power Failure (Periphery, GDDR6, APU, Data Line Short)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "General Power Failure (Peripheral, GDDR6, APU, Data Line Short)",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "8081001A",
@@ -1758,7 +1757,7 @@
       },
       {
         "ID": "80870003",
-        "Message": "Post Secure Loader Error",
+        "Message": "Post Secure Loader Error - F7001 - (No beep, no light)",
         "Status": 0,
         "Priority": 0
       },
@@ -1805,6 +1804,12 @@
         "Priority": 0
       },
       {
+        "ID": "808940AE",
+        "Message": "NOR Modification Error.",
+        "Status": 3,
+        "Priority": 3
+      },
+      {
         "ID": "808B0000",
         "Message": "Known Unknown 474 (Power or Short) - Report Findings",
         "Status": 0,
@@ -1812,9 +1817,9 @@
       },
       {
         "ID": "808B0027",
-        "Message": "Power Short 5V Line (F7002)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "Power Short 5V Line (F7002) - Single Beep, No LED.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "808B0098",
@@ -1939,7 +1944,7 @@
       {
         "ID": "80C00140",
         "Message": "APU Halt (No Response) - Forced Power Off Via Power Button",
-        "Status": 0,
+        "Status": 3,
         "Priority": 0
       },
       {
@@ -2010,9 +2015,9 @@
       },
       {
         "ID": "C00C0002",
-        "Message": "VRM Controller Failure",
-        "Status": 0,
-        "Priority": 0
+        "Message": "VRM Controller Failure, Check Infineon XDPE14286A 16 Phase PWM Controller - Single Beep, 1 second blue light, off.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "C00C0303",
@@ -2022,13 +2027,13 @@
       },
       {
         "ID": "C0160203",
-        "Message": "Known Unknown 203 (HDMI-\u003EAPU) - Report Findings",
+        "Message": "Known Unknown 203 (HDMI-\u003EAPU) - Check Fuse F7502 (Storage Controller)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "C0160303",
-        "Message": "Known Unknown 238 (HDMI-\u003EAPU) - Report Findings",
+        "Message": "Known Unknown 238 (HDMI-\u003EAPU) - Check Fuse F7502 (Storage Controller)",
         "Status": 0,
         "Priority": 0
       },

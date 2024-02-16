@@ -1,5 +1,7 @@
 ﻿using ConsoleServiceTool.Console.Sony.PlayStation5.Views;
 using System.Reflection;
+using System.Runtime.ExceptionServices;
+using System.Security;
 
 namespace ConsoleServiceTool
 {
@@ -12,6 +14,7 @@ namespace ConsoleServiceTool
         {
             InitializeComponent();
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {

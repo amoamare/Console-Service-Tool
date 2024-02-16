@@ -1,6 +1,7 @@
 ﻿using ConsoleServiceTool.Console.Sony.Shared.Models;
 using ConsoleServiceTool.Models;
 using ConsoleServiceTool.Utils;
+using ConsoleServiceTool.Views;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -30,8 +31,9 @@ namespace ConsoleServiceTool.Controls
                 || uriResult.Scheme != Uri.UriSchemeHttp && uriResult.Scheme != Uri.UriSchemeHttps)
             {
                 return;
-            }
-            Process.Start(new ProcessStartInfo { FileName = uriResult.ToString(), UseShellExecute = true });
+            }//
+            using var image = new ImageViewer(uriResult);
+            image.ShowDialog();
         }
 
         public override Color BackColor => Color.White;

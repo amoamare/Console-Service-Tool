@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.Threading;
 using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
 
@@ -16,7 +17,11 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
     {
         private const string OkStr = @"OK";
         private const string NgStr = @"NG";
+#if DEBUG
+        private readonly string FileNameCache = @"../../../Resources/ErrorCodes.json";
+#else
         private readonly string FileNameCache = @"cache.json";
+#endif
         private readonly string StrAuto = @"Auto";
         private readonly string PlayStation5NotFound = @"[-] No Playstation 5 Detected!";
         private DirectoryInfo LogsDirectory = new ($"{AppDomain.CurrentDomain.BaseDirectory}logs");
@@ -58,7 +63,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             Log.Append("EDM-010/EDM-020: See Image Reference ");
             Log.InsertFriendlyNameHyperLink("Here", $"{OnlineResourcesUrl}UARTLocations/PlayStation5/EDM_010_020_UART.png");
             Log.Append("EDM-03x: See Image Reference ");
-            Log.InsertFriendlyNameHyperLink("Here", $"{OnlineResourcesUrl}UARTLocations/PlayStation5/EDM_03x_UART.jpg");
+            Log.InsertFriendlyNameHyperLink("Here", $"{OnlineResourcesUrl}UARTLocations/PlayStation5/EDM_03x_UART.png");
 
         }
 
@@ -274,10 +279,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 ButtonRunOperation.Tag = !value;
                 ComboBoxDevices.Enabled = value;
                 ComboBoxOperationType.Enabled = value;
-
-
                 TextBoxRawCommand.Enabled = !value;
-
                 if (ComboBoxOperationType.SelectedValue is not OperationType type) return;
             }
         }
@@ -458,8 +460,14 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                                 //NG for this command keep going just in case though.
                                 continue;
                             case OkStr:
-                                var errorCode = split[2];
-                                isNoError = string.Equals(errorCode, noErrors, StringComparison.InvariantCultureIgnoreCase);
+                                try
+                                {
+                                    var errorCode = split[2];
+                                    isNoError = string.Equals(errorCode, noErrors, StringComparison.InvariantCultureIgnoreCase);
+                                }catch(Exception ex)
+                                {
+                                    Debug.WriteLine(ex);
+                                }
                                 break;
                         }
                     }
@@ -529,6 +537,10 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 }
             }
             Log.AppendLine("End of errors.");
+            Log.AppendLine("Low: Nothing to concern about first.", Priority.Low);
+            Log.AppendLine("Medium: Everything appears fine.", Priority.Medium);
+            Log.AppendLine("High: Console may boot but freeze or other issues.", Priority.High);
+            Log.AppendLine("Severe: Prevents console from booting.", Priority.Severe);
         }
 
         /// <summary>
@@ -641,7 +653,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         }
 
         private readonly AsyncAutoResetEvent AutoResetEventRawCommand = new(false);
-  
+
         /// <summary>
         /// Run raw command from user. Keeps port open.
         /// </summary>
