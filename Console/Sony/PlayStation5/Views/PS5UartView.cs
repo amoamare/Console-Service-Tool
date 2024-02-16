@@ -693,21 +693,24 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             var errorCode = TextBoxRawCommand.Text.ToUpperInvariant().Trim();
             TextBoxRawCommand.Clear();
             if (string.IsNullOrEmpty(errorCode)) return;
-            var errorLookup = errorCodeList?.PlayStation5?.ErrorCodes.FirstOrDefault(x => x.ID == errorCode);
-            if (errorLookup == default)
+            var errors = errorCodeList?.PlayStation5?.ErrorCodes?.Where(x => x.ID.ToUpperInvariant().StartsWith(errorCode)).ToList();
+            if (errors == default || !errors.Any())
             {
                 Log.AppendLine($"Error Code: {errorCode} - Not found in list.{Environment.NewLine}" +
                     $"If you'd like you can report your findings and we will update our list with more information.", Priority.High);
+                return;
             }
-            else
+            foreach (var code in errors)
             {
                 Log.AppendLine($"Found the following information.{Environment.NewLine}" +
                     $"Source: Internal Database{Environment.NewLine}" +
-                    $"Error Code: {errorLookup.ID}");
+                    $"Error Code: {code.ID}");
                 Log.Append("Priroity Level: ");
-                Log.AppendLine(errorLookup.Priority.ToString(), errorLookup.Priority);
-                Log.AppendLine($"Message: {errorLookup.Message}");
+                Log.AppendLine(code.Priority.ToString(), code.Priority);
+                Log.AppendLine($"Message: {code.Message}");
+                Log.AppendLine(string.Empty);
             }
+            
         }
 
         #endregion
