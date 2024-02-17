@@ -32,14 +32,13 @@ namespace ConsoleServiceTool
 
         private static async Task CheckForUpdatesAsync()
         {
-            Uri updatePath;
 #if DEBUG
-            updatePath = new Uri("");
-#else
-            updatePath = "";
-#endif
             using var mgr = new UpdateManager(updatePath.AbsolutePath);
             await mgr.UpdateApp();
+#else
+            using var mgr = await UpdateManager.GitHubUpdateManager(@"https://github.com/amoamare/Console-Service-Tool");
+            await mgr.UpdateApp();
+#endif
         }
 
         private void LoadViews()

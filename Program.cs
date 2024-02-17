@@ -1,6 +1,3 @@
-using Squirrel;
-using System.Threading.Tasks;
-
 namespace ConsoleServiceTool
 {
     internal static class Program

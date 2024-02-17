@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AssemblyVersion>1.0.2.2</AssemblyVersion>
-    <FileVersion>1.0.2.2</FileVersion>
+    <AssemblyVersion>1.0.3</AssemblyVersion>
+    <FileVersion>1.0.3</FileVersion>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <PackageIcon>icon.ico</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -29,7 +29,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.9.28" />
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2277.86" />
     <PackageReference Include="SharpCompress" Version="0.17.1" />
-    <PackageReference Include="Squirrel.Windows" Version="2.0.1"  GeneratePathProperty="true" />
+    <PackageReference Include="Squirrel.Windows" Version="2.0.1" GeneratePathProperty="true" />
     <PackageReference Include="System.IO.Ports" Version="8.0.0" />
     <PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
@@ -42,10 +42,6 @@
     <!-- workaround for https://github.com/Squirrel/Squirrel.Windows/issues/1649 -->
     <Reference Include="$(PkgSquirrel_Windows)\lib\Net45\*.dll" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="Resources\PossibleSolutions\" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Update="icon.ico">
@@ -56,6 +52,10 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\PossibleSolutions\" />
   </ItemGroup>
 
 </Project>

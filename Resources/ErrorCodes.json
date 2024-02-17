@@ -1841,7 +1841,7 @@
       },
       {
         "ID": "808C2092",
-        "Message": "Possibly APU I2C lines damaged or disconnected",
+        "Message": "Possibly APU I2C lines damaged or disconnected. Check APU for die cracks.",
         "Status": 3,
         "Priority": 3
       },
