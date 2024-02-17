@@ -34,7 +34,7 @@ namespace ConsoleServiceTool
         {
             if (!IsSquirrelInstall()) return;
 #if DEBUG
-            using var mgr = new UpdateManager(@"\ConsoleServiceTool\bin\Releases");
+            using var mgr = new UpdateManager(@"bin\Releases");
             await mgr.UpdateApp();
 #else
             using var mgr = await UpdateManager.GitHubUpdateManager(@"https://github.com/amoamare/Console-Service-Tool");
