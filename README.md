@@ -44,7 +44,7 @@ Example of a reference image for error code.
 ## FAQ
 #### Q: Windows keeps removing the program after installer how do I keep it from doing that?
                 
-#####Method 1
+####Method 1
 + Click start -> type Windows Security -> Click to open.
     + Click Virus & threat protection.
        + Virus & threat protection settings.
@@ -55,7 +55,7 @@ Example of a reference image for error code.
                 + Add an exclusions.
 				+ On folder line paste %userprofile%\AppData\Local\ConsoleServiceTool click select folder.
 				
-#####Method 2
+####Method 2
  + Click start - > type cmd.
  + Right click run as administrator.
  + Click Yes on windows security.
