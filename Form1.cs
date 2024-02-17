@@ -32,13 +32,24 @@ namespace ConsoleServiceTool
 
         private static async Task CheckForUpdatesAsync()
         {
+            if (!IsSquirrelInstall()) return;
 #if DEBUG
-            using var mgr = new UpdateManager(updatePath.AbsolutePath);
+            using var mgr = new UpdateManager(@"C:\Users\Justin Davis\source\repos\ConsoleServiceTool\bin\Releases");
             await mgr.UpdateApp();
 #else
             using var mgr = await UpdateManager.GitHubUpdateManager(@"https://github.com/amoamare/Console-Service-Tool");
             await mgr.UpdateApp();
 #endif
+        }
+
+        private static bool IsSquirrelInstall()
+        {
+            var assembly = Assembly.GetEntryAssembly();
+            if (assembly == default || assembly.Location == default) return false;
+            var assemblyLocation = Path.GetDirectoryName(assembly.Location);
+            if (assemblyLocation == default) return false;
+            var updateDotExe = Path.Combine(assemblyLocation, "..", "Update.exe");
+            return File.Exists(updateDotExe);
         }
 
         private void LoadViews()

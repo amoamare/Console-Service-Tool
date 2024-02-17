@@ -42,7 +42,27 @@ Example of a reference image for error code.
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/d9863882-3615-4b21-99c1-c32cb557cbad)
 
 ## FAQ
-
+#### Q: Windows keeps removing the program after installer how do I keep it from doing that?
+                
+#####Method 1
++ Click start -> type Windows Security -> Click to open.
+    + Click Virus & threat protection.
+       + Virus & threat protection settings.
+           + Manage settings.
+              + Exclusions.
+                + Add or remove exclusions.
+                + Click  Yes on windows security.
+                + Add an exclusions.
+				+ On folder line paste %userprofile%\AppData\Local\ConsoleServiceTool click select folder.
+				
+#####Method 2
+ + Click start - > type cmd.
+ + Right click run as administrator.
+ + Click Yes on windows security.
+ + copy powershell Add-MpPreference -ExclusionPath "$env:USERPROFILE\AppData\Local\ConsoleServiceTool"
+ + Paste into command prompt by right clicking once.
+ + Press enter.
+				
 #### Q: Can I used this tool to read UART codes from a PS5?
 
 A: Yes! Download and run the tool select Playstation 5 tab > UART Tools and Operation Read Codes. You must be connected via UART to read codes from the Playstation 5.
@@ -123,5 +143,7 @@ UART Images Provided
 User: [stetofix](https://gbatemp.net/members/stetofix.670642/) [Images](https://gbatemp.net/threads/ps5-uart-commands.642741/page-3)
 
 GsmHack4you
+
 dan2wik
+
 SterHawk
