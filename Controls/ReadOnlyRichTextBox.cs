@@ -1,4 +1,5 @@
-﻿using ConsoleServiceTool.Console.Sony.Shared.Models;
+﻿using ConsoleServiceTool.Console.Sony.PlayStation5.Views;
+using ConsoleServiceTool.Console.Sony.Shared.Models;
 using ConsoleServiceTool.Models;
 using ConsoleServiceTool.Utils;
 using ConsoleServiceTool.Views;
@@ -26,6 +27,9 @@ namespace ConsoleServiceTool.Controls
         private void ReadOnlyRichTextBox_LinkClicked(object? sender, LinkClickedEventArgs e)
         {
             if (string.IsNullOrEmpty(e.LinkText)) { return; }
+            if (e.LinkText == "{{report}}")
+            {
+            }
             //verify we are opening a real web url and not a file path.
             if (!Uri.TryCreate(e.LinkText, UriKind.Absolute, out var uriResult)
                 || uriResult.Scheme != Uri.UriSchemeHttp && uriResult.Scheme != Uri.UriSchemeHttps)

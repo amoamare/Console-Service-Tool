@@ -135,7 +135,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 //Lets get errorCodes from a cached local file. 
                 errorCodeList = await GetErrorCodesCacheAsync();
             }
-            if (errorCodeList != default && errorCodeList.PlayStation5 != null && errorCodeList.PlayStation5.ErrorCodes.Any())
+            if (errorCodeList != default && errorCodeList.PlayStation5 != null && errorCodeList.PlayStation5.ErrorCodes.Count != 0)
             {
                 Log.AppendLine($"[+] Loaded {errorCodeList.PlayStation5.ErrorCodes.Count} Errors Succesfully.", WarningStatus.Success);
             }
@@ -175,7 +175,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
             using var stream = File.OpenRead(FileNameCache);
             var cached = await JsonSerializer.DeserializeAsync<PS5ErrorCodeList>(stream);
-            if (cached == default || cached.PlayStation5 != default && !cached.PlayStation5.ErrorCodes.Any())
+            if (cached == default || cached.PlayStation5 != default && cached.PlayStation5.ErrorCodes.Count == 0)
             {
                 Log.Fail();
                 return default;
@@ -193,7 +193,8 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         private async Task SaveCacheFileAsync(string fileName)
         {
             using var stream = File.Create(fileName);
-            var options = new JsonSerializerOptions { WriteIndented = true };
+            var jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true };
+            var options = jsonSerializerOptions;
             await JsonSerializer.SerializeAsync(stream, errorCodeList, options: options);
             await stream.DisposeAsync();
             return; // only need to store it as a cahce first time creating it
@@ -279,7 +280,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 ComboBoxDevices.Enabled = value;
                 ComboBoxOperationType.Enabled = value;
                 TextBoxRawCommand.Enabled = !value;
-                if (ComboBoxOperationType.SelectedValue is not OperationType type) return;
+                if (ComboBoxOperationType.SelectedValue is not OperationType) return;
             }
         }
 
@@ -311,7 +312,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 serial.Open();
                 Log.Okay();
                 Log.AppendLine("[*] Listening for Playstation 5.", WarningStatus.Information);
-                List<string> Lines = new();
+                List<string> Lines = [];
                 do
                 {
                     try
@@ -368,6 +369,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             {
                 InterfaceState = true;
             }
+            Log.InsertFriendlyNameHyperLink("Click Here To Report", "\\{\\{report\\}\\}");
         }
 
         /// <summary>
@@ -422,7 +424,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(10));
             using var serial = new SerialPort(device.Port);
             serial.Open();
-            List<(string Slot, string LogLine)> Lines = new();
+            List<(string Slot, string LogLine)> Lines = [];
             var noErrors = "FFFFFFFF";
             var isNoError = false;
             for (byte i = 0; i <= count; i++)
@@ -451,7 +453,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                         //todo: parse error codes here, break on NG or No Error Codes instead.                         
                         Lines.Add((Slot: $"{i:X2}", LogLine: line));
                         var split = line.Split(' ');
-                        if (!split.Any()) continue;
+                        if (split.Length == 0) continue;
                         switch (split[0])
                         {
                             case NgStr:
@@ -472,7 +474,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                     }
                 } while (serial.BytesToRead != 0 && !isNoError);
             }
-            if (!Lines.Any())
+            if (Lines.Count == 0)
             {
                 return;
             }
@@ -488,7 +490,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             foreach (var (slot, logLine) in lines)
             {
                 var split = logLine.Split(' ');
-                if (!split.Any()) continue;                
+                if (split.Length == 0) continue;                
                 switch (split[0])
                 {
                     case NgStr:
@@ -510,6 +512,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                             Log.Append($"{slot}\t{pastStamp}\t{errorCode}\t");
                             Log.Append($"{Priority.High}\t\t", Priority.High);
                             Log.AppendLine($"Not found in list. Report Findings.");
+                            Log.InsertFriendlyNameHyperLink("Click Here To Report", "{{report}}");
                         }
                         else
                         {                          
@@ -571,7 +574,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 }
             } while (serial.BytesToRead != 0);
             var split = response?.Split(' ');
-            if (split == default || split.Any())
+            if (split == default || split.Length != 0)
             {
                 Log.Okay();
                 return;
@@ -692,8 +695,8 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             var errorCode = TextBoxRawCommand.Text.ToUpperInvariant().Trim();
             TextBoxRawCommand.Clear();
             if (string.IsNullOrEmpty(errorCode)) return;
-            var errors = errorCodeList?.PlayStation5?.ErrorCodes?.Where(x => x.ID.ToUpperInvariant().StartsWith(errorCode)).ToList();
-            if (errors == default || !errors.Any())
+            var errors = errorCodeList?.PlayStation5?.ErrorCodes?.Where(x => x.ID.StartsWith(errorCode, StringComparison.InvariantCultureIgnoreCase)).ToList();
+            if (errors == default || errors.Count == 0)
             {
                 Log.AppendLine($"Error Code: {errorCode} - Not found in list.{Environment.NewLine}" +
                     $"If you'd like you can report your findings and we will update our list with more information.", Priority.High);
@@ -716,7 +719,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 
         private void TextBoxRawCommand_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!TextBoxRawCommand.Text.Any()) return; // dont send empty commands
+            if (TextBoxRawCommand.Text.Length == 0) return; // dont send empty commands
             if (e.KeyChar == (char)Keys.Enter)
             {
                 if (ComboBoxOperationType.SelectedValue is OperationType type && type == OperationType.CodeLookUp)

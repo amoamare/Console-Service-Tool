@@ -1660,6 +1660,12 @@
         "Priority": 3
       },
       {
+        "ID": "80801501",
+        "Message": "Known Unknown 80801501 - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
         "ID": "80801510",
         "Message": "Known Unknown 249 (SSD) - Report Findings",
         "Status": 0,
@@ -1750,6 +1756,12 @@
         "Priority": 0
       },
       {
+        "ID": "80830019",
+        "Message": "Known Unknown 80830019 - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
         "ID": "808300F0",
         "Message": "Secure Loader Error",
         "Status": 0,
@@ -1763,9 +1775,9 @@
       },
       {
         "ID": "80870003",
-        "Message": "Post Secure Loader Error - F7001 - (No beep, no light)",
-        "Status": 0,
-        "Priority": 0
+        "Message": "Post Secure Loader Error - Check fuse F7001 - (No beep, no light)",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80871001",
@@ -1910,6 +1922,12 @@
         "Message": "TPM 2.0 chip or Power Failure",
         "Status": 0,
         "Priority": 4
+      },
+      {
+        "ID": "80900100",
+        "Message": "Known unknown code",
+        "Status": 0,
+        "Priority": 3
       },
       {
         "ID": "80910002",
@@ -2069,7 +2087,7 @@
       },
       {
         "ID": "C0900303",
-        "Message": "Known Unknown 251 (HDMI-\u003EAPU) - Report Findings",
+        "Message": "Known Unknown C0900303 - Report Findings",
         "Status": 0,
         "Priority": 0
       },
