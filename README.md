@@ -44,7 +44,7 @@ Example of a reference image for error code.
 ## FAQ
 #### Q: Windows keeps removing the program after installer how do I keep it from doing that?
                 
-####Method 1
+#### Method 1
 + Click start -> type Windows Security -> Click to open.
     + Click Virus & threat protection.
        + Virus & threat protection settings.
@@ -55,13 +55,19 @@ Example of a reference image for error code.
                 + Add an exclusions.
 				+ On folder line paste %userprofile%\AppData\Local\ConsoleServiceTool click select folder.
 				
-####Method 2
+#### Method 2
  + Click start - > type cmd.
  + Right click run as administrator.
  + Click Yes on windows security.
  + copy powershell Add-MpPreference -ExclusionPath "$env:USERPROFILE\AppData\Local\ConsoleServiceTool"
  + Paste into command prompt by right clicking once.
  + Press enter.
+
+#### Q: Why does CST show more than 10 error codes?
+A: CST shows all error codes until the response No Error Codes comes from the console. 
+The reason to do this is to give the user a better and clear idea of what may originally 
+happend. Its easy for an end user to fill all 10 previous error slots with just a couple of
+codes such as, APU halt or freeze, Unxpected shut down etc.
 				
 #### Q: Can I used this tool to read UART codes from a PS5?
 
