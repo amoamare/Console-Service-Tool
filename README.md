@@ -163,3 +163,11 @@ GsmHack4you
 dan2wik
 
 SterHawk
+
+
+### A Project in works by [Fix MY](https://www.utah.repair)
+
+## Want to help or contribute?
+We are looking for donor boards to further this project.
+Send email: amoamare+cst@gmail.com
+
