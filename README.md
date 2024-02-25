@@ -81,9 +81,13 @@ A: Long answer, Check Trouble shooting.
 
 #### Q: I need to convert my disk drive console to digital. Can this tool do that?
 
-A: Yes, open C.S.T under PlayStation 5 NOR tools, select browse and open your disk drive console's NOR dump. 
+A: Yes! Open CST under PlayStation 5 NOR tools, select browse and open your disk drive console's NOR dump. 
 Change from Disk to Digtal then save your patched NOR. Flash the patched NOR back to your console. Your console 
-will now boot as digital. 
+will now boot as digital.
+
+#### Q: Do I need a digital NOR dump to convert my disk drive console to digital?
+A: No. You can dump your NOR from your console directly and change it to digital
+using this tool. 
 
 ## Hardware Recommended
 UART Interface 3.3v
