@@ -79,6 +79,12 @@ A: Short answer if everything is connected properly, then you possibly have a de
 
 A: Long answer, Check Trouble shooting.
 
+#### Q: I need to convert my disk drive console to digital. Can this tool do that?
+
+A: Yes, open C.S.T under PlayStation 5 NOR tools, select browse and open your disk drive console's NOR dump. 
+Change from Disk to Digtal then save your patched NOR. Flash the patched NOR back to your console. Your console 
+will now boot as digital. 
+
 ## Hardware Recommended
 UART Interface 3.3v
 For ease of use recommend the USB to TTL found here: https://www.amazon.com/gp/product/B0B1HYCN34/ref=ppx_yo_dt_b_search_asin_image?ie=UTF8&psc=1
