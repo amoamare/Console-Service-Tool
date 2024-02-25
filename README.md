@@ -167,6 +167,8 @@ SterHawk
 ### A Project in works by [Fix MY](https://www.utah.repair)
 https://www.utah.repair
 
+In Utah? Looking for a repair on your console? Reach out to Fix MY! 
+
 ## Want to help or contribute?
 We are looking for donor boards to further this project.
 Send email: amoamare+cst@gmail.com
