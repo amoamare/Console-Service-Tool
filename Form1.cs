@@ -81,7 +81,7 @@ namespace ConsoleServiceTool
         {
             if (!IsSquirrelInstall()) return;
 
-#if !DEBUG
+#if DEBUG
             var mgr = new UpdateManager(@"bin\Releases");
 #else
             var source = new GithubSource(@"https://github.com/amoamare/Console-Service-Tool", accessToken: default, prerelease: false);
