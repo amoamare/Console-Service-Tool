@@ -1,6 +1,7 @@
 ﻿using ConsoleServiceTool.Communication;
 using ConsoleServiceTool.Console.Sony.Shared;
 using ConsoleServiceTool.Console.Sony.Shared.Models;
+using ConsoleServiceTool.Controls;
 using ConsoleServiceTool.Models;
 using ConsoleServiceTool.Utils;
 using Microsoft.VisualStudio.Threading;
@@ -27,17 +28,41 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         private PS5ErrorCodeList? errorCodeList;
         private CancellationTokenSource? cancellationTokenSource;
         private readonly Uri OnlineResourcesUrl = new ("https://raw.githubusercontent.com/amoamare/Console-Service-Tool/master/Resources/");
+        private readonly Uri OnlineTsbUrl = new ("https://consoleservicetool.com/tsb/sony/playstation5/");
+
+        private readonly InfoViewer infoViewer = new ();
 
         #region Form Initialize, Load & Populate Data
 
-        internal PS5UartView()
+        public PS5UartView()
         {
             InitializeComponent();
+            DoubleBuffered = true;
+            infoViewer.Dock = DockStyle.Fill;
+            infoViewer.Visible = false;            
+            PanelInfo.Controls.Add(infoViewer);
+            infoViewer.SendToBack();
+            Log.LinkClicked += Log_LinkClicked;
+        }
+
+        private void Log_LinkClicked(object? sender, LinkClickedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(e.LinkText)) { return; }
+            //verify we are opening a real web url and not a file path.
+            if (!Uri.TryCreate(e.LinkText, UriKind.Absolute, out var uriResult)
+                || uriResult.Scheme != Uri.UriSchemeHttp && uriResult.Scheme != Uri.UriSchemeHttps)
+            {
+                return;
+            }
+            infoViewer.GotoPage(uriResult);
+            infoViewer.Visible = true;
+            infoViewer.BringToFront();
         }
 
         private void PS5UartView_Load(object sender, EventArgs e)
         {
             _= LoadAsync();
+            Log.Focus();
         }
 
         private async Task LoadAsync()
@@ -58,12 +83,10 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 
         private void PrintUartRefrences()
         {           
-            Log.AppendLine("UART Test Point References");
-            Log.Append("EDM-010/EDM-020: See Image Reference ");
-            Log.InsertFriendlyNameHyperLink("Here", $"{OnlineResourcesUrl}UARTLocations/PlayStation5/EDM_010_020_UART.png");
-            Log.Append("EDM-03x: See Image Reference ");
-            Log.InsertFriendlyNameHyperLink("Here", $"{OnlineResourcesUrl}UARTLocations/PlayStation5/EDM_03x_UART.png");
-
+            Log.Append("Quick UART Test Point References: ");
+            Log.InsertFriendlyNameHyperLink("Click Here", "https://consoleservicetool.com/tsb/sony/playstation5/uart/pinouts");
+            Log.Append("Gettinging Started: ");
+            Log.InsertFriendlyNameHyperLink("Click Here", "https://consoleservicetool.com/tsb/sony/playstation5/uart/gettingstarted");
         }
 
         private void ComboBoxOperationType_SelectedValueChanged(object? sender, EventArgs e)
@@ -369,7 +392,6 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             {
                 InterfaceState = true;
             }
-            Log.InsertFriendlyNameHyperLink("Click Here To Report", "\\{\\{report\\}\\}");
         }
 
         /// <summary>
@@ -529,11 +551,8 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                         {
                             Log.AppendLine($"\t |-({logLine})");
                         }
-                        if (errorLookup?.ReferenceImage != default)
-                        {
-                            Log.Append($"\t See Reference Image: ");
-                            Log.InsertFriendlyNameHyperLink("View Here", errorLookup.ReferenceImage.ToString());
-                        }
+                        Log.Append("\t");
+                        Log.InsertFriendlyNameHyperLink("Click for TSB Information", $"{OnlineTsbUrl}{errorCode}");
                         Log.AppendLine(string.Empty);
                         break;
                 }
@@ -543,6 +562,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             Log.AppendLine("Medium: Everything appears fine.", Priority.Medium);
             Log.AppendLine("High: Console may boot but freeze or other issues.", Priority.High);
             Log.AppendLine("Severe: Prevents console from booting.", Priority.Severe);
+            Log.AppendLine("Ignore Priority Status For Now. They are being updated!");
         }
 
         /// <summary>
@@ -689,7 +709,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             } while (!cancellationTokenSource.IsCancellationRequested);
         }
         
-        private void RunCodeLookup()
+        private async Task RunCodeLookupAsync()
         {
             Log.Clear();
             var errorCode = TextBoxRawCommand.Text.ToUpperInvariant().Trim();
@@ -700,31 +720,36 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             {
                 Log.AppendLine($"Error Code: {errorCode} - Not found in list.{Environment.NewLine}" +
                     $"If you'd like you can report your findings and we will update our list with more information.", Priority.High);
+                Log.InsertFriendlyNameHyperLink("Click for TSB Information", $"https://consoleservicetool.com/tsb/codenotfound?errorId={errorCode}");
                 return;
             }
-            foreach (var code in errors)
+            await Task.Run(() =>
             {
-                Log.AppendLine($"Found the following information.{Environment.NewLine}" +
-                    $"Source: Internal Database{Environment.NewLine}" +
-                    $"Error Code: {code.ID}");
-                Log.Append("Priroity Level: ");
-                Log.AppendLine(code.Priority.ToString(), code.Priority);
-                Log.AppendLine($"Message: {code.Message}");
-                Log.AppendLine(string.Empty);
-            }
+                foreach (var code in errors)
+                {
+                    Log.AppendLine($"Found the following information.{Environment.NewLine}" +
+                        $"Source: Internal Database{Environment.NewLine}" +
+                        $"Error Code: {code.ID}");
+                    Log.Append("Priroity Level: ");
+                    Log.AppendLine(code.Priority.ToString(), code.Priority);
+                    Log.AppendLine($"Message: {code.Message}");
+                    Log.InsertFriendlyNameHyperLink("Click for TSB Information", $"{OnlineTsbUrl}{code.ID}");
+                    Log.AppendLine(string.Empty);
+                }
+            });
             
         }
 
         #endregion
 
-        private void TextBoxRawCommand_KeyPress(object sender, KeyPressEventArgs e)
+        private async void TextBoxRawCommand_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (TextBoxRawCommand.Text.Length == 0) return; // dont send empty commands
             if (e.KeyChar == (char)Keys.Enter)
             {
                 if (ComboBoxOperationType.SelectedValue is OperationType type && type == OperationType.CodeLookUp)
                 {
-                    RunCodeLookup();
+                    await RunCodeLookupAsync();
                     return;
                 }
                 AutoResetEventRawCommand.Set();

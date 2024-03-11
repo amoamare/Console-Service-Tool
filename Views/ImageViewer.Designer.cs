@@ -55,7 +55,6 @@
             MinimizeBox = false;
             Name = "ImageViewer";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "ImageViewer";
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
         }

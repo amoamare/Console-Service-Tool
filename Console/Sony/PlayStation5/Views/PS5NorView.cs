@@ -9,7 +9,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         private Nor? NorFile { get; set; } = default;
         private FileInfo? FileInfo { get; set; } = default;
 
-        internal PS5NorView()
+        public PS5NorView()
         {
             InitializeComponent();
         }

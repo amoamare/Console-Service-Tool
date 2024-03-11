@@ -3,9 +3,9 @@ using ConsoleServiceTool.Console.Sony.Shared.Models;
 using ConsoleServiceTool.Models;
 using ConsoleServiceTool.Utils;
 using ConsoleServiceTool.Views;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ConsoleServiceTool.Controls
 {
@@ -20,25 +20,25 @@ namespace ConsoleServiceTool.Controls
             ReadOnly = true;
             TabStop = false;
             _ = HideCaret(Handle);
-            LinkClicked += ReadOnlyRichTextBox_LinkClicked;
+            //LinkClicked += ReadOnlyRichTextBox_LinkClicked;
             DetectUrls = true;
         }
 
-        private void ReadOnlyRichTextBox_LinkClicked(object? sender, LinkClickedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(e.LinkText)) { return; }
-            if (e.LinkText == "{{report}}")
-            {
-            }
-            //verify we are opening a real web url and not a file path.
-            if (!Uri.TryCreate(e.LinkText, UriKind.Absolute, out var uriResult)
-                || uriResult.Scheme != Uri.UriSchemeHttp && uriResult.Scheme != Uri.UriSchemeHttps)
-            {
-                return;
-            }//
-            using var image = new ImageViewer(uriResult);
-            image.ShowDialog();
-        }
+        //private void ReadOnlyRichTextBox_LinkClicked(object? sender, LinkClickedEventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(e.LinkText)) { return; }
+        //    if (e.LinkText == "{{report}}")
+        //    {
+        //    }
+        //    //verify we are opening a real web url and not a file path.
+        //    if (!Uri.TryCreate(e.LinkText, UriKind.Absolute, out var uriResult)
+        //        || uriResult.Scheme != Uri.UriSchemeHttp && uriResult.Scheme != Uri.UriSchemeHttps)
+        //    {
+        //        return;
+        //    }//
+        //    using var image = new ImageViewer(uriResult);
+        //    image.ShowDialog();
+        //}
 
         public override Color BackColor => Color.White;
 
@@ -74,8 +74,6 @@ namespace ConsoleServiceTool.Controls
         internal void AppendLine(string text)
         {
             AppendText($"{text}{Environment.NewLine}");
-            var r = Rtf;
-            var d = r;
         }
 
         internal void Okay()
@@ -143,6 +141,12 @@ namespace ConsoleServiceTool.Controls
 
         internal void InsertFriendlyNameHyperLink(string friendlyName, string hyperLink)
         {
+            if (InvokeRequired)
+            {
+                _ = Invoke(new MethodInvoker(() => InsertFriendlyNameHyperLink(friendlyName, hyperLink)));
+                return;
+            }
+
             AppendText("@replaceurl@");
             var link = new StringBuilder();
             link.Append(fieldHyper);

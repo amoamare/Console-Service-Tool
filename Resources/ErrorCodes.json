@@ -1,23 +1,23 @@
 {
-  "Revision": "1.0.1.5",
+  "Revision": "1.0.1.6",
   "Description": "Updated some code descriptions. Added Possible Solutions TBD",
   "PlayStation5": {
     "ErrorCodes": [
       {
         "ID": "00100E3C",
-        "Message": "Known Unknown 908 - Report Findings",
+        "Message": "Known Unknown 00100E3C - Report Findings",
         "Status": 0,
         "Priority": 3
       },
       {
         "ID": "0015442C",
-        "Message": "Known Unknown 889 - Report Findings",
+        "Message": "Known Unknown 0015442C - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "015E4E8B",
-        "Message": "Known Unknown 163 (Rare) - Report Immediately",
+        "Message": "Known Unknown 015E4E8B (Rare) - Report Immediately",
         "Status": 0,
         "Priority": 0
       },
@@ -35,7 +35,7 @@
       },
       {
         "ID": "8000000C",
-        "Message": "Known Unknown 303 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 8000000C (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -47,13 +47,13 @@
       },
       {
         "ID": "80050020",
-        "Message": "Known Unknown 304 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 80050020 (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80050040",
-        "Message": "Known Unknown 370 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 80050040 (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -65,19 +65,25 @@
       },
       {
         "ID": "80060020",
-        "Message": "Known Unknown 386 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 80060020 (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80060040",
-        "Message": "Known Unknown 182 (APU or VRM) - Report Findings",
+        "Message": "Known Unknown 80060040 (APU or VRM) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80068000",
+        "Message": "Known Unknown 80068000 - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80097CE4",
-        "Message": "Known Unknown 955 (APU Power) - Report Findings",
+        "Message": "Known Unknown 80097CE4 (APU Power) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -101,7 +107,7 @@
       },
       {
         "ID": "8080001F",
-        "Message": "Known Unknown 408 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 8080001F (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -113,19 +119,19 @@
       },
       {
         "ID": "80800023",
-        "Message": "Known Unknown 414 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 80800023 (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80800024",
-        "Message": "Known Unknown 426 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 80800024 (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80801028",
-        "Message": "Known Unknown 195 (SSD) - Report Findings",
+        "Message": "Known Unknown 80801028 (SSD) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1655,7 +1661,7 @@
       },
       {
         "ID": "808011FF",
-        "Message": "RAM GDDR6 (Bank 1,2,3,4,5,6,7,8) - Single Beep, 1 second blue light, off.",
+        "Message": "RAM GDDR6 (Bank 1,2,3,4,5,6,7,8) - Single Beep, 1 second blue light, off. - Possibly bad MEMCORE",
         "Status": 3,
         "Priority": 3
       },
@@ -1667,25 +1673,25 @@
       },
       {
         "ID": "80801510",
-        "Message": "Known Unknown 249 (SSD) - Report Findings",
+        "Message": "Known Unknown 80801510 (SSD) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80801520",
-        "Message": "Known Unknown 855 (Kernel) - Report Findings",
+        "Message": "Known Unknown 80801520 (Kernel) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80801580",
-        "Message": "Known Unknown 444 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 80801580 (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80801608",
-        "Message": "Known Unknown 841 (Kernel) - Report Findings",
+        "Message": "Known Unknown 80801608 (Kernel) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1703,31 +1709,31 @@
       },
       {
         "ID": "80802220",
-        "Message": "Known Unknown 470 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 80802220 (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80802442",
-        "Message": "Known Unknown 821 (General Power Failure - DDR/SSD) - Report Findings",
+        "Message": "Known Unknown 80802442 (General Power Failure - DDR/SSD) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80802471",
-        "Message": "Known Unknown 811 (General Power Failure - DDR/SSD) - Report Findings",
+        "Message": "Known Unknown 80802471 (General Power Failure - DDR/SSD) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80802660",
-        "Message": "Known Unknown 791 (General Power Failure - DDR/SSD) - Report Findings",
+        "Message": "Known Unknown 80802660 (General Power Failure - DDR/SSD) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80802669",
-        "Message": "Known Unknown 831 (General Power Failure - DDR/SSD) - Report Findings",
+        "Message": "Known Unknown 80802669 (General Power Failure - DDR/SSD) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1739,7 +1745,7 @@
       },
       {
         "ID": "8081001A",
-        "Message": "Known Unknown 769 (General Power Failure) - Report Findings",
+        "Message": "Known Unknown 8081001A (General Power Failure) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1751,7 +1757,7 @@
       },
       {
         "ID": "80830018",
-        "Message": "Known Unknown 846 (Power) - Report Findings",
+        "Message": "Known Unknown 80830018 (Power) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1847,7 +1853,7 @@
       },
       {
         "ID": "808B00FF",
-        "Message": "Known Unknown 823 (Power) - Report Findings",
+        "Message": "Known Unknown 808B00FF (Power) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1877,7 +1883,7 @@
       },
       {
         "ID": "808C4E90",
-        "Message": "Known Unknown 516 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 808C4E90 (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1889,25 +1895,31 @@
       },
       {
         "ID": "808D0000",
-        "Message": "Known Unknown 790 (Power) - Report Findings",
+        "Message": "Known Unknown 808D0000 (Power) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "808E0005",
-        "Message": "Known Unknown 125 (TPM) - Report Findings",
+        "Message": "Known Unknown 808E0005 (TPM) - Report Findings",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808E0006",
+        "Message": "Known Unknown 808E0006 (TPM) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "808E0109",
-        "Message": "Known Unknown 118 (TPM) - Report Findings",
+        "Message": "Known Unknown 808E0109 (TPM) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "808E829A",
-        "Message": "Known Unknown 116 (TPM) - Report Findings",
+        "Message": "Known Unknown 808E829A (TPM) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1925,13 +1937,13 @@
       },
       {
         "ID": "80900100",
-        "Message": "Known unknown code",
+        "Message": "Known Unknown 80900100 - Report Findings",
         "Status": 0,
         "Priority": 3
       },
       {
         "ID": "80910002",
-        "Message": "Known Unknown 114 (SSD Controller) - Report Findings",
+        "Message": "Known Unknown 80910002 (SSD Controller) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1948,14 +1960,20 @@
         "Priority": 0
       },
       {
+        "ID": "80910A00",
+        "Message": "Known Unknown 80910A00 - Report Findings *Possible SSD Controller or DDR4 Error (Power Failure or Short Circuit)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
         "ID": "80C00114",
-        "Message": "Known Unknown 779 (General Power Failure - SSD/APU Line) - Report Findings",
+        "Message": "Known Unknown 80C00114 (General Power Failure - SSD/APU Line) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80C0012D",
-        "Message": "Known Unknown 953 (Data) - Report Findings",
+        "Message": "Known Unknown 80C0012D (Data) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1997,31 +2015,31 @@
       },
       {
         "ID": "B0082108",
-        "Message": "Known Unknown 866 (Chip or Data - Report Findings",
+        "Message": "Known Unknown B0082108 (Chip or Data - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "B0085108",
-        "Message": "Known Unknown 519 (Chip or Data) - Report Findings",
+        "Message": "Known Unknown B0085108 (Chip or Data) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "B0088108",
-        "Message": "Known Unknown 810 (Chip or Data) - Report Findings",
+        "Message": "Known Unknown B0088108 (Chip or Data) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "B0FFFFFF",
-        "Message": "Known Unknown 104 - Report Findings",
+        "Message": "Known Unknown B0FFFFFF - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "C0010303",
-        "Message": "Known Unknown 525 (APU) - Report Findings",
+        "Message": "Known Unknown C0010303 (APU) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -2051,19 +2069,19 @@
       },
       {
         "ID": "C00C0303",
-        "Message": "Known Unknown 789 (General Power Failure) - Report Findings",
+        "Message": "Known Unknown C00C0303 (General Power Failure) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "C0160203",
-        "Message": "Known Unknown 203 (HDMI-\u003EAPU) - Check Fuse F7502 (Storage Controller)",
+        "Message": "Known Unknown C0160203 (HDMI-\u003EAPU) - Check Fuse F7502 (Storage Controller)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "C0160303",
-        "Message": "Known Unknown 238 (HDMI-\u003EAPU) - Check Fuse F7502 (Storage Controller)",
+        "Message": "Known Unknown C0160303 (HDMI-\u003EAPU) - Check Fuse F7502 (Storage Controller)",
         "Status": 0,
         "Priority": 0
       },
@@ -2081,7 +2099,7 @@
       },
       {
         "ID": "C0900002",
-        "Message": "Known Unknown 174 (HDMI) - Report Findings",
+        "Message": "Known Unknown C0900002 (HDMI) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -2093,7 +2111,7 @@
       },
       {
         "ID": "C0920002",
-        "Message": "Known Unknown 544 (APU) - Report Findings",
+        "Message": "Known Unknown C0920002 (APU) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -2135,85 +2153,85 @@
       },
       {
         "ID": "E1200000",
-        "Message": "Known Unknown 545 (Rare - Report Immediately)",
+        "Message": "Known Unknown E1200000 (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E1201A50",
-        "Message": "Known Unknown 568 (Rare - Report Immediately)",
+        "Message": "Known Unknown E1201A50 (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E1E0061D",
-        "Message": "Known Unknown 576 (Rare - Report Immediately)",
+        "Message": "Known Unknown E1E0061D (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E1E0191D",
-        "Message": "Known Unknown 581 (Rare - Report Immediately)",
+        "Message": "Known Unknown E1E0191D (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E1E01C05",
-        "Message": "Known Unknown 604 (Rare - Report Immediately)",
+        "Message": "Known Unknown E1E01C05 (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E1E01D06",
-        "Message": "Known Unknown 618 (Rare - Report Immediately)",
+        "Message": "Known Unknown E1E01D06 (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E2200000",
-        "Message": "Known Unknown 623 (Rare - Report Immediately)",
+        "Message": "Known Unknown E2200000 (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E2200116",
-        "Message": "Known Unknown 637 (Rare - Report Immediately)",
+        "Message": "Known Unknown E2200116 (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E2E0191D",
-        "Message": "Known Unknown 644 (Rare - Report Immediately)",
+        "Message": "Known Unknown E2E0191D (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E2E01C06",
-        "Message": "Known Unknown 653 (Rare - Report Immediately)",
+        "Message": "Known Unknown E2E01C06 (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E2E01D06",
-        "Message": "Known Unknown 673 (Rare - Report Immediately)",
+        "Message": "Known Unknown E2E01D06 (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E31218E9",
-        "Message": "Known Unknown 680 (Rare - Report Immediately)",
+        "Message": "Known Unknown E31218E9 (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E3121F70",
-        "Message": "Known Unknown 755 (Rare - Report Immediately)",
+        "Message": "Known Unknown E3121F70 (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E312210A",
-        "Message": "Known Unknown 759 (Rare - Report Immediately)",
+        "Message": "Known Unknown E312210A (Rare - Report Immediately)",
         "Status": 0,
         "Priority": 0
       },

@@ -1,4 +1,6 @@
-﻿namespace ConsoleServiceTool
+﻿using ConsoleServiceTool.Console.Sony.PlayStation5.Views;
+
+namespace ConsoleServiceTool
 {
     partial class Form1
     {
@@ -29,124 +31,92 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            TabControlPlayStation5 = new TabControl();
-            TabPagePS5Nor = new TabPage();
-            TabPagePS5Uart = new TabPage();
-            tabPage2 = new TabPage();
-            tabPage3 = new TabPage();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            TabControlPlayStation5.SuspendLayout();
+            menuStrip1 = new MenuStrip();
+            homeToolStripMenuItem = new ToolStripMenuItem();
+            sonyToolStripMenuItem = new ToolStripMenuItem();
+            playStation5ToolStripMenuItem = new ToolStripMenuItem();
+            MainPanel = new Panel();
+            label1 = new Label();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // tabControl1
+            // menuStrip1
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Controls.Add(tabPage3);
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(0, 0);
-            tabControl1.Margin = new Padding(3, 2, 3, 2);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(917, 542);
-            tabControl1.TabIndex = 0;
+            menuStrip1.Items.AddRange(new ToolStripItem[] { homeToolStripMenuItem, sonyToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1564, 24);
+            menuStrip1.TabIndex = 1;
+            menuStrip1.Text = "menuStrip1";
             // 
-            // tabPage1
+            // homeToolStripMenuItem
             // 
-            tabPage1.Controls.Add(TabControlPlayStation5);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Margin = new Padding(3, 2, 3, 2);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3, 2, 3, 2);
-            tabPage1.Size = new Size(909, 514);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Playstation 5";
-            tabPage1.UseVisualStyleBackColor = true;
+            homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            homeToolStripMenuItem.Size = new Size(52, 20);
+            homeToolStripMenuItem.Text = "Home";
             // 
-            // TabControlPlayStation5
+            // sonyToolStripMenuItem
             // 
-            TabControlPlayStation5.Controls.Add(TabPagePS5Nor);
-            TabControlPlayStation5.Controls.Add(TabPagePS5Uart);
-            TabControlPlayStation5.Dock = DockStyle.Fill;
-            TabControlPlayStation5.Location = new Point(3, 2);
-            TabControlPlayStation5.Margin = new Padding(3, 2, 3, 2);
-            TabControlPlayStation5.Name = "TabControlPlayStation5";
-            TabControlPlayStation5.SelectedIndex = 0;
-            TabControlPlayStation5.Size = new Size(903, 510);
-            TabControlPlayStation5.TabIndex = 0;
+            sonyToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { playStation5ToolStripMenuItem });
+            sonyToolStripMenuItem.Name = "sonyToolStripMenuItem";
+            sonyToolStripMenuItem.Size = new Size(45, 20);
+            sonyToolStripMenuItem.Text = "Sony";
             // 
-            // TabPagePS5Nor
+            // playStation5ToolStripMenuItem
             // 
-            TabPagePS5Nor.Location = new Point(4, 24);
-            TabPagePS5Nor.Margin = new Padding(3, 2, 3, 2);
-            TabPagePS5Nor.Name = "TabPagePS5Nor";
-            TabPagePS5Nor.Padding = new Padding(3, 2, 3, 2);
-            TabPagePS5Nor.Size = new Size(895, 482);
-            TabPagePS5Nor.TabIndex = 0;
-            TabPagePS5Nor.Text = "NOR Patching";
-            TabPagePS5Nor.UseVisualStyleBackColor = true;
+            playStation5ToolStripMenuItem.Name = "playStation5ToolStripMenuItem";
+            playStation5ToolStripMenuItem.Size = new Size(142, 22);
+            playStation5ToolStripMenuItem.Text = "PlayStation 5";
             // 
-            // TabPagePS5Uart
+            // MainPanel
             // 
-            TabPagePS5Uart.Location = new Point(4, 24);
-            TabPagePS5Uart.Margin = new Padding(3, 2, 3, 2);
-            TabPagePS5Uart.Name = "TabPagePS5Uart";
-            TabPagePS5Uart.Padding = new Padding(3, 2, 3, 2);
-            TabPagePS5Uart.Size = new Size(895, 482);
-            TabPagePS5Uart.TabIndex = 1;
-            TabPagePS5Uart.Text = "UART Reader";
-            TabPagePS5Uart.UseVisualStyleBackColor = true;
+            MainPanel.Dock = DockStyle.Fill;
+            MainPanel.Location = new Point(0, 75);
+            MainPanel.Name = "MainPanel";
+            MainPanel.Size = new Size(1564, 916);
+            MainPanel.TabIndex = 2;
             // 
-            // tabPage2
+            // label1
             // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Margin = new Padding(3, 2, 3, 2);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3, 2, 3, 2);
-            tabPage2.Size = new Size(909, 514);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Playstation 4";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            tabPage3.Location = new Point(4, 24);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(909, 514);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "NOR Read/Write";
-            tabPage3.UseVisualStyleBackColor = true;
+            label1.BackColor = SystemColors.ControlLight;
+            label1.Dock = DockStyle.Top;
+            label1.Font = new Font("Open Sans", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(0, 24);
+            label1.Margin = new Padding(15);
+            label1.Name = "label1";
+            label1.Padding = new Padding(20, 0, 0, 0);
+            label1.Size = new Size(1564, 51);
+            label1.TabIndex = 3;
+            label1.Text = "Home";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(917, 542);
-            Controls.Add(tabControl1);
+            ClientSize = new Size(1564, 991);
+            Controls.Add(MainPanel);
+            Controls.Add(label1);
+            Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = menuStrip1;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Console Service Tool (C.S.T)";
             Load += Form1_Load;
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            TabControlPlayStation5.ResumeLayout(false);
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabControl TabControlPlayStation5;
-        private TabPage TabPagePS5Nor;
-        private TabPage TabPagePS5Uart;
-        private TabPage tabPage2;
-        private TabPage tabPage3;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem sonyToolStripMenuItem;
+        private ToolStripMenuItem playStation5ToolStripMenuItem;
+        private ToolStripMenuItem homeToolStripMenuItem;
+        private Panel MainPanel;
+        private Label label1;
     }
 }

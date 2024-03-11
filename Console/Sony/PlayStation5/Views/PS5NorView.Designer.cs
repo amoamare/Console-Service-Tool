@@ -478,6 +478,7 @@
             Controls.Add(Log);
             Controls.Add(PanelInfo);
             Controls.Add(panel1);
+            DoubleBuffered = true;
             Margin = new Padding(3, 2, 3, 2);
             Name = "PS5NorView";
             Size = new Size(897, 488);

@@ -6,8 +6,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AssemblyVersion>1.0.4</AssemblyVersion>
-    <FileVersion>1.0.4</FileVersion>
+    <AssemblyVersion>1.0.5</AssemblyVersion>
+    <FileVersion>1.0.5</FileVersion>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <PackageIcon>icon.ico</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -34,20 +34,42 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.9.28" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2277.86" />
-    <PackageReference Include="SharpCompress" Version="0.17.1" />
-    <PackageReference Include="Squirrel.Windows" Version="2.0.1" GeneratePathProperty="true" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2365.46" />
     <PackageReference Include="System.IO.Ports" Version="8.0.0" />
     <PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="Vanara.PInvoke.CfgMgr32" Version="4.0.0-beta" />
     <PackageReference Include="Vanara.PInvoke.SetupAPI" Version="4.0.0-beta" />
     <PackageReference Include="Vanara.SystemServices" Version="3.4.17" />
+    <PackageReference Include="Velopack" Version="0.0.359" />
   </ItemGroup>
   
   <ItemGroup>
     <!-- workaround for https://github.com/Squirrel/Squirrel.Windows/issues/1649 -->
     <Reference Include="$(PkgSquirrel_Windows)\lib\Net45\*.dll" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="compileupdate.compileupdate" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Include="compileupdate.compileupdate" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

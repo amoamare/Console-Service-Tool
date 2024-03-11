@@ -33,7 +33,7 @@
             ComboBoxDevices = new ComboBox();
             label1 = new Label();
             label3 = new Label();
-            panel4 = new Panel();
+            PanelInfo = new Panel();
             Log = new Controls.ReadOnlyRichTextBox();
             PanelRawCommand = new Panel();
             LabelRawCommand = new Label();
@@ -41,7 +41,7 @@
             panel3 = new Panel();
             HighlightSevereLines = new CheckBox();
             ShowErrorLine = new CheckBox();
-            panel4.SuspendLayout();
+            PanelInfo.SuspendLayout();
             PanelRawCommand.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -97,16 +97,16 @@
             label3.TabIndex = 10;
             label3.Text = "Select Operation Type";
             // 
-            // panel4
+            // PanelInfo
             // 
-            panel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel4.Controls.Add(Log);
-            panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(0, 132);
-            panel4.Margin = new Padding(3, 2, 3, 2);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(939, 368);
-            panel4.TabIndex = 17;
+            PanelInfo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            PanelInfo.Controls.Add(Log);
+            PanelInfo.Dock = DockStyle.Fill;
+            PanelInfo.Location = new Point(0, 132);
+            PanelInfo.Margin = new Padding(3, 2, 3, 2);
+            PanelInfo.Name = "PanelInfo";
+            PanelInfo.Size = new Size(939, 368);
+            PanelInfo.TabIndex = 17;
             // 
             // Log
             // 
@@ -200,14 +200,15 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            Controls.Add(panel4);
+            Controls.Add(PanelInfo);
             Controls.Add(PanelRawCommand);
             Controls.Add(panel3);
+            DoubleBuffered = true;
             Margin = new Padding(3, 2, 3, 2);
             Name = "PS5UartView";
             Size = new Size(939, 500);
             Load += PS5UartView_Load;
-            panel4.ResumeLayout(false);
+            PanelInfo.ResumeLayout(false);
             PanelRawCommand.ResumeLayout(false);
             PanelRawCommand.PerformLayout();
             panel3.ResumeLayout(false);
@@ -221,7 +222,7 @@
         private ComboBox ComboBoxDevices;
         private Label label1;
         private Label label3;
-        private Panel panel4;
+        private Panel PanelInfo;
         private Panel PanelRawCommand;
         private Label LabelRawCommand;
         private TextBox TextBoxRawCommand;

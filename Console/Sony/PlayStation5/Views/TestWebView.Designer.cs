@@ -34,14 +34,14 @@
             // 
             // webView21
             // 
-            webView21.AllowExternalDrop = true;
+            webView21.AllowExternalDrop = false;
             webView21.CreationProperties = null;
-            webView21.DefaultBackgroundColor = Color.White;
+            webView21.DefaultBackgroundColor = Color.Transparent;
             webView21.Dock = DockStyle.Fill;
             webView21.Location = new Point(0, 0);
             webView21.Name = "webView21";
             webView21.Size = new Size(737, 539);
-            webView21.Source = new Uri("https://utah.repair", UriKind.Absolute);
+            webView21.Source = new Uri("https://www.google.com", UriKind.Absolute);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 
@@ -50,6 +50,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(webView21);
+            DoubleBuffered = true;
             Name = "TestWebView";
             Size = new Size(737, 539);
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
