@@ -4,7 +4,9 @@ using ConsoleServiceTool.Views;
 using System.Diagnostics;
 using System.Reflection;
 using Velopack;
+#if RELEASE
 using Velopack.Sources;
+#endif
 
 namespace ConsoleServiceTool
 {
