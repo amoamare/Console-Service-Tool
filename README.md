@@ -21,6 +21,10 @@ Will add a submit your solution this will help further progress on repairing con
 Will be adding a Possible Solutions to the error codes as time goes on.
 
 ## Screenshots
+New Interface
+![image](https://github.com/amoamare/Console-Service-Tool/assets/15149902/846ef2da-21c7-4d4d-a3d5-21f862e01456)
+
+![image](https://github.com/amoamare/Console-Service-Tool/assets/15149902/47edbeff-d932-4eca-86d0-129314bfaf68)
 
 PlayStation 5 NOR Interface.
 ![image](https://github.com/amoamare/ConsoleServiceTool/assets/15149902/d5b20998-c0ea-4e0d-8a4d-b8f7309961e3)
