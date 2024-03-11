@@ -1,8 +1,7 @@
 # Console Service Tool (C.S.T) #
 
 
-### What C.S.T Is ###
-Overview
+### OVERVIEW ###
 Console Service Tool (C.S.T.) is a W.I.P comprehensive tool designed to assist users in diagnosing and servicing their gaming consoles. With a focus on PlayStation (PS3, PS4, PS5) and Nintendo Switch, C.S.T. aims to consolidate various diagnostic and service tools into a single, user-friendly platform.
 
 
@@ -44,7 +43,7 @@ Example of a reference image for error code.
 ## FAQ
 #### Q: Windows keeps removing the program after installer how do I keep it from doing that?
                 
-####Method 1
+#### Method 1
 + Click start -> type Windows Security -> Click to open.
     + Click Virus & threat protection.
        + Virus & threat protection settings.
@@ -55,13 +54,19 @@ Example of a reference image for error code.
                 + Add an exclusions.
 				+ On folder line paste %userprofile%\AppData\Local\ConsoleServiceTool click select folder.
 				
-####Method 2
+#### Method 2
  + Click start - > type cmd.
  + Right click run as administrator.
  + Click Yes on windows security.
  + copy powershell Add-MpPreference -ExclusionPath "$env:USERPROFILE\AppData\Local\ConsoleServiceTool"
  + Paste into command prompt by right clicking once.
  + Press enter.
+
+#### Q: Why does CST show more than 10 error codes?
+A: CST shows all error codes until the response No Error Codes comes from the console. 
+The reason to do this is to give the user a better and clear idea of what may originally 
+happend. Its easy for an end user to fill all 10 previous error slots with just a couple of
+codes such as, APU halt or freeze, Unxpected shut down etc.
 				
 #### Q: Can I used this tool to read UART codes from a PS5?
 
@@ -72,6 +77,16 @@ A: Yes! Download and run the tool select Playstation 5 tab > UART Tools and Oper
 A: Short answer if everything is connected properly, then you possibly have a dead southbridge as the southbridge is required to function for UART to work.
 
 A: Long answer, Check Trouble shooting.
+
+#### Q: I need to convert my disk drive console to digital. Can this tool do that?
+
+A: Yes! Open CST under PlayStation 5 NOR tools, select browse and open your disk drive console's NOR dump. 
+Change from Disk to Digtal then save your patched NOR. Flash the patched NOR back to your console. Your console 
+will now boot as digital.
+
+#### Q: Do I need a digital NOR dump to convert my disk drive console to digital?
+A: No. You can dump your NOR from your console directly and change it to digital
+using this tool. 
 
 ## Hardware Recommended
 UART Interface 3.3v
@@ -147,3 +162,14 @@ GsmHack4you
 dan2wik
 
 SterHawk
+
+
+### A Project in works by [Fix MY](https://www.utah.repair)
+https://www.utah.repair
+
+In Utah? Looking for a repair on your console? Reach out to Fix MY! 
+
+## Want to help or contribute?
+We are looking for donor boards to further this project.
+Send email: amoamare+cst@gmail.com
+
