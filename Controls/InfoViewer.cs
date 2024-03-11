@@ -33,6 +33,7 @@ namespace ConsoleServiceTool.Controls
             WebViewMain.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
             WebViewMain.CoreWebView2.Settings.AreDevToolsEnabled = false;
             WebViewMain.CoreWebView2.Settings.IsStatusBarEnabled = false;
+            WebViewMain.CoreWebView2.Profile.PreferredTrackingPreventionLevel = CoreWebView2TrackingPreventionLevel.Basic;
         }
 
         private void CoreWebView2_NavigationStarting(object? sender, CoreWebView2NavigationStartingEventArgs e)
