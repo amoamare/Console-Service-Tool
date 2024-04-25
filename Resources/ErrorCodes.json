@@ -1,6 +1,6 @@
 {
-  "Revision": "1.0.1.6",
-  "Description": "Updated some code descriptions. Added Possible Solutions TBD",
+  "Revision": "1.0.1.7",
+  "Description": "Added and Updated Error Code IDs and Descriptions based on user submissions.",
   "PlayStation5": {
     "ErrorCodes": [
       {
@@ -41,7 +41,7 @@
       },
       {
         "ID": "80050000",
-        "Message": "APU VRM (2 Phases) Power Fail, Check Infineon XDPE14286A 16 Phase PWM Controller - Single Beep, 1 Second Blue Light, 8.6mA draw power on.",
+        "Message": "APU VRM (2 Phases) Power Fail, Check Infineon XDPE14286A 16 Phase PWM Controller, Check mosfets APU side for short (Caps Usually Short) - Single Beep, 1 Second Blue Light, 8.6mA draw power on.",
         "Status": 3,
         "Priority": 3
       },
@@ -113,19 +113,19 @@
       },
       {
         "ID": "80800022",
-        "Message": "No/Bad Communication Between APU -> RAM - APU Initilized - Replace All/Some RAM",
+        "Message": "No/Bad Communication Between APU -> RAM - APU Initilized - Replace All/Some RAM (Check APU for Die Cracks)",
         "Status": 3,
         "Priority": 3
       },
       {
         "ID": "80800023",
-        "Message": "Known Unknown 80800023 (Power or Short) - Report Findings",
+        "Message": "Known Unknown 80800023 (Power or Short) - Report Findings - 2 second Blue Light",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80800024",
-        "Message": "Known Unknown 80800024 (Power or Short) - Report Findings",
+        "Message": "APU - Known Unknown 80800024 (Power or Short) - (Check APU for Die Cracks) Report Additional Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1696,6 +1696,18 @@
         "Priority": 0
       },
       {
+        "ID": "80801680",
+        "Message": "APU / GDDR6 - Bad Contact (User Submitted - Unverified)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80801F12",
+        "Message": "Known Unknown 80801F12 (Kernel) - Report Findings - 1 sec blue light",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
         "ID": "80802001",
         "Message": "SSD controller (coprocessor) \u003C-\u003E APU data",
         "Status": 0,
@@ -1822,6 +1834,12 @@
         "Priority": 0
       },
       {
+        "ID": "80894003",
+        "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit) - Missing 2.5v on DA9081",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
         "ID": "8089400F",
         "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit)",
         "Status": 0,
@@ -1895,9 +1913,15 @@
       },
       {
         "ID": "808D0000",
-        "Message": "Known Unknown 808D0000 (Power) - Report Findings",
+        "Message": "Known Unknown 808D0000 (Power) - Report Findings - (User Submitted Check for Overheating, 3 second BLOD or at times very quick white light)",
         "Status": 0,
         "Priority": 0
+      },
+      {
+        "ID": "808D0002",
+        "Message": "Issue with daughter board (LED Board) Check Flex and Daughter Board Repair or Replace - Three Beeps, White Light, Immediate Shutdown.",
+        "Status": 3,
+        "priority": 3
       },
       {
         "ID": "808E0005",
@@ -1937,7 +1961,7 @@
       },
       {
         "ID": "80900100",
-        "Message": "Known Unknown 80900100 - Report Findings",
+        "Message": "Known Unknown 80900100 - Report Findings - (Console Crashes at PS5 Logo Displayed in 480p, Attempting to power on again results in storage repair and repeats unkown repair yet)",
         "Status": 0,
         "Priority": 3
       },
@@ -1985,7 +2009,7 @@
       },
       {
         "ID": "80C00136",
-        "Message": "WI-FI or BT Problem or Power Failure",
+        "Message": "WI-FI or BT Problem or Power Failure - (Check WI-FI/Bluethtooh Module code thrown when module removed) - Powers off after 2 seconds",
         "Status": 0,
         "Priority": 3
       },
@@ -2010,6 +2034,12 @@
       {
         "ID": "86000006",
         "Message": "NOR Corrupt - Regenerate with tool and try again!",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "B0012404",
+        "Message": "HDMI Port - (User Submitted: Check HDMI Port, Port was damaged)",
         "Status": 0,
         "Priority": 0
       },
@@ -2057,7 +2087,7 @@
       },
       {
         "ID": "C0020303",
-        "Message": "APU Not Responding - Trying Init or Reboot - 3",
+        "Message": "APU Not Responding - Trying Init or Reboot - 3 - (User Submitted: System wont start Blue Light Flashes)",
         "Status": 0,
         "Priority": 0
       },
@@ -2236,16 +2266,16 @@
         "Priority": 0
       },
       {
+        "ID": "E3122219",
+        "Message": "Known Unknown E3122219 (Rare - Report Immediately) - turns off 30 mins into game play.(107 degrees)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
         "ID": "FFFFFFFF",
         "Message": "No Errors",
         "Status": 3,
         "Priority": 0
-      },
-      {
-        "ID": "808D0002",
-        "Message": "Issue with daughter board (LED Board) Check Flex and Daughter Board Repair or Replace - Three Beeps, White Light, Immediate Shutdown."
-        "Status": 3,
-        "Priority": 3
       }
     ]
   },
