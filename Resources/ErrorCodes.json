@@ -2240,6 +2240,12 @@
         "Message": "No Errors",
         "Status": 3,
         "Priority": 0
+      },
+      {
+        "ID": "808D0002",
+        "Message": "Issue with daughter board (LED Board) - Three Beeps, White Light, Immediate Shutdown."
+        "Status": 3,
+        "Priority": 3
       }
     ]
   },
