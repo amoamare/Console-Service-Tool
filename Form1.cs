@@ -29,6 +29,7 @@ namespace ConsoleServiceTool
             controlFactory.Register<PlayStation5MainView>();
             controlFactory.Register<PS5NorView>();
             controlFactory.Register<PS5UartView>();
+            controlFactory.Register<ControllerView>();
         }
 
         private void InitializeMenuItems()
