@@ -1,6 +1,6 @@
 {
-  "Revision": "1.0.1.7",
-  "Description": "Added and Updated Error Code IDs and Descriptions based on user submissions.",
+  "Revision": "1.0.1.8",
+  "Description": "Added new codes sourced from various places and Possible solutions",
   "PlayStation5": {
     "ErrorCodes": [
       {
@@ -17,13 +17,19 @@
       },
       {
         "ID": "015E4E8B",
-        "Message": "Known Unknown 015E4E8B (Rare) - Report Immediately",
+        "Message": "Known Unknown 015E4E8B - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80000001",
         "Message": "APU Overheat or Initialization Error",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80000008",
+        "Message": "Known Unknown 80000008 - Report Findings - Possible APU Related",
         "Status": 0,
         "Priority": 0
       },
@@ -77,7 +83,7 @@
       },
       {
         "ID": "80068000",
-        "Message": "Known Unknown 80068000 - Report Findings",
+        "Message": "Known Unknown 80068000 - Report Findings - Possible APU / VRM Related",
         "Status": 0,
         "Priority": 0
       },
@@ -1696,6 +1702,36 @@
         "Priority": 0
       },
       {
+        "ID": "80801620",
+        "Message": "Known Unknonw 80801620 - Possible RAM Related",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80801630",
+        "Message": "Known Unknonw 80801630 - Possible RAM Related",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80801690",
+        "Message": "Known Unknonw 80801690 - Possible RAM Related",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808016B0",
+        "Message": "Known Unknonw 808016B0 - Possible RAM Related",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808016F0",
+        "Message": "Known Unknonw 808016F0 - Possible RAM Related",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
         "ID": "80801680",
         "Message": "APU / GDDR6 - Bad Contact (User Submitted - Unverified)",
         "Status": 0,
@@ -1798,6 +1834,12 @@
         "Priority": 3
       },
       {
+        "ID": "80870004",
+        "Message": "Known Unknown 80870004 - Possible Secure Loader Related",
+        "Status": 3,
+        "Priority": 3
+      },
+      {
         "ID": "80871001",
         "Message": "DDR4 Error (Power Failure or Short Circuit)",
         "Status": 0,
@@ -1818,6 +1860,12 @@
       {
         "ID": "80871062",
         "Message": "SSD Controller \u003C-\u003E Syscon (Bridge) Data Line Error",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808710FF",
+        "Message": "Known Unknown 808710FF - Possible TPM 2.0 DataLine Error (MISO MOSI)",
         "Status": 0,
         "Priority": 0
       },
@@ -1967,25 +2015,37 @@
       },
       {
         "ID": "80910002",
-        "Message": "Known Unknown 80910002 (SSD Controller) - Report Findings",
+        "Message": "Known Unknown 80910002 (SSD Controller) - Possible 504X 2v",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80910200",
-        "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit)",
+        "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit) - Possible DA9081 1.2v Side: APU",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80910800",
-        "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit)",
+        "Message": "SSD Controller or DDR4 Error (Power Failure or Short Circuit) - Possible DA9081 1.2v Side: Fan",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80910A00",
         "Message": "Known Unknown 80910A00 - Report Findings *Possible SSD Controller or DDR4 Error (Power Failure or Short Circuit)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80912000",
+        "Message": "Known Unknown 80912000 - Report Findings - Possible DA9081 2.5v",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80918000 ",
+        "Message": "Known Unknown 80918000  - Report Findings - Possible DA9081 0.8v",
         "Status": 0,
         "Priority": 0
       },
@@ -2020,6 +2080,18 @@
         "Priority": 0
       },
       {
+        "ID": "80D002F5",
+        "Message": "Known Unknown 80D002F5 - Possible South Bridge Issue",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80D004F5",
+        "Message": "Known Unknown 80D004F5 - Possible South Bridge Issue",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
         "ID": "80D00402",
         "Message": "SSD Banks Error",
         "Status": 0,
@@ -2045,7 +2117,7 @@
       },
       {
         "ID": "B0082108",
-        "Message": "Known Unknown B0082108 (Chip or Data - Report Findings",
+        "Message": "Known Unknown B0082108 (Chip or Data) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -2099,7 +2171,13 @@
       },
       {
         "ID": "C00C0303",
-        "Message": "Known Unknown C00C0303 (General Power Failure) - Report Findings",
+        "Message": "Known Unknown C00C0303 (General Power Failure) - Report Findings - Possbile APU / VRM related",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "C00C8000",
+        "Message": "Known Unknown C00C8000 - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -2135,13 +2213,13 @@
       },
       {
         "ID": "C0900303",
-        "Message": "Known Unknown C0900303 - Report Findings",
+        "Message": "Known Unknown C0900303 - Report Findings - Possible WiFi IC Related",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "C0920002",
-        "Message": "Known Unknown C0920002 (APU) - Report Findings",
+        "Message": "Known Unknown C0920002 (APU) - Report Findings - Possible WiFi IC Related",
         "Status": 0,
         "Priority": 0
       },
@@ -2183,91 +2261,109 @@
       },
       {
         "ID": "E1200000",
-        "Message": "Known Unknown E1200000 (Rare - Report Immediately)",
+        "Message": "Known Unknown E1200000 - XDPE Phase PWM Controller Error VRM 2 Phases",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E1201A50",
-        "Message": "Known Unknown E1201A50 (Rare - Report Immediately)",
+        "Message": "Known Unknown E1201A50 - Report Findings - Possible XDPE Related)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E1E00619",
+        "Message": "Known Unknown E1E00619 - Report Findings - Possible XDPE Related",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E1E0061D",
-        "Message": "Known Unknown E1E0061D (Rare - Report Immediately)",
+        "Message": "Known Unknown E1E0061D - XDPE Phase PWM Controller Error VRM 2 Phases",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E1E0191D",
-        "Message": "Known Unknown E1E0191D (Rare - Report Immediately)",
+        "Message": "Known Unknown E1E0191D - XDPE Phase PWM Controller Error VRM 2 Phases",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E1E01C05",
-        "Message": "Known Unknown E1E01C05 (Rare - Report Immediately)",
+        "Message": "Known Unknown E1E01C05 - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E1E01D06",
-        "Message": "Known Unknown E1E01D06 (Rare - Report Immediately)",
+        "Message": "Known Unknown E1E01D06 - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E2200000",
-        "Message": "Known Unknown E2200000 (Rare - Report Immediately)",
+        "Message": "Known Unknown E2200000 - XDPE Phase PWM Controller Error VRM 6 Phases",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E2E0061D",
+        "Message": "Known Unknown E2E0061D - XDPE Phase PWM Controller Error VRM 6 Phases",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E2200116",
-        "Message": "Known Unknown E2200116 (Rare - Report Immediately)",
+        "Message": "Known Unknown E2200116 - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E2E0191D",
-        "Message": "Known Unknown E2E0191D (Rare - Report Immediately)",
+        "Message": "Known Unknown E2E0191D - XDPE Phase PWM Controller Error VRM 6 Phases",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E2E01C06",
-        "Message": "Known Unknown E2E01C06 (Rare - Report Immediately)",
+        "Message": "Known Unknown E2E01C06 - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E2E01D06",
-        "Message": "Known Unknown E2E01D06 (Rare - Report Immediately)",
+        "Message": "Known Unknown E2E01D06 - Report Findings - Possible XDPE / VRM Related",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E31218E9",
-        "Message": "Known Unknown E31218E9 (Rare - Report Immediately)",
+        "Message": "Known Unknown E31218E9 - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E3121F70",
-        "Message": "Known Unknown E3121F70 (Rare - Report Immediately)",
+        "Message": "Known Unknown E3121F70 - Report Findings - Possible XDPE / VRM Related",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "E3122155",
+        "Message": "Known Unknown E312210A - Report Findings - Possible XDPE / VRM Related",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E312210A",
-        "Message": "Known Unknown E312210A (Rare - Report Immediately)",
+        "Message": "Known Unknown E312210A - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "E3122219",
-        "Message": "Known Unknown E3122219 (Rare - Report Immediately) - turns off 30 mins into game play.(107 degrees)",
+        "Message": "Known Unknown E3122219 - Report Findings - turns off 30 mins into game play.(107 degrees)",
         "Status": 0,
         "Priority": 0
       },
