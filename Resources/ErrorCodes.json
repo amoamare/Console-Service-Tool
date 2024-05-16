@@ -1,6 +1,6 @@
 {
-  "Revision": "1.0.1.8",
-  "Description": "Added new codes sourced from various places and Possible solutions",
+  "Revision": "1.0.1.9",
+  "Description": "Updated Codes, 80910002, 80C00136, C0020303",
   "PlayStation5": {
     "ErrorCodes": [
       {
@@ -2015,9 +2015,9 @@
       },
       {
         "ID": "80910002",
-        "Message": "Known Unknown 80910002 (SSD Controller) - Possible 504X 2v",
+        "Message": "Known Unknown 80910002 (SSD Controller) - Possible 504X 2v, Power Failure - Check Fuse F7001",
         "Status": 0,
-        "Priority": 0
+        "Priority": 3
       },
       {
         "ID": "80910200",
@@ -2069,7 +2069,7 @@
       },
       {
         "ID": "80C00136",
-        "Message": "WI-FI or BT Problem or Power Failure - (Check WI-FI/Bluethtooh Module code thrown when module removed) - Powers off after 2 seconds",
+        "Message": "WI-FI or BT Problem or Power Failure - (Check WI-FI/Bluetooth Module code thrown when module removed), Check Fuse F7002 - Powers off after 2 seconds",
         "Status": 0,
         "Priority": 3
       },
@@ -2159,7 +2159,7 @@
       },
       {
         "ID": "C0020303",
-        "Message": "APU Not Responding - Trying Init or Reboot - 3 - (User Submitted: System wont start Blue Light Flashes)",
+        "Message": "APU Not Responding - Trying Init or Reboot - 3 - (User Submitted: System wont start Blue Light Flashes), Check Fuses F3501, F7501",
         "Status": 0,
         "Priority": 0
       },
