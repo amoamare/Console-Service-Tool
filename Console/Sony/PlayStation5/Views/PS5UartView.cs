@@ -160,7 +160,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
             if (errorCodeList != default && errorCodeList.PlayStation5 != null && errorCodeList.PlayStation5.ErrorCodes.Count != 0)
             {
-                Log.AppendLine($"[+] Loaded {errorCodeList.PlayStation5.ErrorCodes.Count} Errors Succesfully.", WarningStatus.Success);
+                Log.AppendLine($"[+] Loaded {errorCodeList.PlayStation5.ErrorCodes.Count} Errors Successfully.", WarningStatus.Success);
             }
             else
             {
