@@ -156,5 +156,59 @@ namespace ConsoleServiceTool.Controls
             link.Append(closeFields);
             Rtf = Rtf.Replace("@replaceurl@", link.ToString());
         }
+        
+        private const string tableStart = @"{\trowd \trgaph180";
+        private const string cellFormat = @"\clvertalc\cellx{0}";
+        private const string cellContent = @"\pard\intbl {0}\cell";
+        private const string cellContentBold = @"\b {0} \b0";
+        private const string tableEnd = @"\row\trowd}";
+
+        internal void InsertTableWithSingleRow(string[] cellValues, int[] cellWidths, bool isHeader = false) 
+        {
+            if (InvokeRequired)
+            {
+                _ = Invoke(new MethodInvoker(() => InsertTableWithSingleRow(cellValues, cellWidths, isHeader)));
+                return;
+            }
+
+            AppendText("@replacetable@");
+
+            // Build the RTF table
+            var tableBuilder = new StringBuilder();
+            tableBuilder.Append(tableStart);
+            
+            int currentWidth = 0;
+
+            // Add cells and their content
+            for (var i = 0; i < cellValues.Length; i++)
+            {
+                // Define the right boundary of the cell
+                currentWidth += cellWidths[i]; // Increment to the next cell's right boundary
+                tableBuilder.AppendFormat(cellFormat, currentWidth);
+            }
+
+            foreach (var cellValue in cellValues)
+            {
+                // Add the content to the cell, allowing for new lines
+                var formattedCellContent = cellValue;
+                if (isHeader)
+                     formattedCellContent = String.Format(cellContentBold, cellValue);
+                formattedCellContent = formattedCellContent.Replace("\n", @" \line ");
+
+                tableBuilder.AppendFormat(cellContent, formattedCellContent);
+            }
+
+            // End the row
+            tableBuilder.Append(tableEnd);
+
+            // Wrap the table in a full RTF structure
+            var fullRtfBuilder = new StringBuilder();
+            fullRtfBuilder.Append(tableBuilder);
+
+            // Replace the placeholder with the table
+            Rtf = Rtf.Replace("@replacetable@", fullRtfBuilder.ToString());
+        }
+
+
     }
 }

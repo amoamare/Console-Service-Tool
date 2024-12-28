@@ -6,6 +6,7 @@ using ConsoleServiceTool.Models;
 using ConsoleServiceTool.Utils;
 using Microsoft.VisualStudio.Threading;
 using System.Diagnostics;
+using System.Globalization;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
@@ -24,6 +25,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 #endif
         private readonly string StrAuto = @"Auto";
         private readonly string PlayStation5NotFound = @"[-] No Playstation 5 Detected!";
+        private readonly string noErrors = "FFFFFFFF";
         private DirectoryInfo LogsDirectory = new ($"{AppDomain.CurrentDomain.BaseDirectory}logs");
         private PS5ErrorCodeList? errorCodeList;
         private CancellationTokenSource? cancellationTokenSource;
@@ -447,7 +449,6 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             using var serial = new SerialPort(device.Port);
             serial.Open();
             List<(string Slot, string LogLine)> Lines = [];
-            var noErrors = "FFFFFFFF";
             var isNoError = false;
             for (byte i = 0; i <= count; i++)
             {
@@ -505,7 +506,6 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 
         private void PrintLineDetails(List<(string slot, string logLine)> lines)
         {
-            Log.AppendLine("[Slot #]\t[Date Time]\t\t[Error Code]\t[Priority]\t\t[Error Message]");
             var firstErrorTimeStamp = 0L;
             var dateTimeNow = DateTime.Now;
             var logForeColor = Log.ForeColor;
@@ -520,7 +520,16 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                         break;
                     case OkStr:
                         var errorCode = split[2];
+                        
+                        var isNoError = string.Equals(errorCode, noErrors, StringComparison.InvariantCultureIgnoreCase);
+                        
                         var timeStamp = split[3].ToLong();
+                        ExtractStates(split[4],out var osState, out var sysState);
+                        var upCauses = new UpCause(Convert.ToUInt32(split[5], 16));
+                        var lastExecutedSequence = split[6];
+                        var deviceStates = new DeviceStates(Convert.ToUInt16(split[7], 16));
+                        var tempSoc =  ExtractTemperature(split[8]);
+                        var tempEnv =  ExtractTemperature(split[9].Split(":")[0]);
                         if (firstErrorTimeStamp == 0)
                         {
                             firstErrorTimeStamp = timeStamp;
@@ -529,19 +538,28 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                         var pastStamp = dateTimeNow.AddSeconds(-timeStamp);
                    
                         var errorLookup = errorCodeList?.PlayStation5?.ErrorCodes.FirstOrDefault(x => x.ID == errorCode);
+                        string[] headerData = ["Slot #", "Date Time", "Error Code", "Power State (OS)", "Power State (System)", "Up Cause", "Last executed sequence", "Device Power Management Info", "Temp (SoC)", "Temp (Env)"];
+                        int[] cellWidth = [900,2200,1500,2000,3500,3000,1500,2000,2000,2000];
+                        Log.InsertTableWithSingleRow(headerData, cellWidth, true);
+                        string[] rowData = [slot, pastStamp.ToString(CultureInfo.InvariantCulture), (errorLookup == default) ? errorCode:errorLookup.ID, osState, sysState, upCauses.ToString(), lastExecutedSequence, deviceStates.ToString(),tempSoc.ToString("N1"),tempEnv.ToString("N1")];
+                        if (isNoError)
+                        {
+                            rowData = [slot, pastStamp.ToString(CultureInfo.InvariantCulture), (errorLookup == default) ? errorCode:errorLookup.ID, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty,string.Empty,string.Empty];
+                        } else {
+                            rowData = [slot, pastStamp.ToString(CultureInfo.InvariantCulture), (errorLookup == default) ? errorCode:errorLookup.ID, osState, sysState, upCauses.ToString(), lastExecutedSequence, deviceStates.ToString(),tempSoc.ToString("N1"),tempEnv.ToString("N1")];
+                        }
                         if (errorLookup == default)
                         {
-                            Log.Append($"{slot}\t{pastStamp}\t{errorCode}\t");
-                            Log.Append($"{Priority.High}\t\t", Priority.High);
+                            Log.InsertTableWithSingleRow(rowData, cellWidth);
+                            Log.Append($"{Priority.High}\t", Priority.High);
                             Log.AppendLine($"Not found in list. Report Findings.");
                             Log.InsertFriendlyNameHyperLink("Click Here To Report", "{{report}}");
                         }
                         else
-                        {                          
-                            Log.Append($"{slot}\t{pastStamp}\t{errorLookup.ID}\t");
+                        {         
+                            Log.InsertTableWithSingleRow(rowData, cellWidth);
                             Log.Append($"{errorLookup.Priority}\t\t", errorLookup.Priority);
                             Log.AppendLine($"{errorLookup.Message}");
-
                             if (errorLookup.Priority == Priority.Severe && HighlightSevereLines.Checked)
                             {
                                 Log.HighlightLastLine(Priority.Severe);
@@ -739,6 +757,242 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             });
             
         }
+        
+        private static void ExtractStates(string hexInput, out string osState, out string sysState)
+        {
+            // Convert the hexadecimal string to a 32-bit unsigned integer
+            uint input = Convert.ToUInt32(hexInput, 16);
+
+            // Extract OS State (bits 23-16)
+            byte osStateValue = (byte)((input >> 16) & 0xFF);
+
+            // Extract System State (bits 15-0)
+            ushort systemStateValue = (ushort)(input & 0xFFFF);
+
+            // Interpret OS State
+            osState = osStateValue switch
+            {
+                0x00 => "SYSTEM Ready",
+                0x01 => "Main On Standby",
+                >= 0x10 and <= 0x1F => "PSP",
+                >= 0x20 and <= 0x3F => "BIOS",
+                0x40 => "EAP READY",
+                >= 0x41 and <= 0x4F => "EAP",
+                >= 0x50 and <= 0xBF => "Kernel",
+                >= 0xC0 and <= 0xFE => "Init Process",
+                0xFF => "HOSTOS_OFF",
+                _ => "Reserved"
+            };
+
+            // Interpret System State with comprehensive mapping
+            var systemStateMap = new Dictionary<ushort, string>
+            {
+                { 0x0000, "ACIN_L (Before Standby)" },
+                { 0x0001, "STANDBY (Standby state)" },
+                { 0x0002, "PG2_ON (PG2 ON state)" },
+                { 0x0003, "EFC_ON (EFC ON state)" },
+                { 0x0004, "EAP_ON (EAP ON state)" },
+                { 0x0005, "SOC_ON (Main SoC ON state)" },
+                { 0x0006, "ERROR_DET (Error detected state)" },
+                { 0x0007, "FATAL_ERROR (Fatal Shutdown state)" },
+                { 0x0008, "NEVER_BOOT (Never Boot state)" },
+                { 0x0009, "FORCE_OFF (Forced OFF state)" },
+                { 0x000A, "BTFW DL (BT Firmware Download state)" },
+                { 0x0010, "Busy. AC In Det Low -> Standby" },
+                { 0x0011, "Busy. Standby -> PG2 ON" },
+                { 0x0021, "Busy. Standby -> EMC/SC Reset" },
+                { 0x00E1, "Busy. Standby -> AC In Det Low" },
+                { 0x00F1, "Busy. Standby -> FATAL ERROR" },
+                { 0x0012, "Busy. PG2 ON -> Standby" },
+                { 0x0022, "Busy. PG2 ON -> EAP ON" },
+                { 0x0032, "Busy. PG2 ON -> EFC ON" },
+                { 0x00E2, "Busy. PG2 ON -> AC In Det Low" },
+                { 0x00F2, "Busy. PG2 ON -> FATAL ERROR" },
+                { 0x0013, "Busy. EFC ON -> PG2 ON" },
+                { 0x0023, "Busy. EFC ON -> SOC ON" },
+                { 0x00E3, "Busy. EFC ON -> AC In Det Low" },
+                { 0x00F3, "Busy. EFC ON -> FATAL ERROR" },
+                { 0x0014, "Busy. EAP ON -> PG2 ON" },
+                { 0x00E4, "Busy. EAP ON -> AC In Det Low" },
+                { 0x00F4, "Busy. EAP ON -> FATAL ERROR" },
+                { 0x0015, "Busy. SOC ON -> EFC ON" },
+                { 0x00E5, "Busy. SOC ON -> AC In Det Low" },
+                { 0x00F5, "Busy. SOC ON -> FATAL ERROR" },
+                { 0x00E6, "Busy. Error Detect -> AC In Det Low" },
+                { 0x00F6, "Busy. Error Detect -> FATAL ERROR" },
+                { 0x0017, "Busy. FATAL ERROR -> Standby" },
+                { 0x00E7, "Busy. FATAL ERROR -> AC In Det Low" },
+                { 0x00D2, "Busy. PG2 ON -> Force Off" },
+                { 0x00D3, "Busy. EFC ON -> Force Off" },
+                { 0x00D4, "Busy. EAP ON -> Force Off" },
+                { 0x00D5, "Busy. SOC ON -> Force Off" },
+                { 0x00DA, "Busy. BTFW DL ON -> Force Off" },
+                { 0x001A, "Busy. BTFW DL ON -> PG2 ON" },
+                { 0x00EA, "Busy. BTFW DL ON -> AC In Det Low" },
+                { 0x0042, "Busy. PG2 ON -> BTFW DL ON" },
+                { 0xFFFF, "No Name" }
+            };
+
+            // Lookup system state description
+            if (systemStateMap.TryGetValue(systemStateValue, out var description))
+            {
+                sysState = description;
+            }
+            else
+            {
+                sysState = "Unknown State 0x" + systemStateValue.ToString("X4");
+            }
+        }
+
+        
+        private static float ExtractTemperature(string hexInput)
+        {
+            // Convert the hexadecimal string to a 16-bit unsigned integer
+            var input = Convert.ToUInt16(hexInput, 16);
+
+            // Check if the value is 0xFFFF
+            if (input == 0xFFFF)
+            {
+                return float.NaN; // Temperature cannot be obtained
+            }
+
+            // Extract the integer and decimal parts
+            byte integerPart = (byte)(input >> 8); // High byte
+            byte decimalPart = (byte)(input & 0xFF); // Low byte
+
+            // Combine the integer and decimal parts
+            float temperature = integerPart + (decimalPart / 256.0f);
+
+            return temperature;
+        }
+
+        private readonly struct UpCause(uint state)
+        {
+
+            // Properties for each bit in sequential order (bit 0 to bit 31)
+            public bool BootedByPsu => (state & (1 << 0)) != 0; // Bit 0
+            public bool Unknown1 => (state & (1 << 1)) != 0;    // Bit 1
+            public bool Unknown2 => (state & (1 << 2)) != 0;    // Bit 2
+            public bool Unknown3 => (state & (1 << 3)) != 0;    // Bit 3
+            public bool Unknown4 => (state & (1 << 4)) != 0;    // Bit 4
+            public bool Unknown5 => (state & (1 << 5)) != 0;    // Bit 5
+            public bool Unknown6 => (state & (1 << 6)) != 0;    // Bit 6
+            public bool Unknown7 => (state & (1 << 7)) != 0;    // Bit 7
+            public bool BootedByPowerButton => (state & (1 << 8)) != 0; // Bit 8
+            public bool BootedByDisc => (state & (1 << 9)) != 0;        // Bit 9
+            public bool BootedByEjectButton => (state & (1 << 10)) != 0; // Bit 10
+            public bool Unknown8 => (state & (1 << 11)) != 0;           // Bit 11
+            public bool Unknown9 => (state & (1 << 12)) != 0;           // Bit 12
+            public bool Unknown10 => (state & (1 << 13)) != 0;          // Bit 13
+            public bool Unknown11 => (state & (1 << 14)) != 0;          // Bit 14
+            public bool Unknown12 => (state & (1 << 15)) != 0;          // Bit 15
+            public bool BootedByMainSoC => (state & (1 << 16)) != 0;    // Bit 16
+            public bool BootedByEapOrder => (state & (1 << 17)) != 0;   // Bit 17
+            public bool BootedByHdmiCec => (state & (1 << 18)) != 0;    // Bit 18
+            public bool BootedByBluetooth => (state & (1 << 19)) != 0;  // Bit 19
+            public bool Unknown13 => (state & (1 << 20)) != 0;          // Bit 20
+            public bool Unknown14 => (state & (1 << 21)) != 0;          // Bit 21
+            public bool Unknown15 => (state & (1 << 22)) != 0;          // Bit 22
+            public bool Unknown16 => (state & (1 << 23)) != 0;          // Bit 23
+            public bool Unknown17 => (state & (1 << 24)) != 0;          // Bit 24
+            public bool Unknown18 => (state & (1 << 25)) != 0;          // Bit 25
+            public bool BootedByUart => (state & (1 << 26)) != 0;       // Bit 26
+            public bool Unknown19 => (state & (1 << 27)) != 0;          // Bit 27
+            public bool Unknown20 => (state & (1 << 28)) != 0;          // Bit 28
+            public bool Unknown21 => (state & (1 << 29)) != 0;          // Bit 29
+            public bool Unknown22 => (state & (1 << 30)) != 0;          // Bit 30
+            public bool Unknown23 => (state & (1 << 31)) != 0;          // Bit 31
+
+            public override string ToString()
+            {
+                var builder = new StringBuilder();
+
+                if (BootedByPsu) builder.AppendLine("Booted by PSU");
+                if (Unknown1) builder.AppendLine("Booted by Unknown1");
+                if (Unknown2) builder.AppendLine("Booted by Unknown2");
+                if (Unknown3) builder.AppendLine("Booted by Unknown3");
+                if (Unknown4) builder.AppendLine("Booted by Unknown4");
+                if (Unknown5) builder.AppendLine("Booted by Unknown5");
+                if (Unknown6) builder.AppendLine("Booted by Unknown6");
+                if (Unknown7) builder.AppendLine("Booted by Unknown7");
+                if (BootedByPowerButton) builder.AppendLine("Booted by Power Button");
+                if (BootedByDisc) builder.AppendLine("Booted by Disc");
+                if (BootedByEjectButton) builder.AppendLine("Booted by Eject Button");
+                if (Unknown8) builder.AppendLine("Booted by Unknown8");
+                if (Unknown9) builder.AppendLine("Booted by Unknown9");
+                if (Unknown10) builder.AppendLine("Booted by Unknown10");
+                if (Unknown11) builder.AppendLine("Booted by Unknown11");
+                if (Unknown12) builder.AppendLine("Booted by Unknown12");
+                if (BootedByMainSoC) builder.AppendLine("Booted by Main SoC");
+                if (BootedByEapOrder) builder.AppendLine("Booted by EAP Order");
+                if (BootedByHdmiCec) builder.AppendLine("Booted by HDMI-CEC");
+                if (BootedByBluetooth) builder.AppendLine("Booted by Bluetooth");
+                if (Unknown13) builder.AppendLine("Booted by Unknown13");
+                if (Unknown14) builder.AppendLine("Booted by Unknown14");
+                if (Unknown15) builder.AppendLine("Booted by Unknown15");
+                if (Unknown16) builder.AppendLine("Booted by Unknown16");
+                if (Unknown17) builder.AppendLine("Booted by Unknown17");
+                if (Unknown18) builder.AppendLine("Booted by Unknown18");
+                if (BootedByUart) builder.AppendLine("Booted by UART");
+                if (Unknown19) builder.AppendLine("Booted by Unknown19");
+                if (Unknown20) builder.AppendLine("Booted by Unknown20");
+                if (Unknown21) builder.AppendLine("Booted by Unknown21");
+                if (Unknown22) builder.AppendLine("Booted by Unknown22");
+                if (Unknown23) builder.AppendLine("Booted by Unknown23");
+
+                return builder.ToString();
+            }
+        }
+        
+        private readonly struct DeviceStates(ushort state)
+        {
+            // Known devices
+            public bool WLAN => (state & (1 << 0)) != 0;        // Bit 0
+            public bool USB => (state & (1 << 1)) != 0;         // Bit 1
+            public bool HDMICEC => (state & (1 << 2)) != 0;     // Bit 2
+            public bool BDDrive => (state & (1 << 3)) != 0;     // Bit 3
+            public bool HDMI5V => (state & (1 << 4)) != 0;      // Bit 4
+
+            // Unknown devices (for bits 5-15)
+            public bool Unknown1 => (state & (1 << 5)) != 0;    // Bit 5
+            public bool Unknown2 => (state & (1 << 6)) != 0;    // Bit 6
+            public bool Unknown3 => (state & (1 << 7)) != 0;    // Bit 7
+            public bool Unknown4 => (state & (1 << 8)) != 0;    // Bit 8
+            public bool Unknown5 => (state & (1 << 9)) != 0;    // Bit 9
+            public bool Unknown6 => (state & (1 << 10)) != 0;   // Bit 10
+            public bool Unknown7 => (state & (1 << 11)) != 0;   // Bit 11
+            public bool Unknown8 => (state & (1 << 12)) != 0;   // Bit 12
+            public bool Unknown9 => (state & (1 << 13)) != 0;   // Bit 13
+            public bool Unknown10 => (state & (1 << 14)) != 0;  // Bit 14
+            public bool Unknown11 => (state & (1 << 15)) != 0;  // Bit 15
+
+            // Override ToString for human-readable output
+            public override string ToString()
+            {
+                var builder = new StringBuilder();
+
+                if (WLAN) builder.AppendLine("WLAN On");
+                if (USB) builder.AppendLine("USB On");
+                if (HDMICEC) builder.AppendLine("HDMI (CEC) On");
+                if (BDDrive) builder.AppendLine("BD Drive On");
+                if (HDMI5V) builder.AppendLine("HDMI (5V) On");
+                if (Unknown1) builder.AppendLine("Unknown1 On");
+                if (Unknown2) builder.AppendLine("Unknown2 On");
+                if (Unknown3) builder.AppendLine("Unknown3 On");
+                if (Unknown4) builder.AppendLine("Unknown4 On");
+                if (Unknown5) builder.AppendLine("Unknown5 On");
+                if (Unknown6) builder.AppendLine("Unknown6 On");
+                if (Unknown7) builder.AppendLine("Unknown7 On");
+                if (Unknown8) builder.AppendLine("Unknown8 On");
+                if (Unknown9) builder.AppendLine("Unknown9 On");
+                if (Unknown10) builder.AppendLine("Unknown10 On");
+                if (Unknown11) builder.AppendLine("Unknown11 On");
+
+                return builder.ToString();
+            }
+        }
+
+        
 
         #endregion
 
