@@ -508,7 +508,6 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         {
             var firstErrorTimeStamp = 0L;
             var dateTimeNow = DateTime.Now;
-            var logForeColor = Log.ForeColor;
             foreach (var (slot, logLine) in lines)
             {
                 var split = logLine.Split(' ');
