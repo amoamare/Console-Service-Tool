@@ -126,14 +126,24 @@ namespace ConsoleServiceTool.Controls
         }
 
 
-        internal void HighlightLastLine(Priority priority)
+        private void HighlightLastLine(Priority priority, int start, int length )
         {
-            var start = GetFirstCharIndexFromLine(Lines.Length - 2);
-            var length = Lines[^2].Length;
             Select(start, length);
             SelectionColor = priority.ToColor();
         }
 
+        internal void LogPlaystationErrorCode(PlayStationErrorCode? errorCode, bool highlightSevereLines = false)
+        {
+            if (errorCode == default) return;
+            Append($"{errorCode.Priority}\t\t", errorCode.Priority);
+            var textPosStart = this.TextLength;
+            AppendLine($"{errorCode.Message}");
+            if (errorCode.Priority == Priority.Severe && highlightSevereLines)
+            {
+                var textPosEnd = this.TextLength;
+                HighlightLastLine(Priority.Severe, textPosStart, textPosEnd - textPosStart);
+            }
+        }
 
         private const string fieldHyper = @"{\cf0{\field{\*\fldinst HYPERLINK """;
         private const string fieldFriendlyName = @"""}{\fldrslt ";
