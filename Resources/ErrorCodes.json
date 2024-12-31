@@ -23,63 +23,63 @@
       },
       {
         "ID": "80000001",
-        "Message": "APU Overheat or Initialization Error",
+        "Message": "Hardware - Failed to access the thermal sensor -  APU Overheat or Initialization Error",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80000008",
-        "Message": "Known Unknown 80000008 - Report Findings - Possible APU Related",
+        "Message": "Hardware - Drive Dead Notify Timeout - Report findings - Possible APU Related",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80000009",
-        "Message": "Unexpected Power Loss or Shutdown Failure",
+        "Message": "Hardware - AC In Detect - Unexpected Power Loss or Shutdown Failure",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "8000000C",
-        "Message": "Known Unknown 8000000C (Power or Short) - Report Findings",
+        "Message": "Hardware - MSoCTemprAlert - Known Unknown 8000000C (Power or Short) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80050000",
-        "Message": "APU VRM (2 Phases) Power Fail, Check Infineon XDPE14286A 16 Phase PWM Controller, Check mosfets APU side for short (Caps Usually Short) - Single Beep, 1 Second Blue Light, 8.6mA draw power on.",
+        "Message": "Main SoC CPU Power Fail - SoC VRM Power Fail (CPU) (2 Phases)- VRM Power Fail (CPU): Couldn't get the error factor. APU VRM (2 Phases) Power Fail, Check Infineon XDPE14286A 16 Phase PWM Controller, Check mosfets APU side for short (Caps Usually Short) - Single Beep, 1 Second Blue Light, 8.6mA draw power on.",
         "Status": 3,
         "Priority": 3
       },
       {
         "ID": "80050020",
-        "Message": "Known Unknown 80050020 (Power or Short) - Report Findings",
-        "Status": 0,
-        "Priority": 0
+        "Message": "Main SoC CPU Power Fail - SoC VRM Power Fail (CPU) (2 Phases)- VRM Power Fail (CPU): report failing component APU VRM (2 Phases) Power Fail, Check Infineon XDPE14286A 16 Phase PWM Controller, Check mosfets APU side for short (Caps Usually Short) - Single Beep, 1 Second Blue Light, 8.6mA draw power on.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80050040",
-        "Message": "Known Unknown 80050040 (Power or Short) - Report Findings",
-        "Status": 0,
-        "Priority": 0
+        "Message": "Main SoC CPU Power Fail - SoC VRM Power Fail (CPU) (2 Phases)- VRM Power Fail (CPU): report failing component APU VRM (2 Phases) Power Fail, Check Infineon XDPE14286A 16 Phase PWM Controller, Check mosfets APU side for short (Caps Usually Short) - Single Beep, 1 Second Blue Light, 8.6mA draw power on.",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80060000",
-        "Message": "APU VRM (6 Phases) Power Fail, Check Infineon XDPE14286A 16 Phase PWM Controller",
+        "Message": "Main SoC GFX Power Fail - SoC VRM Power Fail (GFX) - VRM Power Fail (GFX): Couldn't get the error factor.",
         "Status": 3,
         "Priority": 3
       },
       {
         "ID": "80060020",
-        "Message": "Known Unknown 80060020 (Power or Short) - Report Findings",
-        "Status": 0,
-        "Priority": 0
+        "Message": "Main SoC GFX Power Fail - SoC VRM Power Fail (GFX) (6 Phases) - VRM Power Fail (GFX): report failing component - Check Infineon XDPE14286A 16 Phase PWM Controller",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80060040",
-        "Message": "Known Unknown 80060040 (APU or VRM) - Report Findings",
-        "Status": 0,
-        "Priority": 0
+        "Message": "Main SoC GFX Power Fail - SoC VRM Power Fail (GFX) (6 Phases) - VRM Power Fail (GFX): report failing component - Check Infineon XDPE14286A 16 Phase PWM Controller",
+        "Status": 3,
+        "Priority": 3
       },
       {
         "ID": "80068000",
@@ -1787,7 +1787,7 @@
       },
       {
         "ID": "80810001",
-        "Message": "General Power Failure (Peripheral, GDDR6, APU, Data Line Short)",
+        "Message": "PowerSequence - Power Sequence Error - General Power Failure (Peripheral, GDDR6, APU, Data Line Short)",
         "Status": 3,
         "Priority": 3
       },
@@ -1829,13 +1829,13 @@
       },
       {
         "ID": "80870003",
-        "Message": "Post Secure Loader Error - Check fuse F7001 - (No beep, no light)",
+        "Message": "Flash Controller - Flash Controller Boot Failed - Flash Controller Boot Failed : Couldn't read Chip Revision. Post Secure Loader Error - Check fuse F7001 - (No beep, no light)",
         "Status": 3,
         "Priority": 3
       },
       {
         "ID": "80870004",
-        "Message": "Known Unknown 80870004 - Possible Secure Loader Related",
+        "Message": "Flash Controller - Flash Controller Boot Failed NoRecord - Flash Controller Boot Failed : Couldn't read error information. Possible Secure Loader Related",
         "Status": 3,
         "Priority": 3
       },
@@ -1961,25 +1961,25 @@
       },
       {
         "ID": "808D0000",
-        "Message": "Known Unknown 808D0000 (Power) - Report Findings - (User Submitted Check for Overheating, 3 second BLOD or at times very quick white light)",
+        "Message": "Abnormal Temperature - Thermal Shutdown : Main SoC - Report Findings - (User Submitted Check for Overheating, 3 second BLOD or at times very quick white light)",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "808D0002",
-        "Message": "Issue with daughter board (LED Board) Check Flex and Daughter Board Repair or Replace - Three Beeps, White Light, Immediate Shutdown.",
+        "Message": "Abnormal Temperature - Thermal Shutdown : Local Sensor 2 - Issue with daughter board (LED Board) Check Flex and Daughter Board Repair or Replace - Three Beeps, White Light, Immediate Shutdown.",
         "Status": 3,
         "priority": 3
       },
       {
         "ID": "808E0005",
-        "Message": "Known Unknown 808E0005 (TPM) - Report Findings",
+        "Message": "Abnormal Hcmd - Communication error : Wait SIG1 Error - A cause is hardware or software bug. - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "808E0006",
-        "Message": "Known Unknown 808E0006 (TPM) - Report Findings",
+        "Message": "Abnormal Hcmd - Communication error : Reset request from Host - It left if Reset request came from Host, when 808E0002-808E0005 error occurred. - Report Findings",
         "Status": 0,
         "Priority": 0
       },
@@ -1997,13 +1997,13 @@
       },
       {
         "ID": "808F0002",
-        "Message": "TPM 2.0 chip or Power Failure",
+        "Message": "Abnormal SMCU communication - SMCU communication error : Reset - TPM 2.0 chip or Power Failure",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "808F0003",
-        "Message": "TPM 2.0 chip or Power Failure",
+        "Message": "Abnormal SMCU communication - SMCU communication error : TIS Error -TPM 2.0 chip or Power Failure",
         "Status": 0,
         "Priority": 4
       },
@@ -2051,31 +2051,25 @@
       },
       {
         "ID": "80C00114",
-        "Message": "Known Unknown 80C00114 (General Power Failure - SSD/APU Line) - Report Findings",
-        "Status": 0,
-        "Priority": 0
-      },
-      {
-        "ID": "80C0012D",
-        "Message": "Known Unknown 80C0012D (Data) - Report Findings",
+        "Message": "EMC - WatchDogForSoC - (General Power Failure - SSD/APU Line) - Report Findings",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80C00134",
-        "Message": "SSD Banks Error",
+        "Message": "EMC - USB-BT Command Error - Error during BT Firmware Download - SSD Banks Error",
         "Status": 0,
         "Priority": 0
       },
       {
         "ID": "80C00136",
-        "Message": "WI-FI or BT Problem or Power Failure - (Check WI-FI/Bluetooth Module code thrown when module removed), Check Fuse F7002 - Powers off after 2 seconds",
+        "Message": "EMC - USB-BT Device Not Found - MediaTek_Wifi - WI-FI or BT Problem or Power Failure - (Check WI-FI/Bluetooth Module code thrown when module removed), Check Fuse F7002 - Powers off after 2 seconds",
         "Status": 0,
         "Priority": 3
       },
       {
         "ID": "80C00140",
-        "Message": "APU Halt (No Response) - Forced Power Off Via Power Button",
+        "Message": "MainSOC_FORCEOFF(TitaniaGPIO) - APU Halt (No Response) - Forced Power Off Via Power Button",
         "Status": 3,
         "Priority": 0
       },
@@ -2371,6 +2365,468 @@
         "ID": "FFFFFFFF",
         "Message": "No Errors",
         "Status": 3,
+        "Priority": 0
+      },
+      {
+        "ID": "80000004",
+        "Message": "Hardware - AC/DC Power Fail - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80000005",
+        "Message": "Hardware - Main SoC CPU Power Fail - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80000007",
+        "Message": "Hardware - Main SoC Thrm High Tempr Abnormality - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80810012",
+        "Message": "PowerSequence - Power Sequence NVS Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80810013",
+        "Message": "PowerSequence - Power Sequence ScCmd DRAM Init Error - Power Sequence Error: DRAM_INIT_GENERAL_ERROR from FC",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80810014",
+        "Message": "PowerSequence - Power Sequence ScCmd Link Up Failure - Power Sequence Error: SCCMD_RCX1_LINKUP_FAILURE from FC",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80830001",
+        "Message": "Main SoC Message - Main SoC Sync Flood - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80840000",
+        "Message": "PCIe - PCIe Link Down - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80870001",
+        "Message": "Flash Controller - Flash Controller RAM Protect Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80870002",
+        "Message": "Flash Controller - Flash Controller RAM Parity Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80870005",
+        "Message": "Flash Controller - Flash Controller Boot Failed State Error - Flash Controller Boot Failed : Couldn't change to SPI Mode.",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80000006",
+        "Message": "Hardware - Main SoC GFX Power Fail - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "8000000A",
+        "Message": "Hardware - VRM HOT Fatal - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "8000000B",
+        "Message": "Hardware - UnexpectedThermalShutdown - Unexpected Thermal Shutdown in state that Fatal OFF is not allowed",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^8005[A-Za-z0-9]{4}$",
+        "Message": "Main SoC CPU Power Fail - SoC VRM Power Fail (CPU) - VRM Power Fail (CPU): XXXX means the error factor.",
+        "Status": 3,
+        "Priority": 3
+      },
+      {
+        "ID": "^8006[A-Za-z0-9]{4}$",
+        "Message": "Main SoC GFX Power Fail - SoC VRM Power Fail (GFX) - VRM Power Fail (GFX): XXXX means the error factor.",
+        "Status": 3,
+        "Priority": 3
+      },
+      {
+        "ID": "^8080[A-Za-z0-9]{4}$",
+        "Message": "Software - Fatal Shutdown by OS request - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^808710[A-Za-z0-9]{2}$",
+        "Message": "Flash Controller - Flash Controller ScCmd Response Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^8088[A-Za-z0-9]{4}$",
+        "Message": "Flash Controller Boot EAP - Flash Controller Boot EAP Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^8089[A-Za-z0-9]{4}$",
+        "Message": "Flash Controller Boot EFC - Flash Controller Boot EFC Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^808A[A-Za-z0-9]{4}$",
+        "Message": "Flash Controller Temperature - Flash Controller Temper Error - Abnormal temperature of Flash Controller: XXXX means temperature.",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^808B[A-Za-z0-9]{4}$",
+        "Message": "Flash Controller WDT - Flash Controller Watch Dog Timer - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^808C[A-Za-z0-9]{4}$",
+        "Message": "USB Type-C - USB Type-C Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808D0001",
+        "Message": "Abnormal Temperature - Thermal Shutdown : Local Sensor 1 - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808D0003",
+        "Message": "Abnormal Temperature - Thermal Shutdown : Local Sensor 3 - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808E0000",
+        "Message": "Abnormal Hcmd - Communication error : Close Error - High possibility of a software bug",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808E0001",
+        "Message": "Abnormal Hcmd - Communication error : Open Error - High possibility of a software bug",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808E0002",
+        "Message": "Abnormal Hcmd - Communication error : Host Write Flag - A cause is hardware or software bug.",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808E0003",
+        "Message": "Abnormal Hcmd - Communication error : EMC Read Flag - A cause is hardware or software bug.",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808E0004",
+        "Message": "Abnormal Hcmd - Communication error : Write Flag Error - A cause is hardware or software bug.",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808E0007",
+        "Message": "Abnormal Hcmd - Communication error : Checksum Error - SPM data is not correct.",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808F0001",
+        "Message": "Abnormal SMCU communication - SMCU communication error : Timeout - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "808F00FF",
+        "Message": "Abnormal SMCU communication - SMCU communication error : Undefined - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^8090[A-Za-z0-9]{4}$",
+        "Message": "Software - Fatal Shutdown by Error Additional Code - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^8091[A-Za-z0-9]{4}$",
+        "Message": "SSD PMIC - SSD PMIC Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00100",
+        "Message": "EMC_ThermalManager(Southbridge)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00115",
+        "Message": "EMC - WatchDogForEAP - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00129",
+        "Message": "EMC_PrePost(Southbridge)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C0012C",
+        "Message": "EMC - BD Drive Detached - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C0012D",
+        "Message": "EMC - EMC Watch Dog Timer Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C0012E",
+        "Message": "EMC - ADC Error (Button) - Completion interruption didn't enter from ADC during Timeout.  - Moniinfo(Southbridge)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C0012F",
+        "Message": "EMC - ADC Error (BD Drive) - Completion interruption didn't enter from ADC during Timeout.",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00130",
+        "Message": "EMC - ADC Error (AC In Det) - Completion interruption didn't enter from ADC during Timeout. - USBc_FwManager(PD,Redriver,Southbridge,APU)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00131",
+        "Message": "EMC - USB Over Current - USB Over Current detection. (Type-A) - DEVpm(Southbridge)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00132",
+        "Message": "EMC - FAN Storage Access Failed - It is an access error in servo parameter from NVS. -  USBc_FwManager(PD,Redriver,Southbridge,APU)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00133",
+        "Message": "EMC - USB-BT FW Header Invalid - Header information of BT FW in DDR isn't right.",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00135",
+        "Message": "EMC - USB-BT Memory Malloc Failed - It should be software factor.",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00137",
+        "Message": "EMC - USB-BT MISC Error - MediaTek_Bluetooth",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00138",
+        "Message": "EMC - Flash Controller Interrupt HW Error - FlashController(TitaniaGPIO)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00139",
+        "Message": "EMC - BD Drive Eject Assert Delayed - BD_Manager(DVD)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C0013B",
+        "Message": "HDMI_Firmware_ErrorManager",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00141",
+        "Message": "EMC_SLOG(Southbridge)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00143",
+        "Message": "BD_Manager(DVD)(Missing)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "80C00144",
+        "Message": "MainSOC(TitaniaGPIO)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^80D001[A-Za-z0-9]{2}$",
+        "Message": "EMC - USB-BT Error (Bulk Out) - USB related errors of WiFi Module (BT)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^80D002[A-Za-z0-9]{2}$",
+        "Message": "EMC - USB-BT Error (Bulk In) - USB related errors of WiFi Module (BT)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^80D003[A-Za-z0-9]{2}$",
+        "Message": "EMC - USB-BT Error (Bt Init) - USB related errors of WiFi Module (BT)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^80D004[A-Za-z0-9]{2}$",
+        "Message": "EMC - USB-BT Error (Download Firmware) - USB related errors of WiFi Module (BT)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^80D005[A-Za-z0-9]{2}$",
+        "Message": "EMC - USB-BT Error (Release Device) - USB related errors of WiFi Module (BT)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^80D006[A-Za-z0-9]{2}$",
+        "Message": "EMC - USB-BT Error (Exec Cmd0) - USB related errors of WiFi Module (BT)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^80D007[A-Za-z0-9]{2}$",
+        "Message": "EMC - USB-BT Error (Exec Cmd1) - USB related errors of WiFi Module (BT)",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^B0[A-Za-z0-9]{6}$",
+        "Message": "Sonics Bus - Sonics Bus Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C001[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - Main SoC Access Error (I2C) - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C002[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - Main SoC Access Error (SB-TSI I2C) - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C003[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - Main SoC Access Error (SB-RMI) - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C00B[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - Serial Flash Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C00C[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - VRM Controller Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C00D[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - PMIC (Subsystem) Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C010[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - Flash Controller Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C011[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - Potentiometer Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C015[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - PCIe Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C016[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - PMIC (SSD) Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C081[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - HDMI Tx Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C090[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - USB Type-C PD Controller Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C091[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - USB Type-C USB/DP Mux Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C092[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - USB Type-C Redriver Access Error - No memo",
+        "Status": 0,
+        "Priority": 0
+      },
+      {
+        "ID": "^C0FE[A-Za-z0-9]{4}$",
+        "Message": "Hardware Access - Dummy - No memo",
+        "Status": 0,
         "Priority": 0
       }
     ]

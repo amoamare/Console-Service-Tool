@@ -11,6 +11,7 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
 {
@@ -26,6 +27,8 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         private readonly string StrAuto = @"Auto";
         private readonly string PlayStation5NotFound = @"[-] No Playstation 5 Detected!";
         private readonly string noErrors = "FFFFFFFF";
+        private readonly string[] headerData = ["Slot #", "Date Time", "Error Code", "Power State (OS)", "Power State (System)", "Up Cause", "Last executed sequence", "Device Power Management Info", "Temp (SoC)", "Temp (Env)"];
+        private readonly int[] cellWidth = [900,2200,1500,2000,3500,3000,1500,2000,2000,2000];
         private DirectoryInfo LogsDirectory = new ($"{AppDomain.CurrentDomain.BaseDirectory}logs");
         private PS5ErrorCodeList? errorCodeList;
         private CancellationTokenSource? cancellationTokenSource;
@@ -162,7 +165,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
             if (errorCodeList != default && errorCodeList.PlayStation5 != null && errorCodeList.PlayStation5.ErrorCodes.Count != 0)
             {
-                Log.AppendLine($"[+] Loaded {errorCodeList.PlayStation5.ErrorCodes.Count} Errors Succesfully.", WarningStatus.Success);
+                Log.AppendLine($"[+] Loaded {errorCodeList.PlayStation5.ErrorCodes.Count} Errors Successfully.", WarningStatus.Success);
             }
             else
             {
@@ -508,7 +511,6 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
         {
             var firstErrorTimeStamp = 0L;
             var dateTimeNow = DateTime.Now;
-            var logForeColor = Log.ForeColor;
             foreach (var (slot, logLine) in lines)
             {
                 var split = logLine.Split(' ');
@@ -536,17 +538,16 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                         }
                         timeStamp = -1 * (timeStamp - firstErrorTimeStamp);
                         var pastStamp = dateTimeNow.AddSeconds(-timeStamp);
-                   
-                        var errorLookup = errorCodeList?.PlayStation5?.ErrorCodes.FirstOrDefault(x => x.ID == errorCode);
-                        string[] headerData = ["Slot #", "Date Time", "Error Code", "Power State (OS)", "Power State (System)", "Up Cause", "Last executed sequence", "Device Power Management Info", "Temp (SoC)", "Temp (Env)"];
-                        int[] cellWidth = [900,2200,1500,2000,3500,3000,1500,2000,2000,2000];
+                        var errorLookup = errorCodeList?.PlayStation5?.ErrorCodes.FindAll(x => Regex.IsMatch(errorCode.Trim(), x.ID, RegexOptions.IgnoreCase));
                         Log.InsertTableWithSingleRow(headerData, cellWidth, true);
-                        string[] rowData = [slot, pastStamp.ToString(CultureInfo.InvariantCulture), (errorLookup == default) ? errorCode:errorLookup.ID, osState, sysState, upCauses.ToString(), lastExecutedSequence, deviceStates.ToString(),tempSoc.ToString("N1"),tempEnv.ToString("N1")];
+                        string[] rowData = [];
                         if (isNoError)
                         {
-                            rowData = [slot, pastStamp.ToString(CultureInfo.InvariantCulture), (errorLookup == default) ? errorCode:errorLookup.ID, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty,string.Empty,string.Empty];
-                        } else {
-                            rowData = [slot, pastStamp.ToString(CultureInfo.InvariantCulture), (errorLookup == default) ? errorCode:errorLookup.ID, osState, sysState, upCauses.ToString(), lastExecutedSequence, deviceStates.ToString(),tempSoc.ToString("N1"),tempEnv.ToString("N1")];
+                            rowData = [slot, pastStamp.ToString(CultureInfo.InvariantCulture), errorCode, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty,string.Empty,string.Empty];
+                        } 
+                        else 
+                        {
+                            rowData = [slot, pastStamp.ToString(CultureInfo.InvariantCulture), errorCode, osState, sysState, upCauses.ToString(), lastExecutedSequence, deviceStates.ToString(),tempSoc.ToString("N1"),tempEnv.ToString("N1")];
                         }
                         if (errorLookup == default)
                         {
@@ -558,11 +559,9 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                         else
                         {         
                             Log.InsertTableWithSingleRow(rowData, cellWidth);
-                            Log.Append($"{errorLookup.Priority}\t\t", errorLookup.Priority);
-                            Log.AppendLine($"{errorLookup.Message}");
-                            if (errorLookup.Priority == Priority.Severe && HighlightSevereLines.Checked)
+                            foreach (var code in errorLookup)
                             {
-                                Log.HighlightLastLine(Priority.Severe);
+                                Log.LogPlaystationErrorCode(code, HighlightSevereLines.Checked);    
                             }
                         }
                         if (ShowErrorLine.Checked)
