@@ -15,6 +15,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             DoubleBuffered = true;
             AddControlTab<PS5UartView>(tabPage1);
             AddControlTab<PS5NorView>(tabPage2);
+            AddControlTab<ControllerView>(tabPage3);
         }
 
         private void AddControlTab<T>(TabPage page) where T : UserControl
@@ -24,5 +25,6 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             page.Controls.Add(control);
             control.Dock = DockStyle.Fill;
         }
+
     }
 }
