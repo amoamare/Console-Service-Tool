@@ -14,8 +14,7 @@ namespace ConsoleServiceTool.Console.Sony.Shared
         internal ConsoleType ConsoleType; //offset 0x1C7010
         private readonly byte[] Unknown0 = new byte[0x1ec]; //offset 0x1C7014
         private readonly byte[] MotherBoardSerialNumberData = new byte[16]; //offset 0x1C7200 
-        private readonly byte[] SerialData = new byte[16]; //offset 0x1C7210
-        private readonly byte[] Unknown1 = new byte[16]; //offset 0x1C7220
+        private readonly byte[] SerialData = new byte[32]; //offset 0x1C7210
         private readonly byte[] SkuData = new byte[16]; //offset 0x1C7230
         private readonly byte[] Unknown2 = new byte[16]; //offset 0x1C7240
         private readonly byte[] BoardIdData = new byte[13]; //offset 0x1C7250
@@ -54,12 +53,17 @@ namespace ConsoleServiceTool.Console.Sony.Shared
 
         internal string Serial
         {
-            get => SerialData.ReadCString();
+            get => SerialData.ReadStringUntilChar(0xFF);
             set
             {
-                Array.Clear(SerialData);
+                Array.Clear(SerialData, 0, SerialData.Length);
                 var data = Encoding.ASCII.GetBytes(value);
-                Array.Copy(data, SerialData, data.Length);
+                var length = Math.Min(data.Length, SerialData.Length);
+                Array.Copy(data, 0, SerialData, 0, length);
+                for (int i = length; i < SerialData.Length; i++)
+                {
+                    SerialData[i] = 0xFF;
+                }
             }
         }
 
@@ -112,7 +116,6 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             Unknown0 = reader.ReadBytes(Unknown0.Length);
             MotherBoardSerialNumberData = reader.ReadBytes(MotherBoardSerialNumberData.Length);
             SerialData = reader.ReadBytes(SerialData.Length);
-            Unknown1 = reader.ReadBytes(Unknown1.Length);
             SkuData = reader.ReadBytes(SkuData.Length);
             Unknown2 = reader.ReadBytes(Unknown2.Length);
             BoardIdData = reader.ReadBytes(BoardIdData.Length);
@@ -142,7 +145,6 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             buffer.AddRange(Unknown0);
             buffer.AddRange(MotherBoardSerialNumberData);
             buffer.AddRange(SerialData);
-            buffer.AddRange(Unknown1);
             buffer.AddRange(SkuData);
             buffer.AddRange(Unknown2);
             buffer.AddRange(BoardIdData);

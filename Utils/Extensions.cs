@@ -96,6 +96,18 @@ namespace ConsoleServiceTool.Utils
             }
             return result.ToString();
         }
+        
+        internal static string ReadStringUntilChar(this byte[] str, byte until)
+        {
+            var result = new StringBuilder();
+            foreach (var character in str)
+            {
+                if (character == until)
+                    break;
+                result.Append((char)character);
+            }
+            return result.ToString();
+        }
 
         /// <summary>
         /// Reads a fixed size ASCII string
@@ -108,7 +120,7 @@ namespace ConsoleServiceTool.Utils
             return Encoding.ASCII.GetString(reader.ReadBytes(count));
         }
 
-        internal static string ReadCString(this byte[] str)
+        internal static string ReadCString(this byte[] str, bool remove_padding = false)
         {
             var index = Array.FindIndex(str, 0, x => x == 0);
             if (index < 0)

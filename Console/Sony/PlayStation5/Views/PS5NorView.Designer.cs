@@ -260,7 +260,7 @@
             SerialNumberEdit.CharacterCasing = CharacterCasing.Upper;
             SerialNumberEdit.Location = new Point(652, 4);
             SerialNumberEdit.Margin = new Padding(3, 2, 3, 2);
-            SerialNumberEdit.MaxLength = 16;
+            SerialNumberEdit.MaxLength = 32;
             SerialNumberEdit.MinLength = -1;
             SerialNumberEdit.Name = "SerialNumberEdit";
             SerialNumberEdit.OriginalValue = null;
