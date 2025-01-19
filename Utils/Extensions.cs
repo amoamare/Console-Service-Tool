@@ -120,7 +120,7 @@ namespace ConsoleServiceTool.Utils
             return Encoding.ASCII.GetString(reader.ReadBytes(count));
         }
 
-        internal static string ReadCString(this byte[] str, bool remove_padding = false)
+        internal static string ReadCString(this byte[] str)
         {
             var index = Array.FindIndex(str, 0, x => x == 0);
             if (index < 0)
