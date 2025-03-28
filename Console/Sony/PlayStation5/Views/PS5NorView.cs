@@ -77,7 +77,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 Log.AppendErrorLine("[X] Failed to parse NOR file.");
                 return;
             }
-            SanityCheck();
+            // SanityCheck();
 
             lFileSize.Text = length.FormattedByteSize();
             fileLocationBox.Text = FileInfo.FullName;
@@ -146,9 +146,9 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             lBoardId.Text = BoardIdEdit.Text = NorFile.Nvs.BoardId;
             lMac.Text = MacEdit.Text = NorFile.Nvs.MacAddress;
             lWifiMac.Text = WifiMacEdit.Text = $"{NorFile.Nvs.WifiMacAddress} \\ {NorFile.Nvs.WifiMacAddress1} \\ {NorFile.Nvs.WifiMacAddress2}";
-            lFrimwareVersion.Text = NorFile.Nvs.FirmwareVersion.ToString("X2");
-            lIduMode.Text = NorFile.Nvs.Idu.ToDescription();
-            IduList.SelectedValue = NorFile.Nvs.Idu;
+            // lFrimwareVersion.Text = NorFile.Nvs.NvsOs_1.FirmwareVersion.ToString("X2");
+            lIduMode.Text = NorFile.Nvs.NvsOs_1.Idu.ToDescription();
+            IduList.SelectedValue = NorFile.Nvs.NvsOs_1.Idu;
         }
 
         private void LoadPs5Skus()
@@ -211,8 +211,8 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 NorFile.Nvs.BoardId = BoardIdEdit.Text;
             if (MacEdit.Modified)
                 NorFile.Nvs.MacAddress = MacEdit.Text;
-            if (IduList.SelectedValue is InterfaceDemonstrationUnit idu && NorFile.Nvs.Idu != idu)
-                NorFile.Nvs.Idu = idu;
+            if (IduList.SelectedValue is InterfaceDemonstrationUnit idu && NorFile.Nvs.NvsOs_1.Idu != idu)
+                NorFile.Nvs.NvsOs_1.Idu  = idu;
 
 
             
