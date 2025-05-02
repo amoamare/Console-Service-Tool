@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace ConsoleServiceTool.Console.Sony.Shared
 {
     internal class NvsOS : INorData
     {
-        private byte[] Unknown1 = new byte[0x300]; //offset 0x1C8000
+        private byte[] Unknown0 = new byte[0x068]; //offset 0x1C8000
+        internal readonly int FirmwareVersion; //offset 0x1C8068
+        private byte[] Unknown1 = new byte[0x294]; //offset 0x1C8000
         private BootMessageModeFlag _bootMessageModeFlag; //offset 0x1C8300
         private MpMemoryTestFlag _mpMemoryTestFlag;       //offset 0x1C8301
         private byte[] Unknown2 = new byte[2]; //offset 0x1C8302
@@ -14,10 +17,8 @@ namespace ConsoleServiceTool.Console.Sony.Shared
         private byte[] Unknown4 = new byte[0xC6F]; //offset 0x1C8311
         private ManufacturingFlag _manufacturingFlag;     //offset 0x1C8F80
         private byte[] Unknown5 = new byte[0x67F]; //offset 0x1C8311
-        internal InterfaceDemonstrationUnit Idu; //offset 0x1C9600
-        // private readonly byte[] Unknown6 = new byte[0x113]; //offset 0x1C9601
-        // internal readonly short FirmwareVersion; //offset 0x1C9714
-        private byte[] Unknown7 = new byte[0x19FF]; //offset 0x1C8F81
+        private InterfaceDemonstrationUnit _idu; //offset 0x1C9600
+        private byte[] Unknown6 = new byte[0x19FF]; //offset 0x1C8F81
 
         // Properties
         internal BootMessageModeFlag BootMessageModeFlag
@@ -50,9 +51,20 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             set => _manufacturingFlag = value;
         }
 
+        internal InterfaceDemonstrationUnit InterfaceDemonstrationUnit
+        {
+            get => _idu;
+            set => _idu = value;
+        }
+
         // Constructor
         internal NvsOS(BinaryReader reader)
         {
+            Debug.WriteLine($"1 offset Unknown0: 0x{reader.BaseStream.Position:X2}");
+            Unknown0 = reader.ReadBytes(Unknown0.Length);
+            Debug.WriteLine($"1 offset FirmwareVersion: 0x{reader.BaseStream.Position:X2}");
+            FirmwareVersion = reader.ReadInt32();
+            Debug.WriteLine($"1 offset Unknown1: 0x{reader.BaseStream.Position:X2}");
             Unknown1 = reader.ReadBytes(Unknown1.Length);
             Debug.WriteLine($"1 offset BootMessageModeFlag: 0x{reader.BaseStream.Position:X2}");
             _bootMessageModeFlag = (BootMessageModeFlag)reader.ReadByte();
@@ -73,19 +85,17 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             Debug.WriteLine($"1 offset Unknown5: 0x{reader.BaseStream.Position:X2}");
             Unknown5 = reader.ReadBytes(Unknown5.Length);
             Debug.WriteLine($"1 offset InterfaceDemonstrationUnit: 0x{reader.BaseStream.Position:X2}");
-            Idu = (InterfaceDemonstrationUnit)reader.ReadByte();
+            _idu = (InterfaceDemonstrationUnit)reader.ReadByte();
             Debug.WriteLine($"1 offset Unknown6: 0x{reader.BaseStream.Position:X2}");
-            // Unknown6 = reader.ReadBytes(Unknown6.Length);
-            // Debug.WriteLine($"1 offset FirmwareVersion: 0x{reader.BaseStream.Position:X2}");
-            // FirmwareVersion = reader.ReadInt16(); 
-            Debug.WriteLine($"1 offset Unknown7: 0x{reader.BaseStream.Position:X2}");
-            Unknown7 = reader.ReadBytes(Unknown7.Length);
+            Unknown6 = reader.ReadBytes(Unknown6.Length);
             
         }
 
         public byte[] ToArray()
         {
             var buffer = new List<byte>();
+            buffer.AddRange(Unknown0);
+            buffer.AddRange(BitConverter.GetBytes(FirmwareVersion));
             buffer.AddRange(Unknown1);
             buffer.Add((byte)_bootMessageModeFlag);
             buffer.Add((byte)_mpMemoryTestFlag);
@@ -96,6 +106,8 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             buffer.AddRange(Unknown4);
             buffer.Add((byte)_manufacturingFlag);
             buffer.AddRange(Unknown5);
+            buffer.Add((byte)_idu);
+            buffer.AddRange(Unknown6);
 
             return buffer.ToArray();
         }
