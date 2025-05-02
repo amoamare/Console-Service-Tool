@@ -146,7 +146,7 @@ namespace ConsoleServiceTool.Communication
         private static string? GetDeviceName(SafeHDEVINFO hDevInfo, SP_DEVINFO_DATA hDevInfoData)
         {
             const string name = @"PortName";
-            var ptrRegistryKey = SetupDiOpenDevRegKey(hDevInfo, hDevInfoData, DICS_FLAG.DICS_FLAG_GLOBAL, 0u, DIREG.DIREG_DEV, RegistryRights.QueryValues);
+            using var ptrRegistryKey = SetupDiOpenDevRegKey(hDevInfo, hDevInfoData, DICS_FLAG.DICS_FLAG_GLOBAL, 0, DIREG.DIREG_DEV, RegistryRights.QueryValues);
             if (ptrRegistryKey.IsInvalid)
                 return null;
             try
@@ -160,10 +160,6 @@ namespace ConsoleServiceTool.Communication
             catch
             {
                 return null;
-            }
-            finally
-            {
-                RegCloseKey(ptrRegistryKey);
             }
         }
 
