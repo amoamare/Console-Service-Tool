@@ -20,7 +20,6 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             ResetLabels();
             LoadPs5Skus();
             LoadConsoleTypes();
-            LoadIduList();
         }
 
         private void ResetLabels()
@@ -146,9 +145,11 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             lBoardId.Text = BoardIdEdit.Text = NorFile.Nvs.BoardId;
             lMac.Text = MacEdit.Text = NorFile.Nvs.MacAddress;
             lWifiMac.Text = WifiMacEdit.Text = $"{NorFile.Nvs.WifiMacAddress} \\ {NorFile.Nvs.WifiMacAddress1} \\ {NorFile.Nvs.WifiMacAddress2}";
-            lFrimwareVersion.Text = NorFile.Nvs.FirmwareVersion.ToString("X2");
-            lIduMode.Text = NorFile.Nvs.Idu.ToDescription();
-            IduList.SelectedValue = NorFile.Nvs.Idu;
+            byte[] bytes = BitConverter.GetBytes(NorFile.Nvs.NvsOs_1.FirmwareVersion);
+            Array.Reverse(bytes);
+            lFrimwareVersion.Text = BitConverter.ToString(bytes).Replace("-", ".");
+            pS5osFlagsView1.ShowOsValues(NorFile.Nvs.NvsOs_1);
+            pS5osFlagsView2.ShowOsValues(NorFile.Nvs.NvsOs_2);
         }
 
         private void LoadPs5Skus()
@@ -165,12 +166,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             ConsoleTypeList.ValueMember = "Value";
         }
 
-        private void LoadIduList()
-        {
-            IduList.EnumForComboBox<InterfaceDemonstrationUnit>();
-            IduList.DisplayMember = "Description";
-            IduList.ValueMember = "Value";
-        }
+
 
 
         private void ButtonSave_Click(object sender, EventArgs e)
@@ -211,11 +207,28 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
                 NorFile.Nvs.BoardId = BoardIdEdit.Text;
             if (MacEdit.Modified)
                 NorFile.Nvs.MacAddress = MacEdit.Text;
-            if (IduList.SelectedValue is InterfaceDemonstrationUnit idu && NorFile.Nvs.Idu != idu)
-                NorFile.Nvs.Idu = idu;
+            if (WifiMacEdit.Modified)
+            {
+                var wifiMacs = WifiMacEdit.Text.ToUpperInvariant().TrimAllWithInplaceCharArray().Split('\\');
+                foreach (var mac in wifiMacs)
+                {
+                    if (!MacValidator.IsValidMac(mac))
+                    {
+                        MessageBox.Show(@$"MAC address {mac} is invalid! {Environment.NewLine}{Environment.NewLine}" +
+                            @$"Must contain 3 valid MAC Address seperated by a '\' {Environment.NewLine}" +
+                            @$"MAC Address must contain 12 valid hex chars 0-9A-F.{Environment.NewLine}" +
+                            $@"Example: 70662A2ED856 \ 70662A2ED856 \ 70662A2ED856", "Invalid MAC Address Format", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 
+                        return;
+                    }
 
-            
+                }
+                NorFile.Nvs.WifiMacAddress = wifiMacs[0];
+                NorFile.Nvs.WifiMacAddress1 = wifiMacs[1];
+                NorFile.Nvs.WifiMacAddress2 = wifiMacs[2];
+            }
+            pS5osFlagsView1.UpdateChangedOsValues();
+            pS5osFlagsView2.UpdateChangedOsValues();
         }
 
         private void SaveNewNorFile()
@@ -229,5 +242,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             stream.Write(NorFile.ToArray());
             Log.AppendLine($"New NOR written to: {newFilePath}");
         }
+
+
     }
 }

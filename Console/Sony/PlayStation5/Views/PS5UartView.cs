@@ -732,7 +732,7 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             var errorCode = TextBoxRawCommand.Text.ToUpperInvariant().Trim();
             TextBoxRawCommand.Clear();
             if (string.IsNullOrEmpty(errorCode)) return;
-            var errors = errorCodeList?.PlayStation5?.ErrorCodes?.Where(x => x.ID.StartsWith(errorCode, StringComparison.InvariantCultureIgnoreCase)).ToList();
+            var errors = errorCodeList?.PlayStation5?.ErrorCodes.FindAll(x => Regex.IsMatch(errorCode.Trim(), x.ID, RegexOptions.IgnoreCase));
             if (errors == default || errors.Count == 0)
             {
                 Log.AppendLine($"Error Code: {errorCode} - Not found in list.{Environment.NewLine}" +
@@ -742,17 +742,19 @@ namespace ConsoleServiceTool.Console.Sony.PlayStation5.Views
             }
             await Task.Run(() =>
             {
-                foreach (var code in errors)
+                Log.Invoke((Action)(() =>
                 {
                     Log.AppendLine($"Found the following information.{Environment.NewLine}" +
                         $"Source: Internal Database{Environment.NewLine}" +
-                        $"Error Code: {code.ID}");
-                    Log.Append("Priroity Level: ");
-                    Log.AppendLine(code.Priority.ToString(), code.Priority);
-                    Log.AppendLine($"Message: {code.Message}");
-                    Log.InsertFriendlyNameHyperLink("Click for TSB Information", $"{OnlineTsbUrl}{code.ID}");
+                        $"Error Code: {errorCode}");
                     Log.AppendLine(string.Empty);
-                }
+                    foreach (var code in errors)
+                    {
+                            Log.LogPlaystationErrorCode(code, true);
+                            Log.InsertFriendlyNameHyperLink("Click for TSB Information", $"{OnlineTsbUrl}{code.ID}");
+                            Log.AppendLine(string.Empty);
+                    }
+                }));
             });
             
         }

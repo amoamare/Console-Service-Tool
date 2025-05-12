@@ -96,6 +96,18 @@ namespace ConsoleServiceTool.Utils
             }
             return result.ToString();
         }
+        
+        internal static string ReadStringUntilChar(this byte[] str, byte until)
+        {
+            var result = new StringBuilder();
+            foreach (var character in str)
+            {
+                if (character == until)
+                    break;
+                result.Append((char)character);
+            }
+            return result.ToString();
+        }
 
         /// <summary>
         /// Reads a fixed size ASCII string

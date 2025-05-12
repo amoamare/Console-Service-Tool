@@ -1,4 +1,6 @@
-﻿namespace ConsoleServiceTool.Console.Sony.Shared
+﻿using System.Diagnostics;
+
+namespace ConsoleServiceTool.Console.Sony.Shared
 {
     internal class Nor : INorData
     {
@@ -13,7 +15,7 @@
         internal Slb2 UsbPdcB; //offset 0x110000 | Size 0x10000
         internal byte[] Unk = new byte[0xA4000]; //offset 0x120000
         internal Nvs Nvs; //ofset 0x1C4000
-        internal byte[] Reserved = new byte[0x31000]; //offset 0x1CF000
+        internal byte[] Reserved = new byte[0x30000]; //offset 0x1CF000
 
         internal bool WarnInvalidSize = false;
 
@@ -30,9 +32,11 @@
             EmcIplB = new Slb2(binReader);
             UsbPdcA = new Slb2(binReader, 0xfe00);
             UsbPdcB = new Slb2(binReader, 0xfe00);
+            Debug.WriteLine($"1 offset: 0x{binReader.BaseStream.Position:X2}");
             bytes.ReadExactly(Unk);
+            Debug.WriteLine($"1 offset pre Nvs: 0x{binReader.BaseStream.Position:X2}");
             Nvs = new Nvs(binReader);
-
+            Debug.WriteLine($"1 offset post Nvs: 0x{binReader.BaseStream.Position:X2}");
             bytes.ReadExactly(Reserved);            
         }
 

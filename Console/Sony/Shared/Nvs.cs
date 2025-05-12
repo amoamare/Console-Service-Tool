@@ -14,8 +14,7 @@ namespace ConsoleServiceTool.Console.Sony.Shared
         internal ConsoleType ConsoleType; //offset 0x1C7010
         private readonly byte[] Unknown0 = new byte[0x1ec]; //offset 0x1C7014
         private readonly byte[] MotherBoardSerialNumberData = new byte[16]; //offset 0x1C7200 
-        private readonly byte[] SerialData = new byte[16]; //offset 0x1C7210
-        private readonly byte[] Unknown1 = new byte[16]; //offset 0x1C7220
+        private readonly byte[] SerialData = new byte[32]; //offset 0x1C7210
         private readonly byte[] SkuData = new byte[16]; //offset 0x1C7230
         private readonly byte[] Unknown2 = new byte[16]; //offset 0x1C7240
         private readonly byte[] BoardIdData = new byte[13]; //offset 0x1C7250
@@ -26,14 +25,11 @@ namespace ConsoleServiceTool.Console.Sony.Shared
         private byte[] WifiMacAddressData2 = new byte[6]; //offset 0x1C73C6
         private byte[] WifiMacAddressData3 = new byte[6]; //offset 0x1C73CC
 
-        private readonly byte[] Unknown5 = new byte[0x222E]; //offset 0x1C73D2 0x222E //origianl 0x2342
+        private readonly byte[] Unknown5 = new byte[0xC2E]; //offset 0x1C73D2 0x222E //origianl 0x2342
 
-        internal InterfaceDemonstrationUnit Idu; //offset 0x1C9600
-
-        private readonly byte[] Unknown6 = new byte[0x113]; //offset 0x1C9601
-
-        internal readonly short FirmwareVersion; //offset 0x1C9714
-        private readonly byte[] Unknown7 = new byte[0x58EA]; //offset 0x1C9716
+        private NvsOS NvsOs1;  //offset 0x1C8000
+        private NvsOS NvsOs2;  //offset 0x1CB000
+        private readonly byte[] Unknown7 = new byte[0x2000]; //offset 0x1CE000
 
         internal string MacAddress
         {
@@ -54,12 +50,17 @@ namespace ConsoleServiceTool.Console.Sony.Shared
 
         internal string Serial
         {
-            get => SerialData.ReadCString();
+            get => SerialData.ReadStringUntilChar(0xFF);
             set
             {
-                Array.Clear(SerialData);
+                Array.Clear(SerialData, 0, SerialData.Length);
                 var data = Encoding.ASCII.GetBytes(value);
-                Array.Copy(data, SerialData, data.Length);
+                var length = Math.Min(data.Length, SerialData.Length);
+                Array.Copy(data, 0, SerialData, 0, length);
+                for (int i = length; i < SerialData.Length; i++)
+                {
+                    SerialData[i] = 0xFF;
+                }
             }
         }
 
@@ -103,6 +104,19 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             set => WifiMacAddressData3 = value.FromHexString();
         }
 
+        public NvsOS NvsOs_1
+        {
+            get => NvsOs1;
+            set => NvsOs1 = value;
+        }
+        
+
+        public NvsOS NvsOs_2
+        {
+            get => NvsOs2;
+            set => NvsOs2 = value;
+        }
+
         internal Nvs(BinaryReader reader)
         {
             Unknown = reader.ReadBytes(Unknown.Length);
@@ -112,7 +126,6 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             Unknown0 = reader.ReadBytes(Unknown0.Length);
             MotherBoardSerialNumberData = reader.ReadBytes(MotherBoardSerialNumberData.Length);
             SerialData = reader.ReadBytes(SerialData.Length);
-            Unknown1 = reader.ReadBytes(Unknown1.Length);
             SkuData = reader.ReadBytes(SkuData.Length);
             Unknown2 = reader.ReadBytes(Unknown2.Length);
             BoardIdData = reader.ReadBytes(BoardIdData.Length);
@@ -121,13 +134,15 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             WifiMacAddressData1 = reader.ReadBytes(WifiMacAddressData1.Length);
             WifiMacAddressData2 = reader.ReadBytes(WifiMacAddressData2.Length);
             WifiMacAddressData3 = reader.ReadBytes(WifiMacAddressData3.Length);
+            Debug.WriteLine($"1 offset: 0x{reader.BaseStream.Position:X2}");
             Unknown5 = reader.ReadBytes(Unknown5.Length);
-
-            Idu = (InterfaceDemonstrationUnit)reader.ReadByte();
-            Unknown6 = reader.ReadBytes(Unknown6.Length);
-            FirmwareVersion = reader.ReadInt16(); 
+            Debug.WriteLine($"1 offset OS1: 0x{reader.BaseStream.Position:X2}");
+            NvsOs1 = new NvsOS(reader);
+            Debug.WriteLine($"1 offset OS2: 0x{reader.BaseStream.Position:X2}");
+            NvsOs2 = new NvsOS(reader);
             Debug.WriteLine($"1 offset: 0x{reader.BaseStream.Position:X2}");
             Unknown7 = reader.ReadBytes(Unknown7.Length);
+            Debug.WriteLine($"1 offset: 0x{reader.BaseStream.Position:X2}");
         }
 
         public byte[] ToArray()
@@ -142,7 +157,6 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             buffer.AddRange(Unknown0);
             buffer.AddRange(MotherBoardSerialNumberData);
             buffer.AddRange(SerialData);
-            buffer.AddRange(Unknown1);
             buffer.AddRange(SkuData);
             buffer.AddRange(Unknown2);
             buffer.AddRange(BoardIdData);
@@ -152,11 +166,8 @@ namespace ConsoleServiceTool.Console.Sony.Shared
             buffer.AddRange(WifiMacAddressData2);
             buffer.AddRange(WifiMacAddressData3);
             buffer.AddRange(Unknown5);
-            buffer.Add((byte)Idu);
-            buffer.AddRange(Unknown6); 
-            data = new byte[sizeof(short)];
-            BinaryPrimitives.WriteInt16LittleEndian(data, FirmwareVersion);
-            buffer.AddRange(data);
+            buffer.AddRange(NvsOs1.ToArray());
+            buffer.AddRange(NvsOs2.ToArray());
             buffer.AddRange(Unknown7);
             return buffer.ToArray();
         }
